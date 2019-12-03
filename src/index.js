@@ -9,16 +9,21 @@ import 'mdbreact/dist/css/mdb.css';
 
 //pages
 import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
 //rotas
-import { BrowserRouter, Route, Router, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import * as serviceWorker from './serviceWorker';
 
 const Rotas = (
     <Router>
-        <Route exact path="/" component={Home} />
-        {/* <Route path="/" component={Home} /> */}
+        <div>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route component={NotFound} />
+            </Switch>
+        </div>
     </Router>
 )
 
