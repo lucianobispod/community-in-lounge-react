@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --cinzaclaro: #D9D9D9;
+    --verde: #29803f;
+    --branco: #fff;
+    --vermelho: #ee312c;
+    --amarelo: #fff34f;
+    --font: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+span,
+p,
+input,
+label,
+div {
+    font-family: var(--font);
+}
+
+
+/* CARD MEUS EVENTOS */
+
+.card {
+    background: var(--branco);
+    border: 1px solid var(--cinzaclaro);
+    border-radius: 10px;
+    width: 21.5vw;
+    height: 23vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 16px;
+}
+
+.data {
+    width: 20.5vw;
+    height: 5vh;
+    font-weight: bold;
+    color: var(--azul);
+    display: flex;
+    justify-content: space-between;
+}
+
+.data p {
+    height: 5vh;
+    font-size: 1.2em;
+}
+
+.data button {
+    background: none;
+    border: none;
+    width: 2vw;
+    height: 5vh;
+    cursor: pointer;
+    outline: 0;
+}
+
+.data a i {
+    color: var(--cinzaclaro);
+}
+
+  
+  li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* .data a i:hover, .dropdown:hover .dropbtn {
+    color: red;
+  } */
+  
+  /* //a sdasd */
+  .dropdown {
+    background: #25bcce;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content button {
+    color: black;
+    padding-left: 5px;
+    height: 50px;
+    width: 160px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    /* background: chartreuse; */
+  }
+  
+  .dropdown-content button:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* //a sdasd */
+
+
+
+
+
+
+
+.identificacao {
+    height: 12vh;
+    width: 20.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.evento_titulo {
+    font-size: 1.08em;
+}
+
+.comuni_evento {
+    max-height: 4vh;
+    font-size: 1em;
+}
+
+.box_parti-bot {
+    width: 20.5vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0em .6em;
+    font-size: .6em;
+}
+
+.partici {
+    font-size: 1.2em;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.pequeno {
+    height: 15px;
+    width: 15px;
+    background: var(--verde);
+}
+
+.medio {
+    background: var(--cinzaclaro);
+    height: 20px;
+    width: 20px;
+}
+
+.grande {
+    height: 25px;
+    width: 25px;
+    background: var(--laranja);
+}
+
+.text_italic {
+    font-style: italic;
+    color: var(--cinza);
+    font-size: 1.2em;
+}
+
+
+/*
+  @keyframes anima {
+    to {
+        opacity: 0;
+    }
+}
+
+.pisca {
+    animation: anima 4000ms ease infinite;
+}
+ */
+
+
+/* FIM CARD MEUS EVENTOS */
+
+/*FIM CARDS*/
+
+
+/* MEUS EVENTOS */
+
+.cinza {
+    color: var(--cinza);
+}
+
+.upper {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.verde {
+    color: var(--verde);
+}
+
+.laranja {
+    color: var(--laranja);
+}
+
+.linha_card {
+    width: 45vw;
+    height: 26vh;
+    margin-bottom: 1.5em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.conteiner_section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+.box_eventos_aprovados {
+    height: 90vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box_cards_aprovados {
+    height: 80vh;
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+    padding-top: 3em;
+    border-right: 1px solid var(--cinzaclaro);
+}
+
+.box_eventos_analise {
+    height: 90vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box_cards_analise {
+    height: 80vh;
+    width: 50vw;
+    padding-top: 3em;
+    border-left: 1px solid var(--cinzaclaro);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*REALIZADOS*/
+
+.section_realizados {
+    height: 50vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_realizados {
+    height: 40vh;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.box_cards_realizados {
+    height: 30vh;
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+/*FIM MEUS EVENTOS */
+
+
+
+
+
+/*FOOTER*/
+
+.footer {
+    height: 12vh;
+    width: 100vw;
+    background: var(--cinza);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--branco);
+}
+
+.footer_empresa {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer_empresa span {
+    font-size: 14px;
+}
+
+.contato {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contato a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer_midiasocial {
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 15vw;
+}
+
+.icons_media {
+    font-size: 1.5em;
+}
+
+
+/*FIM FOOTER*/
+

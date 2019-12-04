@@ -10,6 +10,7 @@ import 'mdbreact/dist/css/mdb.css';
 //pages
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import MeusEventos from './pages/MeusEventos/MeusEventos';
 
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
@@ -21,6 +22,7 @@ const Rotas = (
         <div>
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route path="/Meuseventos" component={MeusEventos} />
                 <Route component={NotFound} />
             </Switch>
         </div>
