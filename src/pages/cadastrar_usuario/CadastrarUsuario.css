@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+  --azul: #25bcce;
+  --laranja: #f68e31;
+  --preto: #231f20;
+  --cinza: #808284;
+  --cinzaclaro: #ccc;
+  --verde: #29803f;
+  --branco: #fff;
+  --font: 'Open Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, a, span, p {
+  font-family: var(--font);
+}
+
+.usuario_section {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_container_usuario {
+  background: var(--laranja);
+  height: 99vh;
+  width: 50vw;
+  position: relative;
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.usuario_container {
+  height: 99vh;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: var(--cinzaclaro) 1px 1px 2px 1px;
+}
+
+.titulo_usuario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: rebeccapurple; */
+  height: 15vh;
+  width: 40vw;
+  font-size: 1.4em;
+}
+
+.usuario_form {
+  /* background: royalblue; */
+  height: 80vh;
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.inpu_div_usuario {
+  /* background: rebeccapurple; */
+  height: 70vh;
+  width: 35vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.usuario_form .campo_usuario {
+  border-radius: 5px;
+  color: var(--cinza);
+  border-bottom: 2px solid var(--cinzaclaro);
+  font-family: var(--font);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30vw;
+  /* background: #29803f; */
+}
+
+.usuario_form input {
+  height: 4.5vh;
+  width: 23vw;
+  border: none;
+  color: var(--cinza);
+  padding: 0 .5em;
+  outline: 0;
+  font-family: var(--font);
+}
+
+.usuario_form button {
+  background: var(--laranja);
+  border-radius: 5px;
+  border: none;
+  height: 5vh;
+  width: 20vw;
+  color: var(--branco);
+}
+
+.login_reset_senha {
+  width: 15vw;
+  color: var(--cinza);
+  font-size: .8em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background: var(--verde); */
+}
+
+.titulo_index::after {
+  content: '|';
+  margin-left: 4px;
+  opacity: 1;
+  animation: pisca .7s infinite;
+}
+
+.campo_desc_usuario {
+  border-bottom: 2px solid var(--cinzaclaro);
+  display: flex;
+  justify-content: space-evenly;
+  width: 20vw;
+  height: 22vh;
+}
+
+.descricao-usuario {
+  font-family: var(--font);
+  color: var(--cinza);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30vw;
+  /* background: red; */
+}
+
+/* .campo_desc_usuario textarea {
+    width: 20vw;
+    height: 20vh;
+    border: none;
+    overflow: auto;
+} */
+
+.campo_foto_usuario {
+  border-radius: 5px;
+  color: var(--cinza);
+  border-bottom: 2px solid var(--cinzaclaro);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20vw;
+  /* background-color: #29803f; */
+}
+
+.textarea_usuario {
+  border-radius: 5px;
+  width: 30vw;
+  /* border-bottom: 2px solid var(--cinzaclaro); */
+  resize: none;
+  /* background-color: #f68e31; */
+  /* overflow: auto;  */
+}
+
+@keyframes pisca {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.circle_usuario {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: var(--branco);
+  position: absolute;
+}
+
+.alta_usuario {
+  top: 2vh;
+  left: -4vw;
+}
+
+.baixa_usuario {
+  bottom: 2vh;
+  right: -4vw;
+}
+
+.letra_grande_usuario {
+  font-size: 2em;
+}
+
+.letra_media_usuario {
+  font-size: 2.5em;
+}
+
+.titulo_h2_usuario::after {
+  content: '|';
+  margin-left: 4px;
+  opacity: 1;
+  animation: pisca .7s infinite;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.campo_foto_usuario_label {
+  color: var(--font);
+  font-size: 1.2em;
+}
+
+.circulomeio_usuario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18vw;
+  height: 36vh;
+  background-color: red;
+  border-radius: 50%;
+}
+.circulomeio_usuario img{
+   width: 18vw;
+  height: 36vh;
+  border-radius: 50%;
+}
+
+.campo_usuario_foto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 22vw;
+  height: 5vh;
+  /* background-color: red; */
+}
+
+@media only screen and (max-device-width: 768px) {
+  .usuario_section {
+    flex-direction: column;
+  }
+  .circle_usuario{
+    display: none;
+  }
+  .text_container_usuario {
+    width: 100vw;
+    height: 64vh;
+  }
+  /* .baixa_usuario {
+    right: -8vw;
+  }
+  .alta_usuario {
+    left: -8vw;
+  } */
+  .circulomeio_usuario {
+    width: 26vw;
+    height: 30vh;
+    background-color: red;
+    border-radius: 50%;
+  }
+  .circulomeio_usuario img{
+    width: 26vw;
+    height: 30vh;
+  }
+  .campo_usuario_foto {
+    width: 40vw;
+  }
+  .usuario_container {
+    width: 100vw;
+  }
+  .titulo_usuario {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .usuario_form {
+    width: 70vw;
+  }
+  .usuario_form input{
+    width: 50vw;
+  }
+  .usuario_form .campo_usuario {
+    width: 55vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 14px;
+    font-family: 'Open Sans';
+    padding-left: 0.7em;
+
+  }
+  .inpu_div_usuario {
+    width: 60vw;
+  }
+  .descricao-usuario {
+    width: 55vw;
+  }
+  .textarea_usuario {
+    width: 55vw;
+    padding-left: 0.7em;
+    padding-top: 0.5em;
+  }
+  .usuario_form button {
+    background: var(--laranja);
+  }
+}
+
+@media only screen and (max-device-width: 375px) {
+  .text_container_usuario {
+    width: 100%;
+    /* display: none; */
+  }
+  .circle_usuario {
+    display: none;
+  }
+  .usuario_container {
+    width: 100%;
+  }
+  .circulomeio_usuario {
+    width: 48vw;
+    height: 27vh;
+  }
+  .circulomeio_usuario img{
+    width: 48vw;
+    height: 27vh;
+  }
+  .campo_usuario_foto {
+    width: 82vw;
+  }
+  .titulo_usuario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    width: 84vw;
+    font-size: 1em;
+  }
+  .inpu_div_usuario {
+    width: 100vw;
+  }
+  .usuario_form .campo_usuario {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 86vw;
+    font-size: 14px;
+    font-family: 'Open Sans';
+    padding-left: 0.7em;
+  }
+  .descricao-usuario {
+    width: 88vw;
+  }
+  .textarea_usuario {
+    width: 88vw;
+  }
+  .usuario_form input {
+    width: 70vw;
+  }
+  #campo_foto_usuario label {
+    font-size: 0.5em;
+
+  }
+  .textarea_usuario {
+    font-size: 1.104em;
+    padding-left: 0.7em;
+    padding-top: 0.5em;
+  }
+  .usuario_form button {
+    background: var(--laranja);
+  }
+}
