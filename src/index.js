@@ -9,6 +9,7 @@ import 'mdbreact/dist/css/mdb.css';
 
 //pages
 import Home from './pages/Home';
+import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidade';
 import NotFound from './pages/NotFound';
 
 //rotas
@@ -21,6 +22,7 @@ const Rotas = (
         <div>
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Route component={NotFound} />
             </Switch>
         </div>
