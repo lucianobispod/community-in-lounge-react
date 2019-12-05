@@ -5,7 +5,7 @@ import moment from 'moment';
 
 class MeusEventos extends Component {
 
-                                                                
+
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ class MeusEventos extends Component {
             eventosRealizados: []
         };
     }
-    
+
     GetEventosAprovados() {
         axios.get('http://localhost:5000/api/Evento/AprovadosUsuario/2')
             .then(resposta => {
@@ -42,6 +42,13 @@ class MeusEventos extends Component {
 
     deleteEventosPendentes = () => {
         console.log('oi');
+        axios.delete('http://localhost:5000/api/Evento/8')
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            }).then(
+                this.GetEventosPendentes()
+            ).catch(error => console.log(error))
     }
 
 
@@ -118,7 +125,7 @@ class MeusEventos extends Component {
                                                     <div className="data">
                                                         <p>
                                                             {
-                                                                
+
                                                                 moment(pendentes.eventoData).format('llll')
                                                             }
                                                         </p>
