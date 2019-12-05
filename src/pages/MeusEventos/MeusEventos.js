@@ -46,7 +46,7 @@ class MeusEventos extends Component {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-            }).then(this.GetEventosPendentes)
+            }).then(this.GetEventosPendentes.bind(this))
             .catch(error => console.log(error))
     }
 
