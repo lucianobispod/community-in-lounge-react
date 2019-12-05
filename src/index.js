@@ -8,9 +8,10 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 //pages
+import App from './App';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-
+import Evento from './pages/Evento';
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
@@ -20,8 +21,10 @@ const Rotas = (
     <Router>
         <div>
             <Switch>
+                <Route exact path='/' component={App}/>
                 <Route exact path="/" component={Home} />
                 <Route component={NotFound} />
+                <Route path='/evento' component={Evento}/>
             </Switch>
         </div>
     </Router>
