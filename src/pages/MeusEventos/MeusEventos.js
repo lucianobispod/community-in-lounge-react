@@ -16,28 +16,28 @@ class MeusEventos extends Component {
     }
 
     GetEventosAprovados() {
-        axios.get('http://localhost:5000/api/Evento/AprovadosUsuario/2')
+        axios.get('http://localhost:5000/api/Evento/AprovadosUsuario/1')
             .then(resposta => {
                 const eventosAprovados = resposta.data;
                 this.setState({ eventosAprovados });
-            });
+            }).catch(error => console.log(error));
     }
 
     GetEventosPendentes() {
-        axios.get('http://localhost:5000/api/Evento/PendentesUsuario/2')
+        axios.get('http://localhost:5000/api/Evento/PendentesUsuario/1')
             .then(resposta => {
                 const eventosPendentes = resposta.data;
-                this.setState({ eventosPendentes });
-            });
+                    this.setState({ eventosPendentes });
+            }).catch(error => console.log(error));
 
     }
 
     GetEventosRealizados() {
-        axios.get('http://localhost:5000/api/Evento/RealizadosUsuario/2')
+        axios.get('http://localhost:5000/api/Evento/RealizadosUsuario/1')
             .then(resposta => {
                 const eventosRealizados = resposta.data;
                 this.setState({ eventosRealizados });
-            });
+            }).catch(error => console.log(error));
     }
 
     deleteEventosPendentes = () => {
@@ -46,9 +46,8 @@ class MeusEventos extends Component {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-            }).then(
-                this.GetEventosPendentes()
-            ).catch(error => console.log(error))
+            }).then(this.GetEventosPendentes)
+            .catch(error => console.log(error))
     }
 
 
