@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   font-family: 'Open Sans', sans-serif;
+}
+
+:root{
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --fonte: sans-serif;
+}
+
+h1,h2,h3,h4,p{
+    font-family: var(--fonte);
+}
+
+
+
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--azul);
+}
+
+.sessao_tornar_funcionario_ADM {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.banner-tornar-adm {
+    height: 50vh;
+    width: 100vw;
+}
+
+.banner-tornar-adm img {
+    height: 52vh;
+    width: 100vw;
+}
+
+.caixa_tornar_funcionario_ADM {
+    width: 100vw;
+    height: 50vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-titulo-tornar-adm {
+    width: 48vw;
+    height: 20vh;
+}
+
+.div-titulo-tornar-adm h1 {
+    text-transform: uppercase;
+    color: var(--preto);
+}
+
+.form_tornar_adm {
+width: 32vw;
+height: 4vh;
+display: flex;
+justify-content: space-around;
+align-items: center;
+color: var(--preto);
+font-family: var(--fonte);
+
+/* background: bisque; */
+}
+
+.div_cadastrar_fun{
+    width: 24vw;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.div_cadastrar_fun label{
+    width: 4vw;
+    height: 3.5vh;
+    display: flex;
+    align-items: center;
+
+    /* background: yellowgreen; */
+}
+
+.input_email {
+    width: 20vw;
+    height: 3.5vh;
+    border: none;
+    border-bottom: 1.5px solid var(--preto);
+    color: var(--cinza);
+    outline: 0;
+
+}
+
+.botao_cadastrar_fun{
+    width: 6vw;
+    height: 4vh;
+    font-weight: bold;
+    background: var(--azul);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--fonte);
+}
+
+.div_cards_tornar_adm{
+    height: 55vh;
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card_tonar_adm{
+    width: 28vw;
+    height: 13vh;
+    background: #25bcce;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.7em;
+    position: relative;
+}
+
+.div_info_user {
+    display: flex;
+    align-items: center;
+    width: 23vw;
+    height: 8vh;
+}
+
+.div_info_user h2{
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 1.1em;
+}
+
+.div_info_user p {
+    text-transform: none;
+    color: #ffffff;
+}
+
+.imagem_fun {
+    width: 5vw;
+    height: 10vh;
+    margin: 1em;
+    background-color: red;
+    border-radius: 50%;
+    border: #25bcce;
+}
+
+.imagem_fun img {
+    width: 5vw;
+    height: 10vh;
+    background-color: red;
+    border-radius: 50%;
+    border: #25bcce;
+}
+
+
+.caixa_recusar_tornar_funcionario_ADM {
+    justify-content: flex-end;
+}
+
+.caixa_recusar_tornar_funcionario_ADM {
+    font-size: 1.5em;
+    margin: 2em;
+    color: #ee312c;
+}
+
+.excluir-card {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.fa-times:before {
+    color: #ffffff;
+}
+
+::-webkit-input-placeholder {
+    color: var(--cinza);
+}
+
+/* .aaa123 {
+    height: 4.5vh;
+    width: 23vw;
+    border: none;
+    color: var(--cinza);
+    padding: 0 .5em;
+    outline: 0;
+    font-family: var(--font);
+    
+}
+
+.aaa123 input {
+    height: 4.5vh;
+    width: 23vw;
+    border: none;
+    color: var(--cinza);
+    padding: 0 .5em;
+    outline: 0;
+    font-family: var(--font);
+} */

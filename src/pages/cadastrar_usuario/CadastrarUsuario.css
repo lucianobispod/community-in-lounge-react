@@ -147,12 +147,6 @@ h1, h2, h3, h4, a, span, p {
   /* background: red; */
 }
 
-/* .campo_desc_usuario textarea {
-    width: 20vw;
-    height: 20vh;
-    border: none;
-    overflow: auto;
-} */
 
 .campo_foto_usuario {
   border-radius: 5px;
@@ -165,14 +159,7 @@ h1, h2, h3, h4, a, span, p {
   /* background-color: #29803f; */
 }
 
-.textarea_usuario {
-  border-radius: 5px;
-  width: 30vw;
-  /* border-bottom: 2px solid var(--cinzaclaro); */
-  resize: none;
-  /* background-color: #f68e31; */
-  /* overflow: auto;  */
-}
+
 
 @keyframes pisca {
   0%, 100% {
@@ -311,11 +298,7 @@ input[type="file"] {
   .descricao-usuario {
     width: 55vw;
   }
-  .textarea_usuario {
-    width: 55vw;
-    padding-left: 0.7em;
-    padding-top: 0.5em;
-  }
+
   .usuario_form button {
     background: var(--laranja);
   }
@@ -366,9 +349,7 @@ input[type="file"] {
   .descricao-usuario {
     width: 88vw;
   }
-  .textarea_usuario {
-    width: 88vw;
-  }
+  
   .usuario_form input {
     width: 70vw;
   }
@@ -376,12 +357,35 @@ input[type="file"] {
     font-size: 0.5em;
 
   }
-  .textarea_usuario {
-    font-size: 1.104em;
-    padding-left: 0.7em;
-    padding-top: 0.5em;
-  }
   .usuario_form button {
     background: var(--laranja);
   }
 }
+
+
+.genero_usuario {
+  /* background-color: #25bcce; */
+  font-size: var(--font);
+  color: var(--cinza);
+  width: 86vw;
+  height: 5vh;
+  border-radius: 5px;
+  color: var(--cinza);
+  border-bottom: 2px solid var(--cinzaclaro);
+  font-family: var(--font);
+
+}
+
+.genero{
+  width: 29vw;
+  display: flex;
+  align-items: center;
+}
+.genero_i{
+  width: 4vw;
+  height: 2vh;
+}
+
+  /* height: 3vh;
+display: flex;
+align-items: center; */

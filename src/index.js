@@ -11,6 +11,8 @@ import 'mdbreact/dist/css/mdb.css';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import CadastrarUsuario from './pages/cadastrar_usuario/CadastrarUsuario';
+import TornarAdministrador from './pages/tornar_administrador/TornarAdministrador';
+
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
@@ -21,7 +23,8 @@ const Rotas = (
         <div>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/cadastrarUsuario" component={CadastrarUsuario}/>
+                <Route path="/CadastrarUsuario" component={CadastrarUsuario}/>
+                <Route path="/TornarAdministrador" component={TornarAdministrador}/>
                 <Route component={NotFound} />
             </Switch>
         </div>
