@@ -17,13 +17,17 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+p {
+  margin: 0;
+}
+
 #cdr_ctg_meioPricipal {
   display: flex;
   justify-content: space-around;
   width: 100vw;
   height: 100vh;
   align-items: center;
-  background-color: var(--azul)
+  /* background-color: var(--azul) */
 }
 
 .cdr_ctg_caixa {
@@ -33,7 +37,7 @@
   flex-direction: column;
   width: 49vw;
   height: 95vh;
-  background-color: #f68e31;
+  /* background-color: #f68e31; */
 }
 
 .cdr_ctg_caixa2 {
@@ -44,7 +48,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #29803f;
+  /* background-color: #29803f; */
 }
 
 .cdr_ctg_caixatitulo {
@@ -77,7 +81,7 @@ h1 {
   width: 22vw;
   padding-left: 7px;
   height: 5.3vh;
-  /* background-color: white; */
+  /* background-color: #29803f; */
   display: flex;
   margin: 1em;
   border-radius: 0.3125em;
@@ -90,21 +94,21 @@ h1 {
 }
 
 .cdr_ctg_caixadecategorias {
-  width: 40vw;
-  height: 78vh;
+  width: 32vw;
+  height: 75vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  /* flex-direction: column; */
-  /* flex-direction: row; */
-  /* background-color: #231f20; */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* background: #231f20; */
 }
 
 .cdr_ctg_categoria1 {
   width: 30vh;
-  height: 14vh;
+  height: 15vh;
   background-color: var(--azul);
-  margin: 1em;
+  margin: 0.5em;
   border-radius: 0.3125em;
   color: white;
   text-transform: uppercase;
@@ -115,18 +119,93 @@ h1 {
   text-align: center;
   position: relative;
 }
-.cdr_ctg_categoria5 {
-  width: 30vh;
-  height: 14vh;
-  background-color: var(--laranja);
-  margin: 1em;
-  border-radius: 0.3125em;
-  color: white;
-  text-transform: uppercase;
-  font-family: var(--fonte);
+
+.cdr_ctg_categoria_btnX {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  border: none;
+  background: none;
+  color: black;
+  outline: 0;
+  font-size: 1.1em;
+}
+
+/* .cdr_ctg_nav {
+  width: 20vw;
+  height: 5vh;
+  background-color: #f68e31;
+} */
+
+.cdr_ctg_caixanav {
+  width: 21vw;
+  height: 5vh;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cdr_ctg_nav {
+  width: 2vw;
+  height: 4vh;
+  color: var(--preto);
+  border-radius: 0.3125em;
+  border: 1px solid black;
+  margin: 0.3em;
   text-align: center;
-  position: relative;
-} 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cdr_ctg_navbtn {
+  background-color: transparent;
+  border: none;
+}
+.cdr_ctg_caixatitulo1 h2 {
+  text-transform: uppercase;
+  font-family: var(--fonte);
+  color: var(--preto);
+  margin: 0.7em;
+}
+
+.cdr_ctg_caixacadastro {
+  width: 40vw;
+  height: 32vh;
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  border-radius: 0.3125em;
+}
+.cdr_ctg_cadastro {
+  width: 28em;
+  height: 3em;
+  border: 1px solid #808284;
+  border-radius: 5px;
+  padding: 0.5em;
+  border: none;
+  outline: 0;
+  border-bottom: 2px solid var(--cinzaclaro);
+}
+
+.ctg_ctg_btncadastrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ctg_ctg_btn {
+  border: none;
+  background: #25bcce;
+  border-radius: 0.3125em;
+  color: white;
+  height: 5vh;
+  width: 10vw;
+  margin: 1.5em 0 1.5em 0.4em;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1em;
+}
