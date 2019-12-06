@@ -8,7 +8,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 //pages
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidade';
 import NotFound from './pages/NotFound';
 
