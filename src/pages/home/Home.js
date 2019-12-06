@@ -10,28 +10,97 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            eventosComunidades: [],
-            eventosThoughtworks: []
+            eventosComunidades: [
+                // {
+                //     "eventoId": 6,
+                //     "nome": "JavaScript para iniciantes",
+                //     "eventoData": "2019-08-13T00:00:00",
+                //     "horario": "19:00:00",
+                //     "descricao": "Evento voltado para mulheres ",
+                //     "emailContato": "contato@comunidade.com",
+                //     "statusEvento": "Aprovado",
+                //     "diversidade": "Sim",
+                //     "coffe": "Sim",
+                //     "foto": "url.foto",
+                //     "urlEvento": "www.evento.com",
+                //     "categoriaId": 1,
+                //     "salaId": 2,
+                //     "comunidadeId": 5,
+                //     "categoria": {
+                //         "categoriaId": 1,
+                //         "nome": "Tec",
+                //         "eventoTw": []
+                //     },
+                //     "comunidade": {
+                //         "comunidadeId": 5,
+                //         "nome": "{Reprograma}",
+                //         "descricao": "Comunidade voltada apenas para mulheres com intesse em ingressar na área de tecnologia",
+                //         "emailContato": "reprograma@contato.com",
+                //         "telefoneContato": "1197865432",
+                //         "foto": "url.foto",
+                //         "responsavelUsuarioId": 1
+                //     },
+                //     "sala": {
+                //         "salaId": 2,
+                //         "nome": "Lounge ",
+                //         "descricao": "Sala com capacidade para 25 pessoas. Contem televisão, sofás e alguns puffs, suficientes para acomodar todos sentados",
+                //         "qntdPessoas": "25 participantes",
+                //         "evento": [],
+                //         "eventoTw": []
+                //     },
+                //     "responsavelEventoTw": []
+                // }
+            ],
+            eventosThoughtworks: [
+                // {
+                // "eventoId": 1,
+                // "nome": "Python para iniciantes",
+                // "eventoData": "2019-12-19T00:00:00",
+                // "horario": "19:30:00",
+                // "descricao": "Evento direcionado para pessoas que não conhecem nada da linguagem Python",
+                // "emailContato": "carla@gmail.com",
+                // "publico": "sim",
+                // "diversidade": "Não",
+                // "coffe": "Sim",
+                // "foto": "url",
+                // "urlEvento": "url",
+                // "categoriaId": 1,
+                // "salaId": 1,
+                // "categoria": {
+                //     "categoriaId": 1,
+                //     "nome": "Tec"
+                // },
+                // "sala": {
+                //     "salaId": 1,
+                //     "nome": "Sala de Reunião",
+                //     "descricao": "Sala com capacidade para até 60 pessoas. Possui mesas, projetor, sofás e cadeiras",
+                //     "qntdPessoas": "50 participantes",
+                //     "evento": [],
+                //     "eventoTw": []
+                // }
+                // }
+            ]
 
         }
     }
 
-    GetEventosComunidades() {
+    GetEventosComunidades = () => {
 
         axios.get('http://localhost:5000/api/evento')
             .then(resposta => {
-                const eventosComunidades = resposta.data;
-                console.log(eventosComunidades)
-                this.setState({ eventosComunidades });
+                // const eventosComunidades = resposta.data;
+                console.log("Comunidades", resposta.data)
+                this.setState({ eventosComunidades: resposta.data });
             })
             .catch(err => console.log(err));
     }
-    GetEventosThoughtworks() {
+    GetEventosThoughtworks = () => {
 
         axios.get('http://localhost:5000/api/EventoTw/public')
             .then(resposta => {
-                const eventosThoughtworks = resposta.data;
-                this.setState({ eventosThoughtworks });
+                // const eventosThoughtworks = resposta.data;
+                console.log("Eventos Thought Works: ", resposta.data)
+                this.setState({ eventosThoughtworks: resposta.data });
             })
             .catch(err => console.log(err));
         console.log(this.state.eventosThoughtworks);
@@ -86,7 +155,7 @@ class Home extends Component {
                                                 <div className="data-card-main">
                                                     <p>
                                                         {
-                                                            evento.eventoData
+                                                            // evento.eventoData
                                                             //  moment(evento.eventoData).format('llll') 
                                                         }
                                                     </p>
@@ -166,7 +235,7 @@ class Home extends Component {
                                                     <div className="data-card-main">
                                                         <p>
                                                             {
-                                                                evento.eventoData
+                                                                // evento.eventoData
                                                                 //    moment(evento.eventoData).format('llll')
                                                             }
                                                         </p>
