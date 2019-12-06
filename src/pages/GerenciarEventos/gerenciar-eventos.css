@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --cinzaclaro: #D9D9D9;
+    --verde: #29803f;
+    --branco: #fff;
+    --vermelho: #ee312c;
+    --amarelo: #fff34f;
+    --font: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+span,
+p,
+input,
+label,
+div {
+    font-family: var(--font);
+}
+
+
+/* GERENCIAR EVENTO */
+
+.section-calendario-info {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* background: rebeccapurple; */
+}
+
+.container-eventos-pendentes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+    width: 55vw;
+    /* background: red; */
+}
+
+.gerenciar-titulo {
+    /* background: cornflowerblue; */
+    font-size: 1.4em;
+}
+
+.container-lista-data form select {
+    width: 11vw;
+    height: 5vh;
+    border-radius: 5px;
+    border: none;
+    outline: 0;
+    font-family: var(--font);
+    font-size: 1.4em;
+    -webkit-appearance: none;
+    /* background: #fff34f; */
+    padding-left: .5em;
+    color: var(--cinza);
+    cursor: pointer;
+}
+
+.container-lista-data .calendario-mes {
+    height: 5vh;
+    width: 40vw;
+    /* background: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container-lista-data {
+    height: 70vh;
+    width: 45vw;
+    border: 2px solid var(--cinzaclaro);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background: blue; */
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+    width: 42vw;
+    /* background: azure; */
+}
+
+.data-dia {
+    height: 50px;
+    width: 50px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cinza);
+}
+
+.container-legenda-calendario {
+    height: 60vh;
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background: lavender; */
+}
+
+.legenda-calendario-pendente {
+    height: 50vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* background: chocolate; */
+}
+
+.legenda-calendario-pendente h3 {
+    font-size: 2em;
+}
+
+.linha-legenda {
+    /* background: rebeccapurple; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 6vh;
+    width: 20vw;
+}
+
+.linha-legenda p {
+    width: 17vw;
+    /* background: aqua; */
+}
+
+.cor-leg {
+    height: 20px;
+    width: 20px;
+}
+
+.border-cinza {
+    border: 3px solid var(--cinzaclaro);
+}
+
+.border-verde {
+    border: 3px solid var(--verde);
+}
+
+.border-laranja {
+    border: 3px solid var(--laranja);
+}
+
+.border-vermelho {
+    border: 3px solid var(--vermelho);
+}
+
+.border-azul {
+    border: 3px solid var(--azul);
+}
+
+.border-amarelo {
+    border: 3px solid var(--amarelo);
+}
+
+.back-cinza {
+    background: var(--cinzaclaro);
+}
+
+.back-verde {
+    background: var(--verde);
+}
+
+.back-laranja {
+    background: var(--laranja);
+}
+
+.back-vermelho {
+    background: var(--vermelho);
+}
+
+.back-azul {
+    background: var(--azul);
+}
+
+.back-amarelo {
+    background: var(--amarelo);
+}
+
+.section-lista-eventos-pendentes {
+    /* background: red; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+
+.lista-eventos-pendentes {
+    width: 90vw;
+    height: 80vh;
+    /* background: antiquewhite; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.tiulo-lista-eventos {
+    width: 90vw;
+    height: 15vh;
+    /* background: bisque; */
+    font-size: 1.35em;
+}
+
+.card-pendente {
+    /* background: cyan; */
+    height: 20vh;
+    width: 59vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--cinzaclaro);
+    border-radius: 5px;
+}
+
+.foto-pendente {
+    /* background: url('../images/banner.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20vh;
+    width: 18vw;
+}
+
+.container-informacoes-botoes {
+    height: 20vh;
+    width: 30vw;
+    /* background: darkblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-info {
+    font-size: 1.6em;
+    /* background: darkgreen; */
+}
+
+.data-info {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.info {
+    padding-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    /* background: darkgoldenrod; */
+    height: 20vh;
+    width: 30.5vw;
+}
+
+.comunidade-info {
+    font-size: 1.1em;
+}
+
+.botoes {
+    /* background: chartreuse; */
+    width: 10vw;
+    height: 8vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.botoes button {
+    height: 5vh;
+    width: 4vw;
+    cursor: pointer;
+    font-size: 1.6em;
+    border: none;
+    outline: 0;
+    background: none;
+}
+
+.rejeitar {
+    color: var(--vermelho);
+}
+
+.aceitar {
+    color: var(--verde);
+}
