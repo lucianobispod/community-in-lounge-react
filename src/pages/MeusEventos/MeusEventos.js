@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './meus-eventos.css';
 import axios from 'axios';
 import moment from 'moment';
+import 'moment/locale/pt-br';
+
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 class MeusEventos extends Component {
 
@@ -11,51 +14,81 @@ class MeusEventos extends Component {
         this.state = {
             eventosAprovados: [],
             eventosPendentes: [],
-            eventosRealizados: []
+            eventosRealizados: [],
+            modal: false,
+            url: ''
         };
     }
 
-    GetEventosAprovados() {
-        axios.get('http://localhost:5000/api/Evento/AprovadosUsuario/1')
+
+    toggle = () => {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
+
+    GetEventosAprovados = () => {
+        // event.preventDefault();
+        axios.get('http://localhost:5000/api/Evento/AprovadosUsuario/2')
             .then(resposta => {
                 const eventosAprovados = resposta.data;
                 this.setState({ eventosAprovados });
             }).catch(error => console.log(error));
     }
 
-    GetEventosPendentes() {
-        axios.get('http://localhost:5000/api/Evento/PendentesUsuario/1')
+    GetEventosPendentes = () => {
+        // event.preventDefault();
+        axios.get('http://localhost:5000/api/Evento/PendentesUsuario/2')
             .then(resposta => {
                 const eventosPendentes = resposta.data;
-                    this.setState({ eventosPendentes });
+                this.setState({ eventosPendentes });
             }).catch(error => console.log(error));
 
     }
 
-    GetEventosRealizados() {
-        axios.get('http://localhost:5000/api/Evento/RealizadosUsuario/1')
+    GetEventosRealizados = () => {
+        // event.preventDefault();
+
+        axios.get('http://localhost:5000/api/Evento/RealizadosUsuario/2')
             .then(resposta => {
                 const eventosRealizados = resposta.data;
                 this.setState({ eventosRealizados });
             }).catch(error => console.log(error));
     }
 
-    deleteEventosPendentes = () => {
-        console.log('oi');
-        axios.delete('http://localhost:5000/api/Evento/8')
+    deleteEventosPendentes = (id) => {
+        // event.preventDefault();
+
+        axios.delete('http://localhost:5000/api/Evento/' + id)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
             }).then(this.GetEventosPendentes.bind(this))
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
     }
 
+    editarEventoAprovado = (evento) => {
+        evento.urlEvento = this.state.url;
+        alert(evento.urlEvento);
+        axios.put('http://localhost:5000/api/Evento/' + evento.eventoId, evento )
+            .then(resposta => console.log(resposta.data.urlEvento + " asdasdasdasdasdasdasdasdasdss"))
+            .then(
+                this.toggle.bind(this),
+                this.GetEventosAprovados.bind(this)
+                
+                )
+            .catch(error => console.log(error));
+    }
+
+    UpStateUrl = (event) => {
+        this.setState({ url: event.target.value });
+        console.log(this.state.url);
+    }
 
     componentDidMount() {
         this.GetEventosAprovados();
         this.GetEventosPendentes();
         this.GetEventosRealizados();
-        moment.locale('es')
     }
 
 
@@ -82,9 +115,39 @@ class MeusEventos extends Component {
                                                                 moment(aprovado.eventoData).format('llll')
                                                             }
                                                         </p>
-                                                        <button>
-                                                            <i className="fas fa-sort-down"></i>
-                                                        </button>
+                                                        <div className="dropdown">
+
+                                                            <a className="dropbtn">
+                                                                <i className="fas fa-sort-down"></i>
+                                                            </a>
+
+                                                            <div className="dropdown-content">
+                                                                <button type='submit' onClick={this.toggle.bind(this)}>Editar</button>
+                                                            </div>
+
+                                                            <MDBContainer>
+                                                                <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                                                                    <MDBModalHeader>Editar</MDBModalHeader>
+                                                                    <MDBModalBody>
+
+                                                                        <div className="form-group">
+                                                                            <label htmlFor="formGroupExampleInput">Url para inscrição</label>
+                                                                            <input
+                                                                                type="text"
+                                                                                className="form-control"
+                                                                                id="formGroupExampleInput"
+                                                                                onChange={this.UpStateUrl.bind(this)}
+                                                                                value={this.state.url}
+                                                                            />
+                                                                        </div>
+                                                                    </MDBModalBody>
+                                                                    <MDBModalFooter>
+                                                                        <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                                                        <MDBBtn color="primary" type='submit' onClick={i => this.editarEventoAprovado(aprovado)}>Salvar</MDBBtn>
+                                                                    </MDBModalFooter>
+                                                                </MDBModal>
+                                                            </MDBContainer>
+                                                        </div>
                                                     </div>
 
                                                     <div className="identificacao">
@@ -128,15 +191,15 @@ class MeusEventos extends Component {
                                                                 moment(pendentes.eventoData).format('llll')
                                                             }
                                                         </p>
-                                                        <div class="dropdown">
+                                                        <div className="dropdown">
 
-                                                            <a class="dropbtn">
+                                                            <a className="dropbtn">
                                                                 <i className="fas fa-sort-down"></i>
                                                             </a>
 
-                                                            <div class="dropdown-content">
+                                                            <div className="dropdown-content">
                                                                 <button >Editar</button>
-                                                                <button type='submit' onClick={this.deleteEventosPendentes.bind(this)}>Deletar</button>
+                                                                <button type='submit' onClick={i => this.deleteEventosPendentes(pendentes.eventoId)}>Deletar</button>
                                                             </div>
                                                         </div>
 
