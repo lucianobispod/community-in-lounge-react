@@ -179,7 +179,7 @@ h1, h2, h3, h4, p {
 }
 
 .cad_form input{
-  height: 4.5vh;
+  /* height: 4.5vh; */
   width: 22vw;
   color: var(--cinza);
   padding: 0 .5em;
@@ -193,7 +193,7 @@ h1, h2, h3, h4, p {
   align-items: center;
 }
 .cad_form .campo_dados{
-  width: 46vw;
+  width: 49vw;
   /* height: 4.5em; */
   color: var(--cinza);
   display: flex;

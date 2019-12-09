@@ -19,11 +19,13 @@ class Evento extends Component {
             Horario: '',
             Foto: '',
             Publico: '',
-            Descricao: '',
-            Url_evento: ''
+            // Descricao: ''
+            Url_evento: '',
+            Lista_de_sala: [],
+            Lista_de_Categoria: []
         }
 
-        
+
     }
 
     efetuarCadastro(event) {
@@ -43,13 +45,28 @@ class Evento extends Component {
             Descricao: this.state.Descricao,
             Url_evento: this.state.Url_evento
         }).then(resposta => console.log(resposta))
-        .catch(error => console.log(error))
+            .catch(error => console.log(error))
     }
+
+
+    getSala = () => {
+        Axios.get('http://localhost:5000/api/Sala')
+            .then(resposta => {
+                this.setState({Lista_de_sala : resposta.data });
+                console.log(resposta);
+        console.log(this.state.Lista_de_sala);
+
+            })
+            .catch(error => { console.log(error) });
+    }
+
+
+
 
     // Funcao que recebe os valores do input e coloca na variavel
     atualizarEstadoNome(event) {
         this.setState({ Nome: event.target.value })
-             console.log(this.state.Url_evento);
+        console.log(this.state.Url_evento);
     }
 
     atualizarEstadoEmail_Contato(event) {
@@ -83,8 +100,8 @@ class Evento extends Component {
     }
 
     atualizarEstadoHorario(event) {
-        this.setState({ EstadoHorario: event.target.value })
-        console.log(this.state.EstadoHorario)
+        this.setState({ Horario: event.target.value })
+        console.log(this.state.Horario)
     }
 
     atualizarEstadoFoto(event) {
@@ -101,6 +118,9 @@ class Evento extends Component {
         console.log(this.state.Url_evento)
     }
 
+    componentDidMount() {
+        this.getSala();
+    }
 
 
 
@@ -144,19 +164,30 @@ class Evento extends Component {
                                     <div>
                                         <label for="cad-participantes">Quantidade de participantes:</label>
                                         <select className="select_quant" name="participantes" id="cad-participantes">
-                                            <option value="25">Até 25 pessoas</option>
-                                            <option value="60">De 25 a 60 pessoas</option>
+                                            {
+                                                this.state.Lista_de_sala.map(function(sala) {
+                                                    return(
+
+                                                        <option value={sala.salaId}>{sala.qntdPessoas}</option>
+                                                    );
+
+                                                }.bind(this))
+                                            }
                                         </select>
                                     </div>
 
                                     <div>
                                         <label for="categorias">Selecione a categoria do evento:</label>
-                                        <select className="select_cat" name="categorias" id="categorias">
-                                            <option value="edu">Educação</option>
-                                            <option value="tec">Tecnologia</option>
-                                            <option value="sau">Saúde</option>
-                                            <option value="prof">Profissões</option>
-                                        </select>
+                                        {/* <select className="select_cat" name="categorias" id="categorias">
+                                            {
+                                                this.state.Lista_de_Categoria.map(function(lista){
+                                                
+                                                <option value={lista.listaId}>{ lista.listaNome}</option>
+                                                
+                                                
+                                                }.bind(this))                                                )
+                                            }
+                                        </select> */}
                                     </div>
 
                                 </div>
@@ -185,15 +216,12 @@ class Evento extends Component {
                                 <div className="campo_dados">
                                     <div>
                                         <label className="cad-label-date" for="select-data">Data:</label>
-                                        <input name="Evento_Data" value={this.state.Evento_Data} onChange={this.atualizarEstadoEvento_Data.bind(this)}  className="cad-select-data" type="date" name="" id="" />
+                                        <input name="Evento_Data" value={this.state.Evento_Data} onChange={this.atualizarEstadoEvento_Data.bind(this)} className="cad-select-data" type="date" name="" id="appt_horario" />
                                     </div>
 
                                     <div>
-                                        <label className="cad-label-hora" for="appt">Selecione o horário do evento:</label>
-                                        <input name="Horario" value={this.state.Horario} onChange={this.atualizarEstadoHorario.bind(this)} className="cad-select-hora" type="time" id="" name="appt" min="19:00" max="22:00"
-                                             />
-                                        {/* <small className="cad-small">O horário disponível para eventos de segunda a sexta é das 19:00 ás
-                        22:00 e aos sábados das 10:00 ás 19:00 </small>  */}
+                                        <label className="cad-label-hora" for="horario">Selecione o horário do evento:</label>
+                                        <input name="Horario" value={this.state.Horario} onChange={this.atualizarEstadoHorario.bind(this)} className="cad-select-hora" id="horario" type="time" name="appt" min="19:00" max="22:00" />
                                     </div>
 
                                 </div>
