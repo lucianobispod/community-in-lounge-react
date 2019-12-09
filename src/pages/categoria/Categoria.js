@@ -24,22 +24,42 @@ class Categoria extends Component {
 
 
     postCategoria = (event) => {
-        console.log("passou")
+        console.log("passou " + this.state.nome);
         event.preventDefault();
-        Axios.post('https://localhost:5001/api/categoria', {
-            body : JSON.stringify({
-                Nome : this.state.nome
+        Axios.post('https://localhost:5001/api/categoria',
+            {
+                Nome: this.state.nome
             })
-        })
             .then(resposta => console.log(resposta))
+            .then(this.getCategorias)
             .catch(erro => console.log(erro))
     }
 
     atualizaCategoria = (event) => {
+
         this.setState({
             nome: event.target.value
         });
+        console.log(this.state.nome)
     }
+
+
+    deletarCategoria = (id) => {
+        console.log('Excluindo Categoria');
+
+
+        Axios.delete('https://localhost:5001/api/categoria' + id)
+
+            .then(response => {
+                console.log(response);
+                this.setState(()=> ({ lista: this.state.lista}))
+                this.getCategorias()
+            }).catch(error =>{
+                console.log(error);
+                this.setState({erroMessage : 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria'})
+            });
+    }
+
 
     componentDidMount() {
         this.getCategorias();
@@ -63,16 +83,16 @@ class Categoria extends Component {
                         <div className="cdr_ctg_caixadecategorias">
 
                             {
-                                this.state.categorias.map((categoria) => {
+                                this.state.categorias.map(function (categoria) {
                                     return (
-                                        <div className="cdr_ctg_categoria1">
+                                        <div className="cdr_ctg_categoria1" key={categoria.categoriaId}>
                                             <p> {categoria.nome}</p>
                                             <button className="cdr_ctg_categoria_btnX">
                                                 <i className="fas fa-times"></i>
                                             </button>
                                         </div>
                                     )
-                                })
+                                }.bind(this))
                             }
 
                         </div>
@@ -85,22 +105,22 @@ class Categoria extends Component {
                                 </button>
                                 <button className="cdr_ctg_navbtn">
                                     <div className="cdr_ctg_nav">
-                                        <p> 1 </p>
+                                        <p className="cdr_ctg_p"    > 1 </p>
                                     </div>
                                 </button>
                                 <button className="cdr_ctg_navbtn">
                                     <div className="cdr_ctg_nav">
-                                        <p> 2 </p>
+                                        <p className="cdr_ctg_p"> 2 </p>
                                     </div>
                                 </button>
                                 <button className="cdr_ctg_navbtn">
                                     <div className="cdr_ctg_nav">
-                                        <p> 3 </p>
+                                        <p className="cdr_ctg_p"> 3 </p>
                                     </div>
                                 </button>
                                 <button className="cdr_ctg_navbtn">
                                     <div className="cdr_ctg_nav">
-                                        <p> ...</p>
+                                        <p className="cdr_ctg_p"> ...</p>
                                     </div>
                                 </button>
                                 <button className="cdr_ctg_navbtn">
@@ -117,10 +137,10 @@ class Categoria extends Component {
                             <h2>cadastrar uma nova categoria</h2>
                         </div>
                         <div className="cdr_ctg_caixacadastro">
-                            <form action="">
-                                <input type="text" onChange={this.atualizaCategoria.bind(this)} name="nome" value={this.state.nome} className="cdr_ctg_cadastro" placeholder="Digite um nome de uma nova Categoria" />
+                            <form action="" onSubmit={this.postCategoria}>
+                                <input type="text" onChange={this.atualizaCategoria} name="nome" value={this.state.nome} className="cdr_ctg_cadastro" placeholder="Digite um nome de uma nova Categoria" />
                                 <div className="ctg_ctg_btncadastrar">
-                                    <button className="ctg_ctg_btn"  onClick={e => this.postCategoria}>Cadastrar</button>
+                                    <button className="ctg_ctg_btn" type='submit'>Cadastrar</button>
                                 </div>
                             </form>
                         </div>
