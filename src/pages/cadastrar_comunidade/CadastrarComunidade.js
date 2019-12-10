@@ -11,22 +11,34 @@ class CadastrarComunidade extends Component {
             descricao: '',
             emailContato: '',
             telefoneContato: '',
-            foto: 'hhgg',
+            foto: React.createRef(),
+
         }
     }
 
     efetuarCadastro(event) {
         event.preventDefault();
-
+        console.log(this.state.nome);
+        console.log(this.state.descricao);
+        console.log(this.state.emailContato);
+        console.log(this.state.telefoneContato);
+        console.log(this.state.foto);
+        
         Axios.post('http://localhost:5000/api/Comunidade', {
             nome: this.state.nome,
             descricao: this.state.descricao,
             emailContato: this.state.emailContato,
             telefoneContato: this.state.telefoneContato,
-            Foto: this.state.foto,
+            Foto: 'url',
             responsavelUsuarioId: 1
         })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res);
+                if(res.status == 200){
+                    this.uploadFoto(res.data.comunidadeId);
+                }
+            
+            })
             .catch(error => console.log(error));
     }
     atualizarNome(event) {
@@ -48,10 +60,28 @@ class CadastrarComunidade extends Component {
         console.log(this.state.telefoneContato);
 
     }
-    atualizarFoto(event) {
-        this.setState({ foto: event.target.value });
-        console.log(this.state.foto);
+   
+
+    uploadFoto = (id) => {
+
+        let evento = new FormData();
+        evento.set("imagem", this.state.foto.current.files[0]);
+
+        Axios({
+            method: 'put',
+            url: 'http://localhost:5000/api/Comunidade/' + id + '/uploadFoto',
+            data: evento,
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+            .then(resposta => {
+                console.log("RESPOSTA " + resposta);
+            }).catch(error => console.log(error));
+
     }
+
+
+
+
     render() {
         return (
             <div>
@@ -116,7 +146,9 @@ class CadastrarComunidade extends Component {
                                         <input type="file"
                                             name="foto"
                                             id="campo_foto_comunindade"
-                                            placeholder=" " />
+                                            placeholder=" " 
+                                            ref={this.state.foto}
+                                            />
                                     </div>
                                     <div class="descricao-comunidade">
                                         <label for="descricao">Descrição:</label>
