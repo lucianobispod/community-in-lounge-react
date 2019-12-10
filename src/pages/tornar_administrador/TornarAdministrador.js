@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './TornarAdministrador.css' //Importando css
+import icon from '../../assets/images/iconn.jpeg';
+
+import Footer from '../../components/footer/Footer';
 
 
 import Axios from 'axios';
-
 
 
 
@@ -16,15 +18,23 @@ class TornarAdministrador extends Component {
         }
     }
 
+    alterarAdministrador(id) {
+        Axios.put('http://localhost:5000/api/Usuario/' + id + '/ToFun', { tipoUsuarioId: 2 })
+            .then(
+                this.listarAdministradores.bind(this)
+            )
+    }
 
     UpStateEmail = (event) => {
         this.setState({ email: event.target.value })
         console.log(this.state.email);
     }
 
+
+
     efetuarTransicao = (event) => {
         event.preventDefault();
-        Axios.put('http://localhost:5000/api/Usuario/ToAd', {email : this.state.email})
+        Axios.put('http://localhost:5000/api/Usuario/ToAd', { email: this.state.email })
             .then(resposta => console.log(resposta))
             .then(this.listarAdministradores.bind(this))
             .catch(error => console.log(error))
@@ -46,14 +56,16 @@ class TornarAdministrador extends Component {
         return (
 
             <div>
+
                 <main>
 
                     <section className="sessao_tornar_funcionario_ADM">
 
-
-                        <div className="banner-tornar-adm">
-                            {/* <img src="imagens/inline_image_desktop-1e16e2537ae4ed069575b1f3b35c65b3.jpeg" alt="" /> */}
+                        <div>
+                            <img className="banner-tornar-adm" src={icon} />
                         </div>
+
+
 
                         <div className="caixa_tornar_funcionario_ADM">
 
@@ -67,9 +79,8 @@ class TornarAdministrador extends Component {
 
                                 <div className="div_cadastrar_fun">
                                     <label>E-mail:</label>
-                                    <form 
-                                    onSubmit={this.efetuarTransicao.bind(this)}
-                                    >
+                                    <form
+                                        onSubmit={this.efetuarTransicao.bind(this)}>
                                         <input onChange={this.UpStateEmail.bind(this)} value={this.state.email} className="input_email" type="email" placeholder="exemplo@gmail.com" />
                                         <button type='submit' className="botao_cadastrar_fun">Cadastrar</button>
                                     </form>
@@ -86,10 +97,9 @@ class TornarAdministrador extends Component {
                             {
                                 this.state.administradores.map(function (adm) {
                                     return (
-                                        <div className="card_tonar_adm" key={adm.usuarioId}>
+                                        <div className="card_tonar_adm" key={adm.usuarioId} >
 
                                             <div className="imagem_fun">
-                                                <img src="" alt="Foto de perfil do usuário" />
                                             </div>
 
                                             <div className="div_info_user">
@@ -100,13 +110,13 @@ class TornarAdministrador extends Component {
                                                 </div>
 
                                             </div>
-
-                                            <i className="fas fa-times excluir-card"></i>
+                                            <button onClick={i => this.alterarAdministrador(adm.usuarioId)}> <i className="fas fa-times excluir-card" /></button>
+                                            {/* <button onClick={i => console.log(adm)}> <i className="fas fa-times excluir-card"  /></button> */}
 
                                         </div>
                                     )
-                                }.bind(this))
 
+                                }.bind(this))
 
                             }
 
@@ -118,6 +128,7 @@ class TornarAdministrador extends Component {
                     </section>
                 </main>
 
+                <Footer />
 
             </div>
         )

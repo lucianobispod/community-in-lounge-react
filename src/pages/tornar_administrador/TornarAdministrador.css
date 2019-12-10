@@ -16,27 +16,23 @@
 
 h1,h2,h3,h4,p{
     font-family: var(--fonte);
+
 }
 
 
-
-header {
-    width: 100vw;
-    height: 10vh;
-    background-color: var(--azul);
-}
 
 .sessao_tornar_funcionario_ADM {
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
 }
 
+
 .banner-tornar-adm {
     height: 50vh;
-    width: 100vw;
+    width: 100%;
 }
 
 .banner-tornar-adm img {
@@ -45,7 +41,7 @@ header {
 }
 
 .caixa_tornar_funcionario_ADM {
-    width: 100vw;
+    width: 100%;
     height: 50vh;
     color: #ffffff;
     display: flex;
@@ -55,53 +51,53 @@ header {
 }
 
 .div-titulo-tornar-adm {
-    width: 48vw;
+    width: 73vw;
     height: 20vh;
 }
 
 .div-titulo-tornar-adm h1 {
+    width: 73vw;
     text-transform: uppercase;
     color: var(--preto);
 }
 
 .form_tornar_adm {
-width: 32vw;
-height: 4vh;
-display: flex;
-justify-content: space-around;
-align-items: center;
-color: var(--preto);
-font-family: var(--fonte);
-
-/* background: bisque; */
+    width: 45vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--preto);
+    font-family: var(--fonte);
+    /* background: bisque; */
 }
 
-.div_cadastrar_fun{
-    width: 24vw;
-    height: 4vh;
+.div_cadastrar_fun {
+    width: 30vw;
+    height: 6vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
 }
 
-.div_cadastrar_fun label{
+
+.div_cadastrar_fun label {
     width: 4vw;
-    height: 3.5vh;
+    height: 4vh;
     display: flex;
     align-items: center;
-
+    margin-bottom: 0 !important;
     /* background: yellowgreen; */
 }
 
 .input_email {
-    width: 20vw;
+    width: 18vw;
     height: 3.5vh;
     border: none;
     border-bottom: 1.5px solid var(--preto);
     color: var(--cinza);
     outline: 0;
-
+    margin-right: 1em;
 }
 
 .botao_cadastrar_fun{
@@ -195,23 +191,3 @@ font-family: var(--fonte);
     color: var(--cinza);
 }
 
-/* .aaa123 {
-    height: 4.5vh;
-    width: 23vw;
-    border: none;
-    color: var(--cinza);
-    padding: 0 .5em;
-    outline: 0;
-    font-family: var(--font);
-    
-}
-
-.aaa123 input {
-    height: 4.5vh;
-    width: 23vw;
-    border: none;
-    color: var(--cinza);
-    padding: 0 .5em;
-    outline: 0;
-    font-family: var(--font);
-} */
