@@ -11,59 +11,122 @@ class Evento extends Component {
         this.state = {
             Nome: '',
             Email_contato: '',
-            Sala_id: '',
-            Categoria_id: '',
+            Sala_id: null,
+            Categoria_id: null,
             Coffe: '',
             Diversidade: '',
+            Status: 'Pendente',
             Evento_data: '',
             Horario: '',
-            Foto: '',
-            Publico: '',
-            // Descricao: ''
+            Foto: React.createRef(),
+            comunidadeId: 1,
+            Descricao: '',
             Url_evento: '',
             Lista_de_sala: [],
             Lista_de_Categoria: []
         }
-
 
     }
 
     efetuarCadastro(event) {
         event.preventDefault()
 
-        Axios.post('http://localhost:5000/api/Evento', {
-            Nome: this.state.nome,
-            Email_contato: this.state.Email_contato,
-            Sala_id: this.state.Sala_id,
-            Categoria_id: this.state.Categoria_id,
-            Coffe: this.state.Coffe,
-            Diversidade: this.state.Diversidade,
-            Evento_data: this.state.Evento_data,
-            Horario: this.state.Horario,
-            Foto: this.state.Foto,
-            Publico: this.state.Publico,
-            Descricao: this.state.Descricao,
-            Url_evento: this.state.Url_evento
-        }).then(resposta => console.log(resposta))
-            .catch(error => console.log(error))
+
+        console.log("nome " + this.state.Nome);
+        console.log("publico " + this.state.Publico);
+        console.log("sala " + this.state.Sala_id);
+        console.log("categoria " + this.state.Categoria_id);
+        console.log("descricao " + this.state.Descricao);
+        console.log("diversidade " + this.state.Diversidade);
+        console.log("email " + this.state.Email_contato);
+        console.log("data " + this.state.Evento_data);
+        console.log("horario " + this.state.Horario);
+        console.log("coffe " + this.state.Coffe);
+        console.log("url " + this.state.Url_evento);
+        console.log("foto " + this.state.Foto);
+
+
+        var evento = {
+            nome: this.state.Nome,
+            eventoData: this.state.Evento_data,
+            horario: this.state.Horario,
+            descricao: this.state.Descricao,
+            emailContato: this.state.Email_contato,
+            statusEvento: this.state.Status,
+            diversidade: this.state.Diversidade,
+            coffe: this.state.Coffe,
+            Foto: 'url',
+            urlEvento: this.state.Url_evento,
+            categoriaId: this.state.Categoria_id,
+            salaId: this.state.Sala_id,
+            comunidadeId: this.state.comunidadeId
+        };
+
+        Axios.post('https://localhost:5001/api/Evento', evento)
+            .then(resposta => {
+                console.log(resposta);
+                if (resposta.status == 200) {
+                    this.uploadFoto(resposta.data.eventoId);
+                    console.log("FOOOOOOOOOOOOOOOOOOOOOOOOOOOOI");
+                }
+            }).catch(error => console.log(error));
+
     }
 
 
     getSala = () => {
         Axios.get('http://localhost:5000/api/Sala')
             .then(resposta => {
-                this.setState({Lista_de_sala : resposta.data });
-                console.log(resposta);
-        console.log(this.state.Lista_de_sala);
+                this.setState({ Lista_de_sala: resposta.data });
+                console.log("SALAs" + resposta);
+                console.log(this.state.Lista_de_sala);
 
             })
             .catch(error => { console.log(error) });
     }
 
 
+    getCategoria = () => {
+        Axios.get('http://localhost:5000/api/Categoria')
+            .then(resposta => {
+                this.setState({ Lista_de_Categoria: resposta.data })
+                console.log("CATEGORIA " + resposta);
+                console.log(this.state.Lista_de_Categoria)
+            })
+            .catch(error => { console.log(error) });
+    }
+
+    uploadFoto = (id) => {
+
+        let evento = new FormData();
+        evento.set("imagem", this.state.Foto.current.files[0]);
+
+        Axios({
+            method: 'put',
+            url: 'http://localhost:5000/api/Evento/' + id + '/uploadFoto',
+            data: evento,
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+            .then(resposta => {
+                console.log("RESPOSTA " + resposta);
+            }).catch(error => console.log(error));
+
+    }
 
 
-    // Funcao que recebe os valores do input e coloca na variavel
+
+
+
+
+
+
+
+
+
+
+
+
+
     atualizarEstadoNome(event) {
         this.setState({ Nome: event.target.value })
         console.log(this.state.Url_evento);
@@ -95,18 +158,13 @@ class Evento extends Component {
     }
 
     atualizarEstadoEvento_Data(event) {
-        this.setState({ Evento_Data: event.target.value })
+        this.setState({ Evento_data: event.target.value })
         console.log(this.state.Evento_data)
     }
 
     atualizarEstadoHorario(event) {
         this.setState({ Horario: event.target.value })
         console.log(this.state.Horario)
-    }
-
-    atualizarEstadoFoto(event) {
-        this.setState({ Foto: event.targer.value })
-        console.log(this.state.Foto)
     }
 
     atualizarEstadoDescricao(event) {
@@ -117,10 +175,34 @@ class Evento extends Component {
         this.setState({ Url_evento: event.target.value })
         console.log(this.state.Url_evento)
     }
+    atualizarEstadoPublico(event) {
+        this.setState({ Publico: event.target.value })
+        console.log(this.state.Publico)
+    }
+
+
+
+
+
+
+
+
 
     componentDidMount() {
         this.getSala();
+        this.getCategoria();
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -139,7 +221,8 @@ class Evento extends Component {
                                 <h1>Cadastrar novo evento</h1>
                             </div>
 
-                            <form onSubmit={this.efetuarCadastro.bind(this)} className="cad_form" action="">
+                            <form onSubmit={this.efetuarCadastro.bind(this)} className="cad_form" method="POST">
+
                                 <div className="campo_dados">
                                     <div>
                                         <label for="nome">Nome:</label>
@@ -151,24 +234,19 @@ class Evento extends Component {
                                     </div>
 
                                 </div>
-                                {/* <div className="campo_dados">
-                        <div>
-                            <small>Se já tiver um link de inscrição, insira aqui, se não tiver você pode incluir depois
-                                do evento ser aprovado também.</small>
-                            <input className="cad_url" type="text" name="" id="" placeholder="URL para cadastro"/>
-                        </div>
 
 
-                    </div>  */}
                                 <div className="campo_dados">
                                     <div>
                                         <label for="cad-participantes">Quantidade de participantes:</label>
-                                        <select className="select_quant" name="participantes" id="cad-participantes">
-                                            {
-                                                this.state.Lista_de_sala.map(function(sala) {
-                                                    return(
+                                        <select onChange={i => this.atualizarEstadoSala_id(i)} className="select_quant" name="participantes" id="cad-participantes">
+                                            <option value=''>Selecione</option>
 
-                                                        <option value={sala.salaId}>{sala.qntdPessoas}</option>
+                                            {
+                                                this.state.Lista_de_sala.map(function (sala) {
+                                                    return (
+
+                                                        <option key={sala.salaId} value={sala.salaId}>{sala.qntdPessoas}</option>
                                                     );
 
                                                 }.bind(this))
@@ -178,34 +256,37 @@ class Evento extends Component {
 
                                     <div>
                                         <label for="categorias">Selecione a categoria do evento:</label>
-                                        {/* <select className="select_cat" name="categorias" id="categorias">
+                                        <select onChange={e => this.atualizarEstadoCategoria_id(e)} className="select_cat" name="categorias" id="categorias">
+                                            <option value=''>Selecione</option>
                                             {
-                                                this.state.Lista_de_Categoria.map(function(lista){
-                                                
-                                                <option value={lista.listaId}>{ lista.listaNome}</option>
-                                                
-                                                
-                                                }.bind(this))                                                )
+                                                this.state.Lista_de_Categoria.map(function (categoria) {
+                                                    return (
+                                                        <option key={categoria.salaId} value={categoria.categoriaId}>{categoria.nome}</option>
+                                                    );
+                                                }.bind(this))
                                             }
-                                        </select> */}
+
+                                        </select>
+
                                     </div>
 
                                 </div>
+
+
                                 <div className="campo_dados">
                                     <div>
                                         <label for="">O evento terá coffe?</label>
-                                        <select className="select_coffe" name="coffe" id="cad-coffe">
+                                        <select onChange={i => this.atualizarEstadoCoffe(i)} className="select_coffe" name="coffe" id="cad-coffe">
                                             <option value="sel">Selecione</option>
                                             <option value="Sim">Sim</option>
                                             <option value="Não">Não</option>
                                         </select>
                                     </div>
 
-                                    {/* <div className="cad-box-cat"> 
-                         <label className="cad-label-cat" for="categorias">Categorias</label>  */}
+
                                     <div>
                                         <label for="">Evento focado em diversidade?</label>
-                                        <select className="select_diversi" name="diversidade" id="cad-diversidada">
+                                        <select onChange={u => this.atualizarEstadoDiversidade(u)} className="select_diversi" name="diversidade" id="cad-diversidada">
                                             <option value="sel">Selecione</option>
                                             <option value="Sim">Sim</option>
                                             <option value="Não">Não</option>
@@ -213,10 +294,12 @@ class Evento extends Component {
                                     </div>
 
                                 </div>
+
+
                                 <div className="campo_dados">
                                     <div>
                                         <label className="cad-label-date" for="select-data">Data:</label>
-                                        <input name="Evento_Data" value={this.state.Evento_Data} onChange={this.atualizarEstadoEvento_Data.bind(this)} className="cad-select-data" type="date" name="" id="appt_horario" />
+                                        <input name="Evento_Data" value={this.state.Evento_Data} onChange={i => this.atualizarEstadoEvento_Data(i)} className="cad-select-data" type="date" name="" id="appt_horario" />
                                     </div>
 
                                     <div>
@@ -230,22 +313,25 @@ class Evento extends Component {
                                     <div>
 
                                         <label className="imagem-evento">Insira uma Imagem de capa para seu evento:</label>
-                                        <input name="Foto" value={this.state.Foto} onChange={this.atualizarEstadoFoto.bind(this)} className="cad_select_img" type="file" name="pic" accept="image/*" />
+
+                                        <input name="Foto" ref={this.state.Foto} className="cad_select_img" type="file" name="Foto" />
 
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <label for="">Evento privado?</label>
-                                        <select className="select_diversi" name="diversidade" id="cad-diversidada">
+                                        <select onChange={i => this.atualizarEstadoPublico(i)} className="select_diversi" name="privado" id="cad-privado">
                                             <option value="sel">Selecione</option>
                                             <option value="Sim">Sim</option>
                                             <option value="Não">Não</option>
                                         </select>
-                                    </div>
+                                    </div> */}
                                 </div>
+
+
                                 <div className="campo_dados">
                                     <div>
                                         <label className="cad-label-descricao">Faça uma breve descrição sobre o evento:</label>
-                                        <textarea className="cad-textarea" name="descricao-evento" id="desc-eve" cols="45" rows="10"
+                                        <textarea onChange={u => this.atualizarEstadoDescricao(u)} className="cad-textarea" name="descricao-evento" id="desc-eve" cols="45" rows="10"
                                         ></textarea>
                                     </div>
                                     <div className="div_small_url">
@@ -253,11 +339,11 @@ class Evento extends Component {
                                             <label for="url_cad">Url de cadastro:</label>
                                         </div>
                                         <input name="Url_evento" value={this.state.Url_evento} onChange={this.atualizarEstadoUrl_evento.bind(this)} className="cad_input_url" type="text" name="" id="url_cad" placeholder="URL para cadastro" />
-                                        <small className="small_url">Se já tiver um link de inscrição, insira aqui. Se não tiver, você pode incluir depois
-                                que evento for aprovado também.</small>
-
+                                        <small className="small_url">Se já tiver um link de inscrição, insira aqui. Se não tiver, você pode incluir depois que evento for aprovado também.</small>
                                     </div>
                                 </div>
+
+
                                 <div className="campo_dados">
 
                                     <div className="div_botao">
@@ -267,21 +353,6 @@ class Evento extends Component {
 
 
                             </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         </div>
                     </section>

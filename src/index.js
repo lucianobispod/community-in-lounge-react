@@ -12,7 +12,6 @@ import App from './App';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Evento from './pages/Evento';
-import Douglas from './pages/Douglas'
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
