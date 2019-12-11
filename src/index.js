@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import MeusEventos from './pages/MeusEventos/MeusEventos';
 import GerenciarEventos from './pages/GerenciarEventos/GerenciarEventos';
+import Perfil from './pages/perfil/Perfil';
 
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
@@ -25,6 +26,7 @@ const Rotas = (
                 <Route exact path="/" component={Home} />
                 <Route path="/Meuseventos" component={MeusEventos} />
                 <Route path="/GerenciarEventos" component={GerenciarEventos} />
+                <Route path="/Perfil" component={Perfil} />
                 <Route component={NotFound} />
             </Switch>
         </div>
