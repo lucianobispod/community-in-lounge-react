@@ -10,7 +10,9 @@ class Categoria extends Component {
         super(props);
         this.state = {
             nome: '',
-            categorias: []
+            search: '',
+            categorias: [],
+            categoriasFiltradas: [],
         }
     }
 
@@ -18,7 +20,7 @@ class Categoria extends Component {
         Axios.get('https://localhost:5001/api/categoria')
             .then(resposta => {
                 const categorias = resposta.data
-                this.setState({ categorias })
+                this.setState({ categorias, categoriasFiltradas: categorias })
             }).catch(error => console.log(error));
     }
 
@@ -36,30 +38,50 @@ class Categoria extends Component {
     }
 
     atualizaCategoria = (event) => {
-
         this.setState({
             nome: event.target.value
         });
+        
         console.log(this.state.nome)
     }
 
-
+    
+    
     deletarCategoria = (id) => {
         console.log('Excluindo Categoria');
 
-
+        
         Axios.delete('https://localhost:5001/api/categoria' + id)
-
-            .then(response => {
-                console.log(response);
-                this.setState(()=> ({ lista: this.state.lista}))
-                this.getCategorias()
-            }).catch(error =>{
-                console.log(error);
-                this.setState({erroMessage : 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria'})
-            });
+        
+        .then(response => {
+            console.log(response);
+            this.setState(() => ({ lista: this.state.lista }))
+            this.getCategorias()
+        }).catch(error => {
+            console.log(error);
+            this.setState({ erroMessage: 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria' })
+        });
     }
+    
+        atualizaSearch = (event) => {
+            console.log(this.state.categorias)
+            
+            // console.log(filtrado)
+            //
+            var filtrado = this.state.categorias.filter(element => {
+                return element.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 
+            })
+            
+            this.setState({
+                categoriasFiltradas: filtrado
+            })
 
+            //seta o valor do meu input
+            this.setState({
+                search: event.target.value
+            });
+            
+        }
 
     componentDidMount() {
         this.getCategorias();
@@ -73,7 +95,7 @@ class Categoria extends Component {
                         <h1> categorias já cadastradas </h1>
                         <div className="cdr_ctg_buscarcategoria">
                             <form action="">
-                                <input className="cdr_ctg_caixabuscarcategoria" type="text" placeholder="Buscar Uma Categoria" />
+                                <input value={this.state.search} onChange={i => this.atualizaSearch(i)} className="cdr_ctg_caixabuscarcategoria" type="text" placeholder="Buscar Uma Categoria" />
                                 <button type="submit" className="cdr_ctg_btn">
                                     <i className="fas fa-search"></i>
                                 </button>
@@ -83,7 +105,7 @@ class Categoria extends Component {
                         <div className="cdr_ctg_caixadecategorias">
 
                             {
-                                this.state.categorias.map(function (categoria) {
+                                this.state.categoriasFiltradas.map(function (categoria) {
                                     return (
                                         <div className="cdr_ctg_categoria1" key={categoria.categoriaId}>
                                             <p> {categoria.nome}</p>
