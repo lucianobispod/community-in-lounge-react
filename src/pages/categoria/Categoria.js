@@ -10,6 +10,7 @@ class Categoria extends Component {
         super(props);
         this.state = {
             nome: '',
+            search: '',
             categorias: []
         }
     }
@@ -36,11 +37,21 @@ class Categoria extends Component {
     }
 
     atualizaCategoria = (event) => {
-
         this.setState({
             nome: event.target.value
         });
         console.log(this.state.nome)
+    }
+
+
+    atualizaSearch = (event) => {
+        this.setState({
+            search: event.target.value
+        });
+        console.log(this.state.search)
+        setInterval(() => {
+            this.searchNameCategoria(this.state.search);
+        }, 500);
     }
 
 
@@ -52,11 +63,21 @@ class Categoria extends Component {
 
             .then(response => {
                 console.log(response);
-                this.setState(()=> ({ lista: this.state.lista}))
+                this.setState(() => ({ lista: this.state.lista }))
                 this.getCategorias()
-            }).catch(error =>{
+            }).catch(error => {
                 console.log(error);
-                this.setState({erroMessage : 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria'})
+                this.setState({ erroMessage: 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria' })
+            });
+    }
+
+    searchNameCategoria = (search) => {
+        Axios.get('https://localhost:5001/api/categoria/' + search)
+            .then(response => {
+                console.log(response);
+                this.setState(() => ({ categorias: response.data }))
+            }).catch(error => {
+                console.log(error);
             });
     }
 
@@ -73,7 +94,7 @@ class Categoria extends Component {
                         <h1> categorias já cadastradas </h1>
                         <div className="cdr_ctg_buscarcategoria">
                             <form action="">
-                                <input className="cdr_ctg_caixabuscarcategoria" type="text" placeholder="Buscar Uma Categoria" />
+                                <input value={this.state.search} onChange={i => this.atualizaSearch(i)} className="cdr_ctg_caixabuscarcategoria" type="text" placeholder="Buscar Uma Categoria" />
                                 <button type="submit" className="cdr_ctg_btn">
                                     <i className="fas fa-search"></i>
                                 </button>
