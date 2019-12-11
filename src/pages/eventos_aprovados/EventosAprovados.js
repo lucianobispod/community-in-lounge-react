@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './EventosAprovados.css';
 
-
+import axios from 'axios';
+import Footer from '../../components/footer/Footer';
 
 
 
@@ -12,6 +13,16 @@ class EventosAprovados extends Component {
         this.state = {
             listaaprovados: [],
         }
+    }
+
+    listarEventosAprovados(id){
+        axios.get('http://localhost:5000/api/Aprovados'+ id,
+       
+        )
+    }
+
+    componentDidMount(id){
+        
     }
     render() {
         return (
@@ -33,11 +44,13 @@ class EventosAprovados extends Component {
                                     <p className="titulo-info">A impotacia da diversidade</p>
                                     <p className="data-info">ter, 30 de mar, 16:20</p>
                                     <p className="comunidade-info">ThoughtWorks</p>
-
                                 </div>
+
+                                    <div className="div-botao-rejeitar"><button class="rejeitar"><i class="fas fa-times"></i></button></div>
 
                             </div>
 
+                           
                             <div className="card-aprovado">
                                 <div className="foto-aprovado"></div>
 
@@ -46,28 +59,32 @@ class EventosAprovados extends Component {
                                     <p className="titulo-info">A impotacia da diversidade</p>
                                     <p className="data-info">ter, 30 de mar, 16:20</p>
                                     <p className="comunidade-info">ThoughtWorks</p>
-
                                 </div>
+
+                                    <div className="div-botao-rejeitar"><button class="rejeitar"><i class="fas fa-times"></i></button></div>
 
                             </div>
 
-                                <div className="card-aprovado">
-                                    <div className="foto-aprovado"></div>
+                               
+                            <div className="card-aprovado">
+                                <div className="foto-aprovado"></div>
 
-                                    <div className="info-evento-aprovado">
+                                <div className="info-evento-aprovado">
 
-                                        <p className="titulo-info">A impotacia da diversidade</p>
-                                        <p className="data-info">ter, 30 de mar, 16:20</p>
-                                        <p className="comunidade-info">ThoughtWorks</p>
-
-                                    </div>
-
+                                    <p className="titulo-info">A impotacia da diversidade</p>
+                                    <p className="data-info">ter, 30 de mar, 16:20</p>
+                                    <p className="comunidade-info">ThoughtWorks</p>
                                 </div>
+
+                                    <div className="div-botao-rejeitar"><button class="rejeitar"><i class="fas fa-times"></i></button></div>
+
+                            </div>
                                 
             
 
                         </div>
                     </section>
+                    <Footer />
                 </main>
             </div>
         )
