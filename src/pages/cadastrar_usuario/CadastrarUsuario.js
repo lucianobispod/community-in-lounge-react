@@ -1,93 +1,76 @@
 import React, { Component } from 'react';
 import './CadastrarUsuario.css' //Importando css
 
-
+import axios from 'axios';
 import Footer from '../../components/footer/Footer';
-import { api, apiFormData } from '../../services/api';
 
 class CadastrarUsuario extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
-
-            postUsuario: {
                 nome: '',
                 email: '',
                 telefone: '',
                 senha: '',
-                genero: '',
-                tipo_usuario_id: 1,
-                foto: React.createRef()
-
-            }
+                genero: 'Masculino',
+                tipo_usuario_id: 3,
+                foto: React.createRef(),
+            
         }
     }
 
-    postSetState = (input) =>{
+    atualizaState = (event) =>{
         this.setState({
-            postUsuario: {
-                ...this.state.postUsuario, [input.target.name] : input.target.value
-            }        
-        })
+        [event.target.name] : event.target.value
+        });
     }
 
-    putSetStateFile = (input) =>{
-        this.setState({
-            postUsuario: {
-                ...this.state.postUsuario, [input.target.name] : input.target.files[0]
-            }   
-        })
-    }
-
-
-
-        postUsuario = (event) =>
-        {
-            event.preventDefault();
-
-             // Declara um objeto do tipo FormData, já que o Backend recebe este tipo.
-                let formData = new FormData();
-                formData.set('nome', this.state.postUsuario.nome);
-                formData.set('email', this.state.postUsuario.email);
-                formData.set('telefone', this.state.postUsuario.telefone);
-                formData.set('genero', this.state.postUsuario.genero);
-                formData.set('senha', this.state.postUsuario.senha);
-                formData.set('tipo_usuario_id', this.state.postUsuario.tipo_usuario_id);
-
-                formData.set('foto', this.state.postUsuario.foto.current.files[0]);
-
-
-                apiFormData.post('/Usuario', formData)                
-                .then(response => {
-                        console.log(response);
-                        this.listarGET();
-                })
-                .catch(error => console.log('Não foi possível cadastrar:' + error))
-        }
-    
-
-
-
-
-    
-
-    // efetuarCadastro(event) {
-    //     event.preventDefault()
-
-    //     api.post('/Usuario', {
-    //         nome: this.state.nome,
-    //         email: this.state.email,
-    //         telefone: this.state.telefone,
-    //         descricao: this.state.descricao,
-    //         foto: this.state.foto,
-    //         senha: this.state.senha,
-    //         genero: this.state.genero,
-    //         tipo_usuario_id:  this.state.tipo_usuario_id
+    efetuarCadastro = (event) => {
+        event.preventDefault()
         
-    //     })
-    // }
+        console.log(this.state.nome);
+        console.log(this.state.senha);
+        console.log(this.state.telefone);
+        console.log(this.state.tipo_usuario_id);
+        console.log(this.state.email);
+        console.log(this.state.genero);
+        console.log(this.state.foto);
 
+        axios.post('http://localhost:5000/api/Usuario', {
+            nome: this.state.nome,
+            email: this.state.email,
+            telefone: this.state.telefone,
+            descricao: this.state.descricao,
+            foto: 'url',
+            senha: this.state.senha,
+            genero: this.state.genero,
+            tipoUsuarioId:  this.state.tipo_usuario_id
+        })
+        .then(resposta => {
+            console.log(resposta);
+            console.log(resposta.data.usuarioId);
+            if (resposta.status == 200) {
+                console.log('FOOOI');
+                this.uploadFoto(resposta.data.usuarioId);
+            }
+        }).catch(error => {console.log(error)});
+    }
+
+
+    uploadFoto = (id) => {
+        let evento = new FormData();
+        evento.set("imagem", this.state.foto.current.files[0]);
+
+        axios({
+            method: 'put',
+            url: 'http://localhost:5000/api/Usuario/' + id + '/uploadFoto',
+            data: evento,
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+            .then(resposta => {
+                console.log("RESPOSTA " + resposta);
+            }).catch(error => console.log(error));
+    }
 
 
     render() {
@@ -115,10 +98,8 @@ class CadastrarUsuario extends Component {
 
                                 <label className="campo_foto_usuario_label" for="campo_foto_usuario"> Clicle aqui para adcionar uma foto</label>
                                 <input type="file"
-                                    name="foto"
-                                    // onChange={this.putSetStateFile}
                                     id="campo_foto_usuario"
-                                    ref={this.state.postUsuario.foto}
+                                    ref={this.state.foto}
                                    />
                             </div>
 
@@ -127,7 +108,7 @@ class CadastrarUsuario extends Component {
 
                         <div className="usuario_container">
 
-                            <form className="usuario_form" onSubmit={this.postUsuario}>
+                            <form className="usuario_form" onSubmit={this.efetuarCadastro}>
 
                                 <div className="inpu_div_usuario">
 
@@ -137,8 +118,8 @@ class CadastrarUsuario extends Component {
 
                                         <input type="text"
                                             name="nome"
-                                            value={this.state.postUsuario.nome}
-                                            onChange={this.postSetState}
+                                            value={this.state.nome}
+                                            onChange={this.atualizaState}
                                             placeholder="Digite seu nome"/>
 
                                     </div>
@@ -148,8 +129,8 @@ class CadastrarUsuario extends Component {
                                         <label for="email">Email:</label>
 
                                         <input type="email"
-                                            value={this.postUsuario.email}
-                                            onChange={this.postSetState}
+                                            value={this.email}
+                                            onChange={this.atualizaState}
                                             name="email"
                                             placeholder="exemplo@email.com" />
                                     </div>
@@ -160,8 +141,8 @@ class CadastrarUsuario extends Component {
 
                                         <input type="text"
                                             name="telefone"
-                                            value={this.postUsuario.telefone}
-                                            onChange={this.postSetState}
+                                            value={this.telefone}
+                                            onChange={this.atualizaState}
                                             placeholder="11 97777-4444" />
 
                                     </div>
@@ -171,12 +152,18 @@ class CadastrarUsuario extends Component {
                                         <input className="genero_i"
                                             value="Masculino"
                                             type="radio"
-                                            name="genero"/>Masculino
+                                            name="genero"
+                                            checked={this.state.genero === 'Masculino'}
+                                            onChange={this.atualizaState}
+                                            />Masculino
                                         
                                         <input className="genero_i"
                                             value="Feminino"
                                             type="radio"
-                                            name="genero"/>Feminino
+                                            name="genero"
+                                            checked={this.state.genero === 'Feminino'}
+                                            onChange={this.atualizaState}
+                                            />Feminino
                                             
                                     </div>
 
@@ -185,15 +172,14 @@ class CadastrarUsuario extends Component {
                                         <label for="senha">Senha:</label>
                                         <input type="password" 
                                         name="senha"
-                                        value={this.postUsuario.senha} 
-                                        onChange={this.postSetState}/>
+                                        value={this.senha} 
+                                        onChange={this.atualizaState}/>
                                     </div>
 
                                 </div>
 
                                 <button type="submit">Cadastrar</button>
                             </form>
-
                         </div>
 
                     </section>
