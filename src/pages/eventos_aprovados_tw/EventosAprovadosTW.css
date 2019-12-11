@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+  --azul: #25bcce;
+  --laranja: #f68e31;
+  --preto: #231f20;
+  --cinza: #808284;
+  --cinzaclaro: #ccc;
+  --verde: #29803f;
+  --branco: #fff;
+  --font: 'Open Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, a,p {
+  font-family: var(--font);
+  margin-bottom: 0 !important;
+
+}
+
+.sessao-aprovados{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* background: aqua; */
+}
+
+
+.caixa-titulo-aprovados h1{
+    text-transform: uppercase;
+    font-size: 3em;
+    /* background: yellowgreen; */
+}
+
+.div-eventos-aprovados {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 85vh;
+    /* background: blue; */
+}
+
+.card-aprovado{
+    height: 20vh;
+    width: 59vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--cinzaclaro);
+    border-radius: 5px;
+}
+
+ .foto-aprovado{
+    height: 20vh;
+    width: 18vw;
+    }  
+
+.info-evento-aprovado{
+ height: 20vh;
+ width: 30vw;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+}
+
+.div-botao-rejeitar{
+    width: 10vw;
+    height: 8vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.rejeitar{
+    height: 5vh;
+    width: 4vw;
+    cursor: pointer;
+    font-size: 1.6em;
+    border: none;
+    outline: 0;
+    background: none;
+}
+.fa-times:before {
+    color: red;
+}
+.titulo-info {
+    font-size: 1.6em;
+}
+
+.data-info{
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.comunidade-info{
+    font-size: 1.1em;
+}
+    

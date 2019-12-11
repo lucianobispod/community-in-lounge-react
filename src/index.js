@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound';
 import CadastrarUsuario from './pages/cadastrar_usuario/CadastrarUsuario';
 import TornarAdministrador from './pages/tornar_administrador/TornarAdministrador';
 import EventosAprovados from './pages/eventos_aprovados/EventosAprovados';
+import EventosAprovadosTW from './pages/eventos_aprovados_tw/EventosAprovadosTW';
 
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
@@ -27,6 +28,7 @@ const Rotas = (
                 <Route path="/CadastrarUsuario" component={CadastrarUsuario}/>
                 <Route path="/TornarAdministrador" component={TornarAdministrador}/>
                 <Route path="/EventosAprovados" component={EventosAprovados}/>
+                <Route path="/EventosAprovadosTW" component={EventosAprovadosTW}/>
                 <Route component={NotFound} />
             </Switch>
         </div>
