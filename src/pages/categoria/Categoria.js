@@ -96,7 +96,7 @@ class Categoria extends Component {
                             }
 
                         </div>
-                        <div className="cdr_ctg_caixanav">
+                        {/* <div className="cdr_ctg_caixanav">
                             <form action="">
                                 <button className="cdr_ctg_navbtn">
                                     <div className="cdr_ctg_nav">
@@ -129,7 +129,7 @@ class Categoria extends Component {
                                     </div>
                                 </button>
                             </form>
-                        </div>
+                        </div> */}
 
                     </div>
                     <div className="cdr_ctg_caixa2">
