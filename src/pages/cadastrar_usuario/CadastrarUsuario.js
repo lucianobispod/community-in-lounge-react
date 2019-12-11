@@ -36,6 +36,10 @@ class CadastrarUsuario extends Component {
         console.log(this.state.genero);
         console.log(this.state.foto);
 
+
+        // headers: {
+        //     "Authorization" : "Bearer" + localStorage.getItem("usuario-community")
+        // }
         axios.post('http://localhost:5000/api/Usuario', {
             nome: this.state.nome,
             email: this.state.email,

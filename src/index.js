@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import CadastrarUsuario from './pages/cadastrar_usuario/CadastrarUsuario';
 import TornarAdministrador from './pages/tornar_administrador/TornarAdministrador';
+import EventosAprovados from './pages/eventos_aprovados/EventosAprovados';
 
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
@@ -25,6 +26,7 @@ const Rotas = (
                 <Route exact path="/" component={Home} />
                 <Route path="/CadastrarUsuario" component={CadastrarUsuario}/>
                 <Route path="/TornarAdministrador" component={TornarAdministrador}/>
+                <Route path="/EventosAprovados" component={EventosAprovados}/>
                 <Route component={NotFound} />
             </Switch>
         </div>
