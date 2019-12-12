@@ -8,26 +8,45 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 //pages
-import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import MeusEventos from './pages/MeusEventos/MeusEventos';
 import GerenciarEventos from './pages/GerenciarEventos/GerenciarEventos';
 import Perfil from './pages/perfil/Perfil';
-
+import Categoria from './pages/categoria/Categoria';
 //rotas
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
 import * as serviceWorker from './serviceWorker';
+import Login from './pages/login/Login';
+import { isAuthenticated, parseToken } from './services/auth';
+
+
+
+const Administrador = ({ component: Component }) => (
+    <Route
+        render={props =>
+            isAuthenticated() && parseToken().Roles === 'Administrador' ? (
+                <Component {...props} />
+            ) : (
+                    <Redirect to={{ pathame: '/Login' }} />
+                )
+        }
+    />
+)
+
 
 const Rotas = (
     <Router>
         <div>
             <Switch>
-                <Route exact path="/" component={Home} />
+                
+                <Route path="/Login" component={Login} />
                 <Route path="/Meuseventos" component={MeusEventos} />
-                <Route path="/GerenciarEventos" component={GerenciarEventos} />
+                <Administrador path='/Categoria' component={Categoria}/>
+                <Administrador path="/GerenciarEventos" component={GerenciarEventos} />
                 <Route path="/Perfil" component={Perfil} />
                 <Route component={NotFound} />
+
             </Switch>
         </div>
     </Router>

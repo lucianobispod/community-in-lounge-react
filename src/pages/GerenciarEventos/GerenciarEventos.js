@@ -22,8 +22,8 @@ class MeusEventos extends Component {
         axios.get('http://localhost:5000/api/Evento/pendenteMes/' + mes)
             .then(respota => {
                 this.setState({ eventos: respota.data }
-                    );
-                    console.log(this.state.eventos)
+                );
+                console.log(this.state.eventos)
             })
             .catch(error => console.error(error));
 
@@ -45,8 +45,8 @@ class MeusEventos extends Component {
         alert("aceitar");
 
         var usuario = 2;
-        console.log("ID "+id);
-        console.log("usus "+usuario);
+        console.log("ID " + id);
+        console.log("usus " + usuario);
         axios.post('http://localhost:5000/api/Evento/aceppt/' + id + '/' + usuario)
             .then(respota => {
                 console.log(respota);
@@ -63,18 +63,18 @@ class MeusEventos extends Component {
         event.preventDefault();
         alert("recusar");
         var usuario = 2;
-        console.log("usuario "+usuario);
+        console.log("usuario " + usuario);
 
         axios.post('http://localhost:5000/api/Evento/rejetc/' + id + '/' + usuario)
-        .then(respota => {
-            console.log(respota);
-            console.log("FOOOOOOOOOOOOOOOiiiiii");
-            this.getEventos()
-        })
-        .catch(error => console.error(error));
+            .then(respota => {
+                console.log(respota);
+                console.log("FOOOOOOOOOOOOOOOiiiiii");
+                this.getEventos()
+            })
+            .catch(error => console.error(error));
 
 
-        
+
     }
 
 
@@ -215,31 +215,31 @@ class MeusEventos extends Component {
 
 
 
+                        {
+                            this.state.eventos.map((evento) => {
+                                return (
+                                    <div class="card-pendente" key={evento.eventoId}>
+                                        <div class="foto-pendente">Foto</div>
+                                        <div class="info">
+                                            <p class="titulo-info">{evento.nome}</p>
+                                            <p class="data-info">{moment(evento.eventoData).format('llll')}</p>
+                                            <p class="comunidade-info">{evento.comunidade.nome}</p>
+                                        </div>
+
+                                        <div class="botoes">
+                                            <button class="rejeitar" onClick={i => this.recusarEvento(i, evento.eventoId)}>
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <button class="aceitar" onClick={i => this.aceitarEvento(i, evento.eventoId)}>
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+
                     </div>
-                    {
-                        this.state.eventos.map((evento) => {
-                            return (
-                                <div class="card-pendente" key={evento.eventoId}>
-                                    <div class="foto-pendente">Foto</div>
-                                    <div class="info">
-                                        <p class="titulo-info">{evento.nome}</p>
-                                        <p class="data-info">{moment(evento.eventoData).format('llll')}</p>
-                                        <p class="comunidade-info">{evento.comunidade.nome}</p>
-                                    </div>
-
-                                    <div class="botoes">
-                                        <button class="rejeitar" onClick={i => this.recusarEvento(i, evento.eventoId)}>
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                        <button class="aceitar" onClick={i => this.aceitarEvento(i, evento.eventoId )}>
-                                            <i class="fas fa-check"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
-
 
 
 
