@@ -13,7 +13,6 @@ import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidad
 import NotFound from './pages/NotFound';
 import MeusEventos from './pages/MeusEventos/MeusEventos';
 import GerenciarEventos from './pages/GerenciarEventos/GerenciarEventos';
-import Perfil from './pages/perfil/Perfil';
 import Categoria from './pages/categoria/Categoria';
 //rotas
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
@@ -46,7 +45,6 @@ const Rotas = (
                 <Route path="/Meuseventos" component={MeusEventos} />
                 <Administrador path='/Categoria' component={Categoria}/>
                 <Administrador path="/GerenciarEventos" component={GerenciarEventos} />
-                <Route path="/Perfil" component={Perfil} />
                 <Route exact path="/" component={Home} />
                 <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Route component={NotFound} />
