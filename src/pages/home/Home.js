@@ -1,8 +1,8 @@
-import React from 'react'
-import '../home/home.css'
-import axios from 'axios'
-import moment from 'moment'
-import 'moment/locale/pt-br'
+import React from 'react';
+import '../home/home.css';
+import axios from 'axios';
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 class Home extends React.Component {
     constructor(props) {
@@ -11,11 +11,10 @@ class Home extends React.Component {
             eventosComunidades: [],
             eventosThoughtworks: []
         }
-        this.GetEventosComunidades = this.GetEventosComunidades.bind(this)
-        this.GetEventosThoughtworks = this.GetEventosThoughtworks.bind(this)
+      
     }
 
-    GetEventosComunidades(){
+    GetEventosComunidades = () => {
         axios.get('http://localhost:5000/api/evento')
             .then(resposta => {
                 // const eventosComunidades = resposta.data;
@@ -26,7 +25,7 @@ class Home extends React.Component {
             .catch(err => console.log(err))
     }
 
-    GetEventosThoughtworks() {
+    GetEventosThoughtworks = () => {
 
         axios.get('http://localhost:5000/api/EventoTw/public')
             .then(resposta => {
@@ -51,6 +50,7 @@ class Home extends React.Component {
        
         return (
             <div>
+               
                 <section className="section_banner"></section>
                     <section className="section_titulo_index">
                         <div className="mask_titulo">
@@ -79,7 +79,7 @@ class Home extends React.Component {
                                                     <p className="comuni_evento-card-main">{eventos.comunidade.nome}</p>
                                                 </div>
                                                 <div className="box_parti-bot-card-main">
-                                                    <p className="partici-card-main">{eventos.sala.qntdPessoas}</p>
+                                                    {/* <p className="partici-card-main">{eventos.sala.qntdPessoas}</p> */}
                                                     <div className="link-card-main">
                                                         <a href="#">Inscreva-se</a>
                                                     </div>
