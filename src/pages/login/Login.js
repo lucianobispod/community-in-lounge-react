@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import "../../assets/css/login.css"
+import "./login.css"
 import Axios from 'axios';
 import { parseToken } from '../../services/auth'
 
+import { Link } from 'react-router-dom';
 
 
 class Login extends Component {
@@ -63,9 +64,9 @@ class Login extends Component {
                     </div>
                     <div className="login_container">
 
-                        <a href="index.html" class="link-icone">
+                        <Link to='/'  className="link-icone">
                             <i className="fas fa-times fechar-login"></i>
-                        </a>
+                        </Link>
 
                         <div className="titulo_login">
                             <h1>Login</h1>

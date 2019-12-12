@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
-import './style.css';
+import './home.css';
+
 import axios from 'axios';
+
 import moment from 'moment';
 import 'moment/locale/pt-br';
+
+import Footer from '../../components/footer/Footer';
+import HeaderDefault from '../../components/header/default/HeaderDefault';
+
+import { isAuthenticated, parseToken } from '../../services/auth';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             eventosComunidades: [],
-            eventosThoughtworks: []
+            eventosThoughtworks: [],
+            token: '',
+            acesso: ''
 
         }
     }
@@ -39,17 +48,32 @@ class Home extends Component {
     componentDidMount() {
         this.GetEventosComunidades();
         this.GetEventosThoughtworks();
-        console.log(this.state.eventosThoughtworks);
+        // console.log(this.state.eventosThoughtworks);
 
-        console.log(moment.locale())
-        console.log(moment.locale('pt-br'))
-        console.log(moment.locale())
+
+        this.setState({ token: isAuthenticated() })
+
+        if (isAuthenticated()) {
+
+            this.setState({ acesso: parseToken().Roles })
+            console.log("acesso " + parseToken().Roles);
+        }
+
+        console.log("funcao " + isAuthenticated());
+
+        console.log("state token" + this.state.token);
+        console.log("state acesso" + this.state.acesso);
     }
+
 
 
     render() {
         return (
             <div>
+
+                {this.state.token === false ? (<HeaderDefault />) : this.state.acesso === 'Administrador' ? <h1>ADM</h1> : (<h1>COM OU FUN</h1>)}
+
+
                 <section className="section_banner"></section>
 
                 <main>
@@ -77,7 +101,7 @@ class Home extends Component {
                                                 <div className="data-card-main">
                                                     <p>
                                                         {
-                                                            moment(evento.eventoData).format('llll') 
+                                                            moment(evento.eventoData).format('llll')
                                                         }
                                                     </p>
                                                 </div>
@@ -123,7 +147,7 @@ class Home extends Component {
                                                     <div className="data-card-main">
                                                         <p>
                                                             {
-                                                               moment(evento.eventoData).format('llll') 
+                                                                moment(evento.eventoData).format('llll')
                                                             }
                                                         </p>
                                                     </div>
@@ -143,24 +167,7 @@ class Home extends Component {
                                         })
                                     }
 
-                                    {/* 
 
-                                    <div className="card-main">
-                                        <div className="data-card-main">
-                                            <p>ter, 30 de mar, 16:20</p>
-                                        </div>
-
-                                        <div className="identificacao-card-main">
-                                            <p className="evento_titulo-card-main">A importância da diversidade </p>
-                                            <p className="comuni_evento-card-main">ThoughtWorks</p>
-                                        </div>
-                                        <div className="box_parti-bot-card-main">
-                                            <p className="partici-card-main">25 participantes</p>
-                                            <div className="link-card-main">
-                                                <a href="#">Inscreva-se</a>
-                                            </div>
-                                        </div>
-                                    </div> */}
 
                                 </div>
 
@@ -207,6 +214,9 @@ class Home extends Component {
                     </section>
 
                 </main>
+
+                <Footer />
+
             </div>
         );
     }

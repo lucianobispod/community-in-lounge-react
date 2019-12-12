@@ -14,6 +14,10 @@ import NotFound from './pages/NotFound';
 import MeusEventos from './pages/MeusEventos/MeusEventos';
 import GerenciarEventos from './pages/GerenciarEventos/GerenciarEventos';
 import Categoria from './pages/categoria/Categoria';
+import CadastrarUsuario from './pages/cadastrar_usuario/CadastrarUsuario';
+import TornarAdministrador from './pages/tornar_administrador/TornarAdministrador';
+import EventosAprovados from './pages/eventos_aprovados/EventosAprovados';
+
 //rotas
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
@@ -46,6 +50,9 @@ const Rotas = (
                 <Administrador path='/Categoria' component={Categoria}/>
                 <Administrador path="/GerenciarEventos" component={GerenciarEventos} />
                 <Route exact path="/" component={Home} />
+                <Route path="/CadastrarUsuario" component={CadastrarUsuario}/>
+                <Route path="/TornarAdministrador" component={TornarAdministrador}/>
+                <Route path="/EventosAprovados" component={EventosAprovados}/>
                 <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Route component={NotFound} />
 

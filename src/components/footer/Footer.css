@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --cinzaclaro: #D9D9D9;
+    --verde: #29803f;
+    --branco: #fff;
+    --vermelho: #ee312c;
+    --amarelo: #fff34f;
+    --font: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+p {
+    font-family: var(--font);
+}
+
+/*FOOTER*/
+
+.footer {
+    height: 12vh;
+    width: 100%;
+    background: var(--cinza);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--branco);
+}
+
+.footer_empresa {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer_empresa span {
+    font-size: 14px;
+    font-family: var(--font);
+
+}
+
+.contato {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contato a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer_midiasocial {
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 15vw;
+}
+
+.icons_media {
+    font-size: 1.5em;
+}
+
+
+/*FIM FOOTER*/
