@@ -96,9 +96,7 @@ class Categoria extends Component {
                         <div className="cdr_ctg_buscarcategoria">
                             <form action="">
                                 <input value={this.state.search} onChange={i => this.atualizaSearch(i)} className="cdr_ctg_caixabuscarcategoria" type="text" placeholder="Buscar Uma Categoria" />
-                                <button type="submit" className="cdr_ctg_btn">
                                     <i className="fas fa-search"></i>
-                                </button>
                             </form>
                         </div>
 
