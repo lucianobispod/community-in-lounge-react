@@ -15,9 +15,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1, h2, h3, h4, a, span, p {
     font-family: var(--font);
 }
 
@@ -217,9 +214,6 @@ input[type="file"] {
     display: none;
 }
 
-.campo_foto_comunindade_label {
-    color: var(--font);
-}
 
 @media only screen and (max-device-width: 768px) {
     .text_container_comunidade {
@@ -293,9 +287,10 @@ input[type="file"] {
         width: 50vw;
         
     }
-    #campo_foto_comunidade label {
+    /* #campo_foto_comunidade label {
         font-size: 0.5em;
     }
+     */
     .textarea_comunidade {
         font-size: 1.104em;
     }

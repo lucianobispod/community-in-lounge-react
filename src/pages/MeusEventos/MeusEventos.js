@@ -3,8 +3,13 @@ import './meus-eventos.css';
 import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/pt-br';
+import { isAuthenticated, parseToken, getUserIdAuthenticated } from '../../services/auth';
 
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+
+import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
+import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
+import Footer from '../../components/footer/Footer';
 
 class MeusEventos extends Component {
 
@@ -16,9 +21,12 @@ class MeusEventos extends Component {
             eventosPendentes: [],
             eventosRealizados: [],
             modal: false,
-            url: ''
+            url: '',
+            acesso: '',
+            idUsuario: ''
         };
     }
+
 
 
     toggle = () => {
@@ -29,7 +37,7 @@ class MeusEventos extends Component {
 
     GetEventosAprovados = () => {
         // event.preventDefault();
-        axios.get('http://localhost:5000/api/Evento/AprovadosUsuario/2')
+        axios.get('http://localhost:5000/api/Evento/AprovadosUsuario/' + this.state.idUsuario)
             .then(resposta => {
                 const eventosAprovados = resposta.data;
                 this.setState({ eventosAprovados });
@@ -38,7 +46,7 @@ class MeusEventos extends Component {
 
     GetEventosPendentes = () => {
         // event.preventDefault();
-        axios.get('http://localhost:5000/api/Evento/PendentesUsuario/2')
+        axios.get('http://localhost:5000/api/Evento/PendentesUsuario/' + this.state.idUsuario)
             .then(resposta => {
                 const eventosPendentes = resposta.data;
                 this.setState({ eventosPendentes });
@@ -49,11 +57,14 @@ class MeusEventos extends Component {
     GetEventosRealizados = () => {
         // event.preventDefault();
 
-        axios.get('http://localhost:5000/api/Evento/RealizadosUsuario/2')
+        axios.get('http://localhost:5000/api/Evento/RealizadosUsuario/' + this.state.idUsuario)
             .then(resposta => {
                 const eventosRealizados = resposta.data;
                 this.setState({ eventosRealizados });
             }).catch(error => console.log(error));
+
+
+
     }
 
     deleteEventosPendentes = (id) => {
@@ -70,13 +81,13 @@ class MeusEventos extends Component {
     editarEventoAprovado = (evento) => {
         evento.urlEvento = this.state.url;
         alert(evento.urlEvento);
-        axios.put('http://localhost:5000/api/Evento/' + evento.eventoId, evento )
+        axios.put('http://localhost:5000/api/Evento/' + evento.eventoId, evento)
             .then(resposta => console.log(resposta.data.urlEvento + " asdasdasdasdasdasdasdasdasdss"))
             .then(
                 this.toggle.bind(this),
                 this.GetEventosAprovados.bind(this)
-                
-                )
+
+            )
             .catch(error => console.log(error));
     }
 
@@ -86,9 +97,30 @@ class MeusEventos extends Component {
     }
 
     componentDidMount() {
-        this.GetEventosAprovados();
-        this.GetEventosPendentes();
-        this.GetEventosRealizados();
+
+        if (isAuthenticated()) {
+
+            this.setState({ acesso: parseToken().Roles })
+            this.setState({ idUsuario: getUserIdAuthenticated().id })
+
+            console.log("acesso " + parseToken().Roles);
+            console.log("id suario logado " + getUserIdAuthenticated().id);
+
+        }
+
+        console.log("funcao " + isAuthenticated());
+        console.log("state acesso" + this.state.acesso);
+
+
+        setTimeout(() => {
+            this.GetEventosAprovados();
+            this.GetEventosPendentes();
+            this.GetEventosRealizados();
+        }, 250);
+
+
+
+
     }
 
 
@@ -96,32 +128,34 @@ class MeusEventos extends Component {
         return (
             <div>
 
-                <section className="conteiner_section">
+                {this.state.acesso === 'Administrador' ? <HeaderAdministrador /> : <HeaderUsuario />}
 
-                    <div className=" box_eventos_aprovados">
-                        <h2 className="upper verde">Eventos aprovados</h2>
-                        <div className="box_cards_aprovados">
+                <section className="me-conteiner_section">
 
-                            <div className="linha_card">
+                    <div className="me-box_eventos_aprovados">
+                        <h2 className="me-upper me-verde">Eventos aprovados</h2>
+                        <div className="me-box_cards_aprovados">
+
+                            <div className="me-linha_card">
 
                                 {
-                                    this.state.eventosAprovados.length === 0 ? <h2>Funcionou</h2> :
+                                    this.state.eventosAprovados.length === 0 ? <h2 className='me-mensagem'>Ainda não há eventos</h2> :
                                         this.state.eventosAprovados.map(function (aprovado) {
                                             return (
-                                                <div className="card" key={aprovado.eventoId}>
-                                                    <div className="data">
+                                                <div className="me-card" key={aprovado.eventoId}>
+                                                    <div className="me-data">
                                                         <p>
                                                             {
                                                                 moment(aprovado.eventoData).format('llll')
                                                             }
                                                         </p>
-                                                        <div className="dropdown">
+                                                        <div className="me-dropdown">
 
-                                                            <a className="dropbtn">
+                                                            <a className="me-dropbtn">
                                                                 <i className="fas fa-sort-down"></i>
                                                             </a>
 
-                                                            <div className="dropdown-content">
+                                                            <div className="me-dropdown-content">
                                                                 <button type='submit' onClick={this.toggle.bind(this)}>Editar</button>
                                                             </div>
 
@@ -150,14 +184,14 @@ class MeusEventos extends Component {
                                                         </div>
                                                     </div>
 
-                                                    <div className="identificacao">
-                                                        <p className="evento_titulo">{aprovado.nome}</p>
-                                                        <p className="comuni_evento">{aprovado.comunidade.nome}</p>
+                                                    <div className="me-identificacao">
+                                                        <p className="me-evento_titulo">{aprovado.nome}</p>
+                                                        <p className="me-comuni_evento">{aprovado.comunidade.nome}</p>
                                                     </div>
 
-                                                    <div className="box_parti-bot">
-                                                        <span className="partici">{aprovado.sala.qntdPessoas}</span>
-                                                        <div className="circle pequeno "></div>
+                                                    <div className="me-box_parti-bot">
+                                                        <span className="me-partici">{aprovado.sala.qntdPessoas}</span>
+                                                        <div className="me-circle me-pequeno "></div>
                                                     </div>
 
                                                 </div>
@@ -172,32 +206,32 @@ class MeusEventos extends Component {
                         </div>
                     </div>
 
-                    <div className=" box_eventos_analise">
-                        <h2 className="upper laranja">Eventos em análise</h2>
-                        <div className="box_cards_analise">
+                    <div className="me-box_eventos_analise">
+                        <h2 className="me-upper laranja">Eventos em análise</h2>
+                        <div className="me-box_cards_analise">
 
 
-                            <div className="linha_card">
+                            <div className="me-linha_card">
 
                                 {
-                                    this.state.eventosPendentes.length === 0 ? <h2>Funcionou</h2> :
+                                    this.state.eventosPendentes.length === 0 ? <h2 className='me-mensagem'>Ainda não há eventos</h2> :
                                         this.state.eventosPendentes.map(function (pendentes) {
                                             return (
-                                                <div className="card" key={pendentes.eventoId}>
-                                                    <div className="data">
+                                                <div className="me-card" key={pendentes.eventoId}>
+                                                    <div className="me-data">
                                                         <p>
                                                             {
 
                                                                 moment(pendentes.eventoData).format('llll')
                                                             }
                                                         </p>
-                                                        <div className="dropdown">
+                                                        <div className="me-dropdown">
 
-                                                            <a className="dropbtn">
+                                                            <a className="me-dropbtn">
                                                                 <i className="fas fa-sort-down"></i>
                                                             </a>
 
-                                                            <div className="dropdown-content">
+                                                            <div className="me-dropdown-content">
                                                                 <button >Editar</button>
                                                                 <button type='submit' onClick={i => this.deleteEventosPendentes(pendentes.eventoId)}>Deletar</button>
                                                             </div>
@@ -205,14 +239,15 @@ class MeusEventos extends Component {
 
                                                     </div>
 
-                                                    <div className="identificacao">
-                                                        <p className="evento_titulo">{pendentes.nome}</p>
-                                                        <p className="comuni_evento">{pendentes.comunidade.nome}</p>
+                                                    <div className="me-identificacao">
+                                                        <p className="me-evento_titulo">{pendentes.nome}</p>
+                                                        <p className="me-comuni_evento">{pendentes.comunidade.nome}</p>
                                                     </div>
 
-                                                    <div className="box_parti-bot">
-                                                        <p className="text_italic">{pendentes.sala.qntdPessoas}</p>
-                                                        <div className="circle grande"></div>
+                                                    <div className="me-box_parti-bot">
+                                                        <p className="me-text_italic">{pendentes.sala.qntdPessoas}</p>
+                                                        <p className="me-text_italic">{pendentes.statusEvento === 'Pendente' ? 'Aguardando aprovação' : ''}</p>
+                                                        <div className="me-circle me-grande"></div>
                                                     </div>
 
                                                 </div>
@@ -227,30 +262,30 @@ class MeusEventos extends Component {
                     </div>
                 </section>
 
-                <section className="section_realizados">
-                    <div className="container_realizados">
-                        <h2 className="upper cinza">Eventos realizados</h2>
-                        <div className="box_cards_realizados">
+                <section className="me-section_realizados">
+                    <div className="me-container_realizados">
+                        <h2 className="me-upper me-cinza">Eventos realizados</h2>
+                        <div className="me-box_cards_realizados">
 
                             {
-                                this.state.eventosRealizados.length === 0 ? <h2>Funcionou</h2> :
+                                this.state.eventosRealizados.length === 0 ? <h2 className='me-mensagem'>Ainda não há eventos</h2> :
                                     this.state.eventosRealizados.map(function (realizados) {
                                         return (
-                                            <div className="card" key={realizados.eventoId}>
-                                                <div className="data">
+                                            <div className="me-card" key={realizados.eventoId}>
+                                                <div className="me-data">
                                                     <p>
                                                         {
                                                             moment(realizados.eventoData).format('llll')
                                                         }
                                                     </p>
                                                 </div>
-                                                <div className="identificacao">
-                                                    <p className="evento_titulo">{realizados.nome}</p>
-                                                    <p className="comuni_evento">{realizados.comunidade.nome}</p>
+                                                <div className="me-identificacao">
+                                                    <p className="me-evento_titulo">{realizados.nome}</p>
+                                                    <p className="me-comuni_evento">{realizados.comunidade.nome}</p>
                                                 </div>
-                                                <div className="box_parti-bot">
-                                                    <p className="partici">{realizados.sala.qntdPessoas}</p>
-                                                    <div className="circle medio"></div>
+                                                <div className="me-box_parti-bot">
+                                                    <p className="me-partici">{realizados.sala.qntdPessoas}</p>
+                                                    <div className="me-circle medio"></div>
                                                 </div>
                                             </div>
                                         )
@@ -261,7 +296,7 @@ class MeusEventos extends Component {
                         </div>
                     </div>
                 </section>
-
+                <Footer />
             </div>
 
         );

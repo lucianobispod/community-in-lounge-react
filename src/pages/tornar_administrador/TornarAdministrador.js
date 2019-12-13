@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TornarAdministrador.css' //Importando css
 import icon from '../../assets/images/iconn.jpeg';
-
+import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
 import Footer from '../../components/footer/Footer';
 
 
@@ -14,7 +14,8 @@ class TornarAdministrador extends Component {
         super(props);
         this.state = {
             administradores: [],
-            email: ''
+            email: '',
+            errorMessage: ''
         }
     }
 
@@ -34,8 +35,15 @@ class TornarAdministrador extends Component {
 
     efetuarTransicao = (event) => {
         event.preventDefault();
+
+        console.log('fodasse')
         Axios.put('http://localhost:5000/api/Usuario/ToAd', { email: this.state.email })
-            .then(resposta => console.log(resposta))
+            .then(resposta => {
+
+                this.setState({ errorMessage: resposta.data })
+                console.log('setou erro')
+                console.log(resposta)
+            })
             .then(this.listarAdministradores.bind(this))
             .catch(error => console.log(error))
     }
@@ -57,15 +65,16 @@ class TornarAdministrador extends Component {
 
             <div>
 
+                <HeaderAdministrador />
                 <main>
 
-                    <section className="sessao_tornar_funcionario_ADM">
 
-                        <div>
+                        <section>
                             <img className="banner-tornar-adm" src={icon} />
-                        </div>
+                        </section>
 
 
+                    <section className="sessao_tornar_funcionario_ADM">
 
                         <div className="caixa_tornar_funcionario_ADM">
 
@@ -75,22 +84,36 @@ class TornarAdministrador extends Component {
 
                             </div>
 
-                            <form className="form_tornar_adm" >
+                            <div className="container_tornar_adm" >
 
-                                <div className="div_cadastrar_fun">
-                                    <label>E-mail:</label>
-                                    <form
-                                        onSubmit={this.efetuarTransicao.bind(this)}>
+                                <form onSubmit={i => this.efetuarTransicao(i)}>
+
+
+                                    <div className='div-input'>
+                                        <label>E-mail:</label>
                                         <input onChange={this.UpStateEmail.bind(this)} value={this.state.email} className="input_email" type="email" placeholder="exemplo@gmail.com" />
-                                        <button type='submit' className="botao_cadastrar_fun">Cadastrar</button>
-                                    </form>
+                                    </div>
 
-                                </div>
+                                    <button type='submit' className="botao_cadastrar_fun">Cadastrar</button>
 
-                            </form>
+
+                                </form>
+
+                                <h2>{this.state.errorMessage}</h2>
+                            </div>
 
                         </div>
 
+
+
+                        <div />
+
+                        <div />
+                    </section>
+
+
+
+                    <section className ='section-lista-adm'> 
 
                         <div className="div_cards_tornar_adm">
 
@@ -100,18 +123,17 @@ class TornarAdministrador extends Component {
                                         <div className="card_tonar_adm" key={adm.usuarioId} >
 
                                             <div className="imagem_fun">
+                                                <img />
                                             </div>
 
                                             <div className="div_info_user">
-
-                                                <div>
-                                                    <h2>{adm.nome}</h2>
-                                                    <p>{adm.email}</p>
-                                                </div>
-
+                                                <p className='ta-upper'>{adm.nome}</p>
+                                                <p className='ta-upper'>{adm.email}</p>
                                             </div>
-                                            <button onClick={i => this.alterarAdministrador(adm.usuarioId)}> <i className="fas fa-times excluir-card" /></button>
-                                            {/* <button onClick={i => console.log(adm)}> <i className="fas fa-times excluir-card"  /></button> */}
+
+                                            <button className='excluir-card' onClick={i => this.alterarAdministrador(adm.usuarioId)}>
+                                                <i className="fas fa-times " />
+                                            </button>
 
                                         </div>
                                     )
@@ -122,10 +144,14 @@ class TornarAdministrador extends Component {
 
                         </div>
 
-                        <div />
-
-                        <div />
                     </section>
+
+
+
+
+
+
+
                 </main>
 
                 <Footer />

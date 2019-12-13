@@ -33,7 +33,23 @@ const Administrador = ({ component: Component }) => (
             isAuthenticated() && parseToken().Roles === 'Administrador' ? (
                 <Component {...props} />
             ) : (
-                    <Redirect to={{ pathame: '/Login' }} />
+                    <Redirect to={{ pathame:'/' }} />
+                )
+        }
+    />
+)
+
+const Usuario = ({ component: Component }) => (
+    <Route
+        render={props =>
+            isAuthenticated() && parseToken().Roles === 'Comunidade' ? (
+                <Component {...props} />
+            ) : isAuthenticated() && parseToken().Roles === 'Funcionario' ? (
+                <Component {...props} />
+            ) : isAuthenticated() && parseToken().Roles === 'Administrador' ? (
+                <Component {...props} />
+            ) : (
+                <Redirect to={{ pathname:'/' }} />
                 )
         }
     />
@@ -44,15 +60,15 @@ const Rotas = (
     <Router>
         <div>
             <Switch>
-                
+
                 <Route path="/Login" component={Login} />
-                <Route path="/Meuseventos" component={MeusEventos} />
-                <Administrador path='/Categoria' component={Categoria}/>
+                <Usuario path="/Meuseventos" component={MeusEventos} />
+                <Administrador path='/Categoria' component={Categoria} />
                 <Administrador path="/GerenciarEventos" component={GerenciarEventos} />
                 <Route exact path="/" component={Home} />
-                <Route path="/CadastrarUsuario" component={CadastrarUsuario}/>
-                <Route path="/TornarAdministrador" component={TornarAdministrador}/>
-                <Route path="/EventosAprovados" component={EventosAprovados}/>
+                <Route path="/CadastrarUsuario" component={CadastrarUsuario} />
+                <Administrador path="/TornarAdministrador" component={TornarAdministrador} />
+                <Administrador path="/EventosAprovados" component={EventosAprovados} />
                 <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Route component={NotFound} />
 

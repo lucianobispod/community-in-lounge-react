@@ -16,18 +16,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-a,
-span,
-p,
-input,
-label,
-div {
     font-family: var(--font);
 }
 
@@ -39,22 +27,24 @@ div {
     border: 1px solid var(--cinzaclaro);
     border-radius: 10px;
     width: 22.5vw;
-    height: 25.5vh;
+    height: 25vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     font-size: 16px;
+    margin-left: 10px;
 }
 
 .data-card-main {
-    width: 21vw;
-    font-weight: bold;
+    width: 21.5vw;
     color: var(--azul);
+    /* background: crimson; */
 }
 
 .data-card-main p {
-    font-size: 1.4em;
+    font-size: 1.25em;
+    font-weight: bold;
 }
 
 .data-card-main i {
@@ -63,15 +53,18 @@ div {
 
 .identificacao-card-main {
     width: 21vw;
+    /* background: darkgoldenrod; */
 }
 
 .evento_titulo-card-main {
     font-size: 1.1em;
+    /* background: darkgray; */
 }
 
 .comuni_evento-card-main {
     font-size: 1em;
     color: var(--cinza);
+    /* background: darkgreen; */
 }
 
 .box_parti-bot-card-main {
@@ -101,126 +94,22 @@ div {
 /* FIM CARD HOME */
 
 
-/* CARD MEUS EVENTOS */
-
-.card {
-    background: var(--branco);
-    border: 1px solid var(--cinzaclaro);
-    border-radius: 10px;
-    width: 21.5vw;
-    height: 23vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 16px;
-}
-
-.data {
-    width: 20.5vw;
-    height: 5vh;
-    font-weight: bold;
-    color: var(--azul);
-    display: flex;
-    justify-content: space-between;
-}
-
-.data p {
-    height: 5vh;
-    font-size: 1.1em;
-}
-
-.data button {
-    background: none;
-    border: none;
-    width: 2vw;
-    height: 5vh;
-    cursor: pointer;
-    outline: 0;
-}
-
-.data button i {
-    color: var(--cinzaclaro);
-}
-
-.identificacao {
-    height: 12vh;
-    width: 20.5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.evento_titulo {
-    font-size: 1.08em;
-}
-
-.comuni_evento {
-    max-height: 4vh;
-    font-size: 1em;
-}
-
-.box_parti-bot {
-    width: 20.5vw;
-    height: 5vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0em .6em;
-    font-size: .6em;
-}
-
-.partici {
-    font-size: 1.2em;
-}
-
-.circle {
-    border-radius: 50%;
-}
-
-.pequeno {
-    height: 15px;
-    width: 15px;
-    background: var(--verde);
-}
-
-.medio {
-    background: var(--cinzaclaro);
-    height: 20px;
-    width: 20px;
-}
-
-.grande {
-    height: 25px;
-    width: 25px;
-    background: var(--laranja);
-}
-
-.text_italic {
-    font-style: italic;
-    color: var(--cinza);
-    font-size: 1.2em;
-}
-
-
-/* FIM CARD MEUS EVENTOS */
-
-
 /* LISTA DE CARDS */
 
-.list_card {
-    width: 70vw;
+.list_card-main {
+    max-width: 95vw;
     height: 30vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /* background: darkorchid; */
 }
-
 
 /* FIM LISTA D CARDS */
 
 
 /*FIM CARDS*/
+
 /* INDEX */
 
 
@@ -228,7 +117,7 @@ div {
 
 .section_banner {
     height: 600px;
-    width: 100vw;
+    width: 100%;
     background: rebeccapurple;
 }
 
@@ -240,7 +129,7 @@ div {
 
 .section_titulo_index {
     height: 45vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -286,7 +175,11 @@ div {
 
 .linha_banner {
     width: 50vw;
+    height: 1px;
     margin: 0 auto;
+    background: var(--cinzaclaro);
+    border: none;
+    border-radius: 5px;
 }
 
 
@@ -297,7 +190,7 @@ div {
 
 .eventos_comunidade {
     height: 70vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -327,6 +220,7 @@ div {
     background-color: #f68e31;
     clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
     height: 75vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -360,7 +254,7 @@ div {
 
 .section_sobre {
     height: 70vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -435,7 +329,7 @@ div {
 
 .linha-call-evento {
     width: 20vw;
-    height: 4px;
+    height: 1px;
     border-radius: 5px;
     background: var(--cinzaclaro);
     border: none;

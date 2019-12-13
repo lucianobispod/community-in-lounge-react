@@ -8,6 +8,8 @@ import 'moment/locale/pt-br';
 
 import Footer from '../../components/footer/Footer';
 import HeaderDefault from '../../components/header/default/HeaderDefault';
+import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
+import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
 
 import { isAuthenticated, parseToken } from '../../services/auth';
 
@@ -23,9 +25,9 @@ class Home extends Component {
         }
     }
 
-    GetEventosComunidades() {
+    async GetEventosComunidades() {
 
-        axios.get('http://localhost:5000/api/evento')
+        await axios.get('http://localhost:5000/api/evento')
             .then(resposta => {
                 const eventosComunidades = resposta.data;
                 console.log(eventosComunidades)
@@ -33,9 +35,9 @@ class Home extends Component {
             })
             .catch(err => console.log(err));
     }
-    GetEventosThoughtworks() {
+    async GetEventosThoughtworks() {
 
-        axios.get('http://localhost:5000/api/EventoTw/public')
+        await axios.get('http://localhost:5000/api/EventoTw/public')
             .then(resposta => {
                 const eventosThoughtworks = resposta.data;
                 this.setState({ eventosThoughtworks });
@@ -45,11 +47,24 @@ class Home extends Component {
 
     }
 
+    typeWrite = () => {
+
+        const titulo = document.getElementById('titulo_home');
+        const textoArray = titulo.innerHTML.split('');
+        titulo.innerHTML = '';
+        textoArray.forEach((letra, i) => {
+            setTimeout(function () {
+                titulo.innerHTML += letra
+            }, 75 * i)
+        });
+    }
+
+
     componentDidMount() {
         this.GetEventosComunidades();
         this.GetEventosThoughtworks();
-        // console.log(this.state.eventosThoughtworks);
 
+        this.typeWrite();
 
         this.setState({ token: isAuthenticated() })
 
@@ -58,11 +73,6 @@ class Home extends Component {
             this.setState({ acesso: parseToken().Roles })
             console.log("acesso " + parseToken().Roles);
         }
-
-        console.log("funcao " + isAuthenticated());
-
-        console.log("state token" + this.state.token);
-        console.log("state acesso" + this.state.acesso);
     }
 
 
@@ -71,7 +81,7 @@ class Home extends Component {
         return (
             <div>
 
-                {this.state.token === false ? (<HeaderDefault />) : this.state.acesso === 'Administrador' ? <h1>ADM</h1> : (<h1>COM OU FUN</h1>)}
+                {this.state.token === false ? (<HeaderDefault />) : this.state.acesso === 'Administrador' ? <HeaderAdministrador /> : (< HeaderUsuario />)}
 
 
                 <section className="section_banner"></section>
@@ -91,7 +101,7 @@ class Home extends Component {
                             <h2 className="titulo_eventos">Eventos das comunidades</h2>
 
 
-                            <div className="list_card">
+                            <div className="list_card-main">
 
 
                                 {
@@ -138,7 +148,7 @@ class Home extends Component {
                                     <h3 className="home_titulo-tw titulo_eventos">Participe dos eventos ThougtWorks</h3>
                                 </div>
 
-                                <div className="list_card">
+                                <div className="list_card-main">
 
                                     {
                                         this.state.eventosThoughtworks.map(function (evento) {

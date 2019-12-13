@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../../assets/css/categoria.css';
 import Axios from 'axios';
-// import "https://kit.fontawesome.com/02d3c4ac19.js";
-
+import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
 
 class Categoria extends Component {
 
@@ -90,6 +89,7 @@ class Categoria extends Component {
     render() {
         return (
             <div>
+                <HeaderAdministrador />
                 <section id="cdr_ctg_meioPricipal">
                     <div className="cdr_ctg_caixa">
                         <h1> categorias já cadastradas </h1>

@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 :root {
-  --azul: #25bcce;
-  --laranja: #f68e31;
   --preto: #231f20;
-  --cinza: #808284;
-  --cinzaclaro: #ccc;
   --verde: #29803f;
   --branco: #fff;
   --font: 'Open Sans', sans-serif;
@@ -16,16 +12,13 @@
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, a,p {
+h1, p {
   font-family: var(--font);
-  margin-bottom: 0 !important;
-
 }
 
 .sessao-aprovados{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background: aqua;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -33,15 +26,14 @@ h1, h2, h3, h4, a,p {
 }
 
 
-.caixa-titulo-aprovados h1{
+.caixa-titulo-aprovados .titulo{
     text-transform: uppercase;
     font-size: 3em;
-    /* background: yellowgreen; */
+    color: var(--verde);
 }
 
-.div-eventos-aprovados {
+.container-eventos-aprovados {
     width: 80vw;
-    background: blue;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -51,12 +43,23 @@ h1, h2, h3, h4, a,p {
 
 .card-aprovado{
     height: 20vh;
-    width: 59vw;
+    width: 55vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--cinzaclaro);
     border-radius: 5px;
+}
+.foto-aprovado{
+    min-height: 20vh;
+    max-height: 20vh;
+    
+    min-width: 22vw;
+    max-width: 22vw;
+}
+
+.info-evento-aprovado{
+    width: 32vw;
 }
 
 .titulo-info {

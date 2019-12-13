@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import "./login.css"
 import Axios from 'axios';
-import { parseToken } from '../../services/auth'
-
+import { parseToken } from '../../services/auth';
 import { Link } from 'react-router-dom';
 
 
@@ -13,18 +12,19 @@ class Login extends Component {
         this.state = {
             email: '',
             senha: '',
-            erroMessage:''
-            
+            erroMessage: '',
+            gin: ''
+
         }
     }
     atualizaEstado(event) {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-    efetuaLogin(event) {
+    async efetuaLogin(event) {
         event.preventDefault();
 
-        Axios.post('http://localhost:5000/api/Login',
+       await Axios.post('http://localhost:5000/api/Login',
             {
                 email: this.state.email,
                 senha: this.state.senha
@@ -33,7 +33,7 @@ class Login extends Component {
                     localStorage.setItem('usuario-token', res.data.token);
                     console.log('Meu token é' + res.data.token);
                     console.log(parseToken().Roles);
-                    
+
                     if (parseToken().Roles === 'Administrador') {
                         this.props.history.push('/GerenciarEventos');
                     } else {
@@ -43,12 +43,26 @@ class Login extends Component {
             }).catch(erro => {
                 this.setState({ erroMessage: 'Email ou Senha invalido!' });
                 console.log(erro);
-                
+
             });
 
     }
 
+    typeWrite = () => {
 
+        const titulo = document.getElementById('titulo_home');
+        const textoArray = titulo.innerHTML.split('');
+        titulo.innerHTML = '';
+        textoArray.forEach((letra, i) => {
+            setTimeout(function () {
+                titulo.innerHTML += letra
+            }, 75 * i)
+        });
+    }
+
+    componentDidMount(){
+        this.typeWrite();
+    }
 
     render() {
         return (
@@ -63,8 +77,7 @@ class Login extends Component {
                         <div className="circle_login baixa"></div>
                     </div>
                     <div className="login_container">
-
-                        <Link to='/'  className="link-icone">
+                        <Link to='/' className="link-icone"  >
                             <i className="fas fa-times fechar-login"></i>
                         </Link>
 
@@ -97,7 +110,7 @@ class Login extends Component {
                                         id="login_password"
                                         placeholder="Senha" />
                                 </div>
-                                
+
                                 <div>
                                     <p>{this.state.erroMessage}</p>
                                 </div>
@@ -117,7 +130,6 @@ class Login extends Component {
                         </div>
                     </div>
                 </section>
-
             </div>
         );
     }

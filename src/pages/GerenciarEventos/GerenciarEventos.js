@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './gerenciar-eventos.css';
 import axios from 'axios';
-import meses from './meses.json'
 import moment from 'moment';
 import 'moment/locale/pt-br';
+
+import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
 
 class MeusEventos extends Component {
     constructor(props) {
         super(props);
         this.state = {
             eventos: [],
-            mes: 1,
+            mes: new Date().getMonth(),
         }
 
     }
@@ -82,11 +83,13 @@ class MeusEventos extends Component {
 
     componentDidMount() {
         this.getEventos();
+        console.log("MES "+this.state.mes)
     }
 
     render() {
         return (
             <div>
+                <HeaderAdministrador />
                 <section class="section-calendario-info">
 
                     <div class="container-eventos-pendentes">
@@ -98,7 +101,7 @@ class MeusEventos extends Component {
                         <div class="container-lista-data">
                             <div class="calendario-mes">
                                 <form action="" >
-                                    <select onChange={(e) => this.atualizaMes(e)} name="" id="">
+                                    <select onChange={(e) => this.atualizaMes(e)} value={this.state.mes}>
                                         <option value="1">Janeiro</option>
                                         <option value="2">Fevereiro</option>
                                         <option value="3">Março</option>
@@ -216,7 +219,7 @@ class MeusEventos extends Component {
 
 
                         {
-                            this.state.eventos.map((evento) => {
+                           this.state.eventos.length === 0 ? <h2>Não há eventos esse mês</h2> : this.state.eventos.map((evento) => {
                                 return (
                                     <div class="card-pendente" key={evento.eventoId}>
                                         <div class="foto-pendente">Foto</div>

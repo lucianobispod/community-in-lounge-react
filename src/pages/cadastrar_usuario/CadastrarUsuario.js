@@ -60,9 +60,26 @@ class CadastrarUsuario extends Component {
         }).catch(error => {console.log(error)});
     }
 
+previwImage = () => {
+
+    var input = document.getElementById('campo_foto_usuario').files[0];
+
+    var imagem = document.getElementById('img');  
+    
+    const fileReader = new FileReader();
+    
+    fileReader.onloadend = () =>{
+        imagem.setAttribute('src', fileReader.result);
+    }
+    
+    fileReader.readAsDataURL(input);
+
+}
+
 
     uploadFoto = (id) => {
         let evento = new FormData();
+        
         evento.set("imagem", this.state.foto.current.files[0]);
 
         axios({
@@ -92,17 +109,18 @@ class CadastrarUsuario extends Component {
                                 <h2>Cadastro de Usuario </h2>
                             </div>
 
-                            <div className="circulomeio_usuario">
-                                <img/>
+                            <div>
+                                <img id='img'/>
                             </div>
 
                             <div className="campo_usuario_foto">
 
                                 <i className="fas fa-camera"></i>
 
-                                <label className="campo_foto_usuario_label" for="campo_foto_usuario"> Clicle aqui para adcionar uma foto</label>
+                                <label className="campo_foto_usuario_label" for="campo_foto_usuario">   Clicle aqui para adcionar uma foto</label>
                                 <input type="file"
                                     id="campo_foto_usuario"
+                                    onChange={this.previwImage}
                                     ref={this.state.foto}
                                    />
                             </div>
@@ -190,7 +208,7 @@ class CadastrarUsuario extends Component {
 
                 <Footer />
                 </main>
-                <script src="./js/maquina-escrever.js"></script>
+               
             </div>
         );
     }}

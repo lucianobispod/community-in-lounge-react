@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './default.css';
+import './header-default.css';
 import { Link } from 'react-router-dom';
+import { isAuthenticated } from '../../../services/auth'
 
 class HeaderDefault extends Component {
+
     render() {
         return (
             <div>
@@ -22,16 +24,16 @@ class HeaderDefault extends Component {
                         <div className="container_menu_principal">
                             <ul>
                                 <li>
-                                    <a className="ahover" id="li_border" href="#">Crie seu evento</a>
+                                    <Link className="ahover" id="li_border" to="/Login">Crie seu evento</Link>
                                 </li>
                                 <li>
-                                    <a className="ahover" href="#">Home</a>
+                                    <Link className="ahover" to="/">Home</Link>
                                 </li>
                                 <li>
-                                    <a className="ahover" href="#">Sobre nós</a>
+                                    <Link className="ahover" to="/Login">Eventos gerais</Link>
                                 </li>
                                 <li>
-                                    <a className="ahover" href="meus-eventos.html">Eventos</a>
+                                    <Link className="ahover" to="/Login">Meus eventos</Link>
                                 </li>
 
                             </ul>
@@ -40,12 +42,11 @@ class HeaderDefault extends Component {
                         <div className="container_menu_secundario">
                             <ul>
                                 <li>
-                                    {/* <a className="ahover" href=""></a> */}
                                     <Link className="ahover" to="/Login">Entre</Link>
                                 </li>
                                 <span className="span_ou">ou</span>
                                 <li>
-                                    <a className="ahover" href="#">Cadastre-se</a>
+                                    <Link className="ahover" to="/CadastrarUsuario">Cadastre-se</Link>
                                 </li>
                             </ul>
                         </div>
