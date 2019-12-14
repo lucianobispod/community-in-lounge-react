@@ -8,6 +8,9 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 //pages
+import Evento from '../src/pages/evento/Evento';
+import EventosGerais from './pages/EventosGerais/EventosGerais';
+import DescricaoEventoUsuario from './pages/descricaoEventoUsuario/DescricaoEventoUsuario';
 import DescricaoEventoAdm from './pages/descricaoEventoAdm/DescricaoEventoAdm';
 import Perfil from './pages/perfil/Perfil';
 import NotFound from './pages/NotFound';
@@ -19,6 +22,7 @@ import TornarAdministrador from './pages/tornar_administrador/TornarAdministrado
 import EventosAprovados from './pages/eventos_aprovados/EventosAprovados';
 import Home from './pages/home/Home';
 import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidade';
+
 
 //rotas
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
@@ -58,6 +62,10 @@ const Usuario = ({ component: Component }) => (
 )
 
 
+
+
+
+
 const Rotas = (
     <Router>
         <div>
@@ -65,6 +73,9 @@ const Rotas = (
 
                 <Route path="/Login" component={Login} />
                 <Usuario path="/Meuseventos" component={MeusEventos} />
+                <Route path="/Evento" component={Evento}/>
+               <Route path="/Descricao" component={DescricaoEventoUsuario}/>
+               <Route path="/EventosGerais" component={EventosGerais}/>
                 <Usuario path="/MeuPerfil" component={Perfil} />
                 <Usuario path="/DescricaoEventoAdm" component={DescricaoEventoAdm} />
                 <Administrador path='/Categoria' component={Categoria} />
