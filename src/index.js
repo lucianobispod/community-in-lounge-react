@@ -8,14 +8,19 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 //pages
-import App from './App';
+// import App from './App';
 import Home from './pages/Home';
+import Evento from '../src/pages/evento/Evento';
+import DescricaoEventoUsuario from './pages/descricaoEventoUsuario/DescricaoEventoUsuario';
+import EventosGerais from './pages/EventosGerais/EventosGerais';
 import NotFound from './pages/NotFound';
-import Evento from './pages/Evento';
+
+
 //rotas
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-
 import * as serviceWorker from './serviceWorker';
+
+
 
 
 
@@ -23,9 +28,11 @@ const Rotas = (
     <Router>
         <div>
             <Switch>
-                <Route exact path="/" component={Home} />
+               <Route exact path="/" component={Home} />
                <Route path="/Evento" component={Evento}/>
-                <Route component={NotFound} />
+               <Route path="/Descricao" component={DescricaoEventoUsuario}/>
+               <Route path="/EventosGerais" component={EventosGerais}/>
+               <Route component={NotFound} />
             </Switch>
         </div>
     </Router>

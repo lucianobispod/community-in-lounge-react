@@ -147,7 +147,7 @@ h1, h2, h3, h4, p {
   .cad_container_color{
     width: 40vw;
     height: 100vh;
-    background: url("../imagens/comunidade.jpg") center center;
+    background: url("") center center;
     background-size: contain;
   }
 
@@ -179,7 +179,7 @@ h1, h2, h3, h4, p {
 }
 
 .cad_form input{
-  /* height: 4.5vh; */
+  height: 6.5vh;
   width: 22vw;
   color: var(--cinza);
   padding: 0 .5em;
@@ -193,7 +193,7 @@ h1, h2, h3, h4, p {
   align-items: center;
 }
 .cad_form .campo_dados{
-  width: 49vw;
+  width: 50vw;
   /* height: 4.5em; */
   color: var(--cinza);
   display: flex;

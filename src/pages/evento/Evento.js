@@ -1,8 +1,8 @@
-import React, { Component } from 'react'; //importando objeto React 
-import img from '../assets/imagens/banner.png';
-import '../assets/css/style.css'
-
+import React, { Component } from 'react'; //importando objeto React
+import '../../assets/imagens/banner.png';
+import './evento.css' 
 import Axios from 'axios';
+
 
 
 class Evento extends Component {
@@ -113,20 +113,6 @@ class Evento extends Component {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     atualizarEstadoNome(event) {
         this.setState({ Nome: event.target.value })
         console.log(this.state.Url_evento);
@@ -180,31 +166,10 @@ class Evento extends Component {
         console.log(this.state.Publico)
     }
 
-
-
-
-
-
-
-
-
     componentDidMount() {
         this.getSala();
         this.getCategoria();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     render() {
         return (
@@ -281,6 +246,7 @@ class Evento extends Component {
                                             <option value="Sim">Sim</option>
                                             <option value="Não">Não</option>
                                         </select>
+                                        
                                     </div>
 
 

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --fonte: sans-serif;
+    --cinzaclaro: #ccc;
+    --verde: #29803f;
+    --branco: #fff;
+    --font: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte);
+}
+
+.EventosGerais__secao{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f68e31;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.EventosGerais__titulo{
+ display: flex;
+ text-align: center;
+ }
+
+.EventosGerais__secao h1{
+ text-transform: uppercase;
+}
+
+.EventosGerais__container{
+ width: 59vw;
+ height: 80vh;
+ background-color: aqua;
+}
+
+.EventosGerais__card {
+    background: cyan;
+    height: 20vh;
+    width: 59vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--cinzaclaro);
+    border-radius: 5px;
+}
+
+.EventosGeraos__info {
+    padding-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background: darkgoldenrod;
+    height: 20vh;
+    width: 30.5vw;
+}
+.EventoGerais__foto-pendente {
+    /* background: url('../images/banner.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20vh;
+    width: 18vw;
+}
+
+.EventoGerais__titulo-info {
+    font-size: 1.6em;
+    background: darkgreen;
+}
+
+.EventoGerais__data-info {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+
+.EventoGerais__comunidade-info {
+    font-size: 1.1em;
+}
