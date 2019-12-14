@@ -79,11 +79,7 @@ class Home extends React.Component {
                                                     <p className="comuni_evento-card-main">{eventos.comunidade.nome}</p>
                                                 </div>
                                                 <div className="box_parti-bot-card-main">
-<<<<<<< HEAD
-                                                    <p className="partici-card-main"></p>
-=======
                                                     {/* <p className="partici-card-main">{eventos.sala.qntdPessoas}</p> */}
->>>>>>> b6082984b7e1f484bf2175bb9d60282c2f3024d6
                                                     <div className="link-card-main">
                                                         <a href="#">Inscreva-se</a>
                                                     </div>
