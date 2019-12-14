@@ -63,7 +63,7 @@ class HeaderUsuario extends Component {
 
 
                                 <div class="dropdown-content">
-                                    <Link to={''}>Ver perfil</Link>
+                                    <Link to={'/MeuPerfil'}>Ver perfil</Link>
                                     <button type="submit" onClick={i => this.logout(i)} >Sair</button>
                                 </div>
                             </div>

@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import './perfil.css';
 import axios from 'axios';
 
-
+import { getUserIdAuthenticated } from '../../services/auth' 
 
 class Perfil extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id:'',
             usuario: {
 
-                comunidade: []
+                comunidade: [],
+                
             }
 
         }
@@ -25,7 +27,7 @@ class Perfil extends Component {
 
 
     getUsuario = () => {
-        axios.get('http://localhost:5000/api/usuario/2')
+        axios.get('http://localhost:5000/api/usuario/'+ this.state.id)
             .then(resposta => {
 
                 this.setState({ usuario: resposta.data });
@@ -38,7 +40,13 @@ class Perfil extends Component {
 
 
     componentDidMount() {
-        this.getUsuario();
+        console.log(this.state.id)
+        console.log(getUserIdAuthenticated().id)
+        this.setState({id: getUserIdAuthenticated().id})
+
+        setTimeout(() => {
+            this.getUsuario();
+        }, 250);
     }
 
     render() {
@@ -153,7 +161,7 @@ class Perfil extends Component {
 
 
                             {
-                                this.state.usuario.comunidade.map((comunidade) => {
+                                this.state.usuario.comunidade.length === 0 ? <h2>Você não possui uma comunidade</h2> : this.state.usuario.comunidade.map((comunidade) => {
                                     return (
 
                                         <div className="card-comunidade">

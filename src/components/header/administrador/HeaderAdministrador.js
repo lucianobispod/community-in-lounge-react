@@ -64,7 +64,7 @@ class HeaderAdministrador extends Component {
 
 
                                 <div class="dropdown-content">
-                                    <button >Ver perfil</button>
+                                    <Link to={'/MeuPerfil'} >Ver perfil</Link>
                                     <Link to={'/Categoria'} >Gerenciar categorias</Link>
                                     <Link to={'/TornarAdministrador'}>Adicionar colaborador</Link>
                                     <Link to={'/EventosAprovados'} >Eventos aprovados por mim</Link>
