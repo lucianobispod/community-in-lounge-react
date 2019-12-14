@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --cinzaclaro: #ccc;
+    --verde: #29803f;
+    --branco: #fff;
+    --font: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0 !important;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+.container-geral{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: cornflowerblue; */
+}
+
+.barra-lateral{
+    background-color: var(--azul);
+    height: 185vh;
+    width: 280px;
+}
+
+.container-foto-perfil{
+    /* background: #29803f; */
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.perfil-foto{
+background: #f68e31;
+height: 250px;
+width: 250px;
+border-radius: 50% ;
+}
+
+.form-foto{
+    background: #ccc;
+}
+
+  
+  .container_comunidade-usuario{
+      /* background: red; */
+      /* height: 100vh; */
+      width: 80vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+  }
+
+  .section-usuario{
+  height: 95vh;
+  width: 79vw;
+  /* background: darkgrey; */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  }
+
+
+  
+  .dados-usuario{
+      height: 80vh;
+      width: 60vw;
+      /* background: cadetblue; */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      justify-content: space-around;
+      align-items: center;
+  }
+
+.form-dados-usuario{
+    display: flex;
+    flex-direction: column;
+    /* background: gold; */
+    height: 50vh;
+    justify-content: space-around;
+}
+
+
+.div-perfil-dados {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: aquamarine; */
+    width: 40vw;
+}
+
+.input_dados{
+    /* background: red; */
+    width: 35vw;
+    height: 5vh;
+    border: none;
+}
+
+
+
+.div-genero{
+    /* background: firebrick; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-input-radio{
+    width: 33vw;
+    /* background: #29803f; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.div-radio{
+    /* background: #f68e31; */
+    width: 8vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.btn-editar-perfil{
+    background: var(--laranja);
+    height: 5vh;
+    width: 8vw;
+    color: var(--branco);
+    border: none; 
+    font-size: 1em;
+}
+
+
+.section-comunidade{
+height: 90vh;
+width: 79vw;
+/* background: darkblue; */
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.dados-comunidade{
+    height: 80vh;
+    width: 60vw;
+    /* background: cadetblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.card-comunidade{
+    width: 50vw;
+    height: 35vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    
+}
+
+.foto-card-comunidade{
+    width: 24vw;
+    height: 35vh;
+    background-color: #f68e31;
+
+}
+
+.dados-card-comunidade{
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background: #29803f; */
+}
+
+
+
+.div{
+    /* background: #25bcce; */
+    width: 24vw;
+    font-size: 1.5em;
+}
+
+.font-pequena{
+
+    font-size: 1em;
+}
+
+.descricao-comunidade{
+    width: 24vw;
+    height: 16vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* background-color: aquamarine; */
+}
+
+.perfil-linha{
+    margin: 0 auto;
+    background: var(--cinzaclaro);
+    height: 1px;
+    width: 20vw;
+    border-radius: 3px; 
+}
