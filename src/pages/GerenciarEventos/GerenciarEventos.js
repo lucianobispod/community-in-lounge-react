@@ -217,12 +217,13 @@ class MeusEventos extends Component {
 
 
 
-
                         {
-                           this.state.eventos.length === 0 ? <h2>Não há eventos esse mês</h2> : this.state.eventos.map((evento) => {
+                            this.state.eventos.length === 0 ? <h2>Não há eventos esse mês</h2> : this.state.eventos.map((evento) => {
+                                
+                                let imagem = "http://localhost:5000/" + evento.foto; 
                                 return (
                                     <div class="card-pendente" key={evento.eventoId}>
-                                        <div class="foto-pendente">Foto</div>
+                                        <div class="foto-pendente"> <img src={imagem} alt="" /> </div>
                                         <div class="info">
                                             <p class="titulo-info">{evento.nome}</p>
                                             <p class="data-info">{moment(evento.eventoData).format('llll')}</p>
