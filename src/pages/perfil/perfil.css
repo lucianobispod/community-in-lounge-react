@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --cinzaclaro: #ccc;
+    --verde: #29803f;
+    --branco: #fff;
+    --font: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, a, span, p {
+    font-family: var(--font);
+    margin-bottom: 0 !important;
+}
+
+.container-geral{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* background: cornflowerblue; */
+}
+
+.barra-lateral{
+    background-color: var(--azul);
+    height: 100vh;
+    width: 300px;
+}
+
+.container_comunidade-usuario{
+    /* background: red; */
+    display: flex;
+    height: 100vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.label-file{
+    width: 15vw;
+    height: 5vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    color: var(--branco);
+    font-weight: bold;
+    font-family: var(--font);
+  
+  }
+  
+  .label-file i {
+    padding-right: 0.40em;
+  }
+
+.section-usuario{
+height: 50vh;
+width: 79vw;
+background: darkgrey;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.dados-usuario{
+    height: 49vh;
+    width: 60vw;
+    background: cadetblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section-comunidade{
+height: 50vh;
+width: 79vw;
+background: darkblue;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.dados-comunidade{
+    height: 49vh;
+    width: 60vw;
+    background: cadetblue;
+    
+}
+
+.container-perfil-nome, .container-perfil-email, .container-perfil-telefone, .container-perfil-genero{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: aquamarine;
+    width: 30vw;
+    margin-left: 1em;
+}
+
+.div-margin-input{
+    width: 30vw;
+    height: 3vh;
+    border-radius: 5px;
+    border-bottom: 2px solid var(--cinzaclaro);
+}
+.label_dados, .label_dados_radio{
+    margin-top:0.5em;
+    margin-left: 0.2em;
+    font-family: var(--font);
+    
+
+}
+
+.input_dados{
+    display: none;
+    width: 30vw;
+    
+}
+.div-margin-input-radio{
+    display: flex;
+    justify-content: space-around;
+    width: 20vw;
+}
+.genero-radio{
+    width: 7vw;
+    display: flex;
+    align-items: center;
+    background-color: #808284;
+    justify-content: space-evenly;
+}
+.container-perfil-btn-alterar{
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-editar-perfil{
+    background: var(--branco);
+    height: 5vh;
+    width: 8vw;
+    color: var(--branco);
+    color: var(--laranja);
+    border: 2px solid #f68e31; 
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+}
+   
+   
+.btn-editar-perfil:hover{
+   background: #f68e31;
+   transition: 0.4s; 
+   color: #fff;
+}
+.card-comunidade{
+    width: 47vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+
+}
+.dados-comunidade{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.foto-card-comunidade{
+    width: 25vw;
+    height: 30vh;
+    background-color: #f68e31;
+}
+.dados-card-comunidade{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.descricao-comunidade{
+    width: 20vw;
+    height: 16vh;
+    max-width: 19vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* background-color: aquamarine; */
+}
+.container-comunidade-btn-alterar{
+    width: 47vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.titulo-perfil-comunidade, .titulo-perfil-dados{
+    font-family: var(--font);
+}

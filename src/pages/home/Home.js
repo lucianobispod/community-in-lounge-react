@@ -79,7 +79,7 @@ class Home extends React.Component {
                                                     <p className="comuni_evento-card-main">{eventos.comunidade.nome}</p>
                                                 </div>
                                                 <div className="box_parti-bot-card-main">
-                                                    <p className="partici-card-main">{eventos.sala.qntdPessoas}</p>
+                                                    <p className="partici-card-main"></p>
                                                     <div className="link-card-main">
                                                         <a href="#">Inscreva-se</a>
                                                     </div>

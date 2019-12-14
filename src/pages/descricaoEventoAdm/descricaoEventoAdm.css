@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: #25bcce;
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    color: #25BCCE;
+}
+
+h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+    /* font-size: 1.1em; */
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: none;
+}
+
+.box1_descricaoEvento_adm {
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+}
+
+.box1parte1_descricaoEvento_adm {
+    width: 35vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    /* background-color: chocolate; */
+}
+
+.box1parte2_descricaoEvento_adm {
+    width: 40vw;
+    height: 15vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* background-color: crimson; */
+}
+
+.foto_descricaoEvento_adm {
+    width: 7vw;
+    height: 14vh;
+    /* background-color: #ee312c; */
+}
+
+.foto_descricaoEvento_adm img {
+    width: 6vw;
+    height: 12vh;
+    border-radius: 50%;
+}
+
+.respon_descricaoEvento_adm {
+    width: 30vw;
+    height: 14vh;
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+    justify-content: center;
+    font-weight: bold;
+    /* background: blue; */
+}
+
+.midias_sociais_descricaoEvento_adm {
+    display: flex;
+    width: 21vw;
+    height: 7vh;
+    border-radius: 5px;
+    background: #f6f7f8;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.midias_sociais_descricaoEvento_adm p {
+    width: 9vw;
+    height: 4vh;
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.share {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 11vw;
+    height: 5vh;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.icone {
+    width: 1.6vw;
+    height: 3.4vh;
+    /* -webkit-transition: all 0.2s; */
+}
+
+.icone:hover {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale (1.2);
+}
+
+.secao_descricaoEvento_adm {
+    width: 100vw;
+    height: 75vh;
+    background-color: #f6f7f8;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.descricao_descricaoEvento_adm {
+    width: 50vw;
+    height: 74vh;
+    /* background-color: yellow; */
+}
+
+.texto_descricaoEvento_adm {
+    width: 50vw;
+    height: 74vh;
+    /* background-color: orange; */
+}
+
+.banner_descricaoEvento_adm {
+    width: 50vw;
+    height: 40vh;
+    /* background-color: green; */
+}
+
+.banner_descricaoEvento_adm img {
+    width: 50vw;
+    height: 40vh;
+}
+
+.titulo_descricaoEvento_adm {
+    width: 50vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    /* background-color: orchid; */
+}
+
+.paragrafo_descricaoEvento_adm {
+    width: 50vw;
+    height: 27vh;
+    /* background-color: palegreen; */
+}
+
+h2 {
+    color: #000000;
+}
+
+p {
+    color: #000000;
+}
+
+.informacoes_descricaoEvento_adm {
+    width: 25vw;
+    height: 75vh;
+    background-color: #f6f7f8;
+}
+
+.infor_geral_descricaoEvento_adm {
+    width: 25vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    /* background-color: azure; */
+}
+
+.foto2_descricaoEvento_adm {
+    width: 7vw;
+    height: 12vh;
+    background-color: #ffffff;
+}
+
+.foto2_descricaoEvento_adm img {
+    width: 7vw;
+    height: 12vh;
+    /* border-radius: 50%; */
+}
+
+.descri_inf_descricaoEvento_adm {
+    width: 19vw;
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.end-maps_descricaoEvento_adm {
+    width: 25vw;
+    height: 15vh;
+    border: 0;
+}
+
+.maps_descricaoEvento_adm {
+    width: 25vw;
+    height: 15vh;
+}
+
+.contatos2_descricaoEvento_adm {
+    width: 25vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.logo1_descricaoEvento_adm {
+    width: 5vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.data_e_horario_descricaoEvento_adm {
+    width: 20vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.fa-clock:before {
+    color: #000000;
+    font-size: 2em;
+}
+
+.contatos3_descricaoEvento_adm {
+    width: 25vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.logo2_descricaoEvento_adm {
+    width: 5vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.localizacao_descricaoEvento_adm {
+    width: 20vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.fa-map-marker-alt:before {
+    color: #000000;
+    font-size: 2em;
+}
+
+.contatos4_descricaoEvento_adm {
+    width: 25vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.logo3_descricaoEvento_adm {
+    width: 5vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.coffee_descricaoEvento_adm {
+    width: 20vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.fa-coffee:before {
+    color: #000000;
+    font-size: 2em;
+}
+
+.contatos5_descricaoEvento_adm {
+    width: 25vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.logo4_descricaoEvento_adm {
+    width: 5vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.quantidade_de_pessoas_descricaoEvento_adm {
+    width: 20vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.fa-users:before {
+    color: #000000;
+    font-size: 2em;
+}
