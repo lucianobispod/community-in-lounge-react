@@ -8,8 +8,6 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 //pages
-import Home from './pages/home/Home';
-import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidade';
 import DescricaoEventoAdm from './pages/descricaoEventoAdm/DescricaoEventoAdm';
 import Perfil from './pages/perfil/Perfil';
 import NotFound from './pages/NotFound';
@@ -23,8 +21,6 @@ const Rotas = (
     <Router>
         <div>
             <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Route path="/Descricao" component={DescricaoEventoAdm} />
                 <Route path="/Perfil" component={Perfil} />              
                 <Route component={NotFound} />
