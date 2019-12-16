@@ -39,7 +39,7 @@ const Administrador = ({ component: Component }) => (
             isAuthenticated() && parseToken().Roles === 'Administrador' ? (
                 <Component {...props} />
             ) : (
-                    <Redirect to={{ pathame:'/' }} />
+                    <Redirect to={{ pathame: '/' }} />
                 )
         }
     />
@@ -55,8 +55,8 @@ const Usuario = ({ component: Component }) => (
             ) : isAuthenticated() && parseToken().Roles === 'Administrador' ? (
                 <Component {...props} />
             ) : (
-                <Redirect to={{ pathname:'/' }} />
-                )
+                            <Redirect to={{ pathname: '/' }} />
+                        )
         }
     />
 )
@@ -72,19 +72,19 @@ const Rotas = (
             <Switch>
 
                 <Route exact path="/" component={Home} />
-                <Route path="/Login" component={Login} />
-                <Usuario path="/Meuseventos" component={MeusEventos} />
-                <Usuario path="/Evento" component={Evento}/>
-               <Route path="/Descricao" component={DescricaoEventoUsuario}/>
-               <Route path="/EventosGerais" component={EventosGerais}/>
-                <Usuario path="/MeuPerfil" component={Perfil} />
-                <Administrador path="/DescricaoEventoAdm" component={DescricaoEventoAdm} />
-                <Administrador path='/Categoria' component={Categoria} />
-                <Administrador path="/GerenciarEventos" component={GerenciarEventos} />
-                <Route path="/CadastrarUsuario" component={CadastrarUsuario} />
-                <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
-                <Administrador path="/TornarAdministrador" component={TornarAdministrador} />
-                <Administrador path="/EventosAprovados" component={EventosAprovados} />
+                <Route exact path="/Login" component={Login} />
+                <Usuario exact path="/Meuseventos" component={MeusEventos} />
+                <Usuario exact path="/Evento" component={Evento} />
+                <Administrador path="/DescricaoEventoAdm/:iddesadm" component={DescricaoEventoAdm} />
+                <Route exact path="/Descricao/:id" component={DescricaoEventoUsuario} />
+                <Route exact path="/EventosGerais" component={EventosGerais} />
+                <Usuario exact path="/MeuPerfil" component={Perfil} />
+                <Administrador exact path='/Categoria' component={Categoria} />
+                <Administrador exact path="/GerenciarEventos" component={GerenciarEventos} />
+                <Route exact path="/CadastrarUsuario" component={CadastrarUsuario} />
+                <Route exact path="/CadastrarComunidade" component={CadastrarComunidade} />
+                <Administrador exact path="/TornarAdministrador" component={TornarAdministrador} />
+                <Administrador exact path="/EventosAprovados" component={EventosAprovados} />
                 <Route component={NotFound} />
 
             </Switch>

@@ -9,6 +9,7 @@ class DescricaoEventoAdm extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            id:this.props.match.params.iddesadm,
             evento: {
                 comunidade: {
                     responsavelUsuario: {
@@ -27,9 +28,14 @@ class DescricaoEventoAdm extends Component {
         }
     }
 
-    GetEvento = (id) => {
-        axios.get('http://localhost:5000/api/evento/' + id)
-            .then(resposta => {
+    GetEvento = () => {
+        console.log(this.props);
+        console.log(this.props.match.params.iddesadm);
+       
+        console.log('ESTADO '+this.state.id);
+       
+        axios.get('http://localhost:5000/api/evento/' + this.state.id)
+            .then(resposta => { 
                 console.log(resposta)
                 this.setState({ evento: resposta.data })
                 console.log(this.state.evento.comunidade.nome)
@@ -39,7 +45,7 @@ class DescricaoEventoAdm extends Component {
 
 
     async componentDidMount() {
-        await this.GetEvento(1007);
+        await this.GetEvento();
     }
 
 
@@ -56,8 +62,8 @@ class DescricaoEventoAdm extends Component {
 
                             <div class="respon_descricaoEvento_adm">
                                 {/* <p class="Cordenador_descricaoEvento_adm">Coordenado por: {this.state.evento.comunidade.responsavelUsuario.nome}</p> */}
-                                <p class="Comunidade_descricaoEvento_adm">Comunidade: {this.state.evento.comunidade.nome}</p>
-                                <p class="Categoria_descricaoEvento_adm">Categoria: {this.state.evento.categoria.nome}</p>
+                                {/* <p class="Comunidade_descricaoEvento_adm">Comunidade: {this.state.evento.comunidade.nome}</p>
+                                <p class="Categoria_descricaoEvento_adm">Categoria: {this.state.evento.categoria.nome}</p> */}
 
                             </div>
                         </div>
@@ -107,7 +113,7 @@ class DescricaoEventoAdm extends Component {
                                     </div>
                                 </div>
                                 <div class="descri_inf_descricaoEvento_adm">
-                                    <p class="Comunidade_descricaoEvento_adm">Comunidade: {this.state.evento.comunidade.nome}</p>
+                                    {/* <p class="Comunidade_descricaoEvento_adm">Comunidade: {this.state.evento.comunidade.nome}</p> */}
                                     <p class="Tipo_descricaoEvento_adm">Tipo do Evento: Privado</p>
                                 </div>
                             </div>

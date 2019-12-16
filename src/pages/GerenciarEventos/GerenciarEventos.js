@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 class MeusEventos extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             eventos: [],
             mes: new Date().getMonth(),
@@ -225,7 +225,7 @@ class MeusEventos extends Component {
                                     <div class="card-pendente" key={evento.eventoId}>
 
                                         <div > <img class="foto-pendente" src={'http://localhost:5000/' + evento.foto} alt="" /> </div>
-                                        <Link to={'/DescricaoEventoAdm'}>
+                                        <Link to={'DescricaoEventoAdm/' + evento.eventoId}>
                                         <div class="info">
                                             <p class="titulo-info">{evento.nome}</p>
                                             <p class="data-info">{moment(evento.eventoData).format('llll')}</p>

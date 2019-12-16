@@ -8,6 +8,7 @@ class DescricaoEventoUsuario extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            id:this.props.match.params.id,
             evento: {
                 comunidade: {
                     responsavelUsuario: {
@@ -31,31 +32,24 @@ class DescricaoEventoUsuario extends Component {
     }
 
 
-    GetEvento = (id) => {
-        Axios.get('http://localhost:5000/api/evento/' + id)
+    GetEvento = () => {
+        console.log(this.props);
+
+        Axios.get('http://localhost:5000/api/evento/' + this.state.id)
             .then(resposta => {
                 console.log(resposta)
                 this.setState({ evento: resposta.data })
                 console.log(this.state.evento.comunidade.nome)
             })
             .catch(err => console.log(err))
-    }
+  
+        }
 
-    //  GetEventosThoughtworks() {
-    //      axios.get('http://localhost:5000/api/Evento/public')
-    //       .then(resposta => {
-    //           const eventosThoughtworks = resposta.data;
-    //           if(resposta.status === 200){
-    //               this.setState({eventosThoughtWorks: resposta.data})
-    //           }
-    //       })
-    //       .catch(err => console.log(err))
-    //     console.log(this.state.eventosThoughtWorks)  
-    // }
+  
 
 
     async componentDidMount() {
-        await this.GetEvento(1007);
+        await this.GetEvento();
     }
 
 

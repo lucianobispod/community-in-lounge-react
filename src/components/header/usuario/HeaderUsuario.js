@@ -40,7 +40,7 @@ class HeaderUsuario extends Component {
             console.log('state ' + this.state.id);
             setTimeout(() => {
                 this.getUsuario();
-            }, 250);
+            }, 150);
         }
 
     }

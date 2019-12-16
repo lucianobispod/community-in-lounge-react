@@ -59,7 +59,7 @@ class EventosGerais extends Component {
                                 this.state.eventos.map((evento) => {
 
                                     return (
-                                        <Link to='/Descricao'>
+                                        <Link to={'/Descricao/'+ evento.eventoId}>
 
                                             <div className="EventosGerais__card">
                                                 <div >
