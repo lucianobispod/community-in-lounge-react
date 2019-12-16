@@ -16,26 +16,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-a,
-span,
-p,
-input,
-label,
-div {
     font-family: var(--font);
 }
 
-
-
 /*HEADER*/
 
-#header {
+#de-header {
     width: 100%;
     height: 10vh;
     background: var(--azul);
@@ -44,82 +30,92 @@ div {
     align-items: center;
 }
 
-.header_box {
-    width: 21vw;
+.de-header_box {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background: yellow; */
 }
 
-.imagem {
-    height: 10vh;
-    width: 20vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.imagem img {
+.de-imagem {
     height: 8vh;
-    width: 13vw;
+    width: 16vw;
+    
+    background: chartreuse;
 }
 
-.header_menu {
+.de-header_menu {
     height: 10vh;
-    width: 75vw;
+    width: 80vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    /* background: blueviolet; */
 }
 
-.container_menu_principal {
-    height: 8vh;
-    width: 45vw;
+.de-container_menu_principal {
+    /* background: cadetblue; */
 }
 
-.container_menu_principal ul {
+.de-container_menu_principal ul {
+    width: 50vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
-    height: 8vh;
+    height: 9vh;
+
+    /* background: coral; */
 }
 
-.container_menu_secundario {
-    width: 16vw;
+.de-ahover{
+
+    color: var(--branco);
+    text-decoration: none;
+    /* font-size: 1.1em; */
+    /* background: yellow; */
+    padding: 0.5em !important;
 }
 
-.container_menu_secundario ul {
+.de-header_menu .de-ahover:hover {
+    font-weight: 400;
+    border-bottom: 2px solid var(--branco);
+    color: var(--branco);
+
+}
+
+
+
+.de-container_menu_secundario {
+    /* background: crimson; */
+    width: 18vw;
+}
+
+.de-container_menu_secundario ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
     height: 8vh;
     margin: 0;
+
+    /* background: darkblue; */
 }
 
-.span_ou {
+.de-span_ou {
     color: var(--branco);
     font-style: italic;
+    /* background: darkgoldenrod; */
 }
 
-.header_menu a {
-    color: var(--branco);
-    text-decoration: none;
-    font-size: 1em;
-    padding: 0.4em;
-}
-
-.header_menu #li_border {
-    padding: .7em;
+.de-header_menu #de-li_border {
+    padding: .5em;
     font-weight: 400;
     border: var(--branco) 2px solid;
 }
 
-.header_menu .ahover:hover {
-    font-weight: 400;
-    border-bottom: 2px solid white;
-}
 
 
 /*FIM HEADER*/

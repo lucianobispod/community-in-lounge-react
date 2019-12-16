@@ -39,7 +39,7 @@ class DescricaoEventoAdm extends Component {
 
 
     async componentDidMount() {
-        await this.GetEvento(6);
+        await this.GetEvento(1007);
     }
 
 
@@ -55,7 +55,7 @@ class DescricaoEventoAdm extends Component {
                             </div>
 
                             <div class="respon_descricaoEvento_adm">
-                                <p class="Cordenador_descricaoEvento_adm">Coordenado por: {this.state.evento.comunidade.responsavelUsuario.nome}</p>
+                                {/* <p class="Cordenador_descricaoEvento_adm">Coordenado por: {this.state.evento.comunidade.responsavelUsuario.nome}</p> */}
                                 <p class="Comunidade_descricaoEvento_adm">Comunidade: {this.state.evento.comunidade.nome}</p>
                                 <p class="Categoria_descricaoEvento_adm">Categoria: {this.state.evento.categoria.nome}</p>
 
@@ -123,7 +123,8 @@ class DescricaoEventoAdm extends Component {
                                     <i class="far fa-clock logo-1"></i>
                                 </div>
                                 <div class="data_e_horario_descricaoEvento_adm">
-                                    <p class="data_e_horario">{moment(this.state.evento.eventoData).format('LL')} ás {this.state.evento.horario} </p>
+                                {/* ás {this.state.evento.horario} */}
+                                    <p class="data_e_horario">{moment(this.state.evento.eventoData).format('llll')} </p>
                                 </div>
                             </div>
 
@@ -152,7 +153,7 @@ class DescricaoEventoAdm extends Component {
                                     <i class="fas fa-users"></i>
                                 </div>
                                 <div class="localizacao_descricaoEvento_adm">
-                                    <p class="quantidade_de_pessoas_descricaoEvento_adm"> Quantidade: {this.state.evento.sala.qntdPessoas} </p>
+                                    {/* <p class="quantidade_de_pessoas_descricaoEvento_adm"> Quantidade: {this.state.evento.sala.qntdPessoas} </p> */}
                                 </div>
                             </div>
                         </div>

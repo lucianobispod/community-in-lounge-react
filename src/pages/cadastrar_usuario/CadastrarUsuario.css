@@ -205,11 +205,11 @@ h1, h2, h3, h4, a,p {
   animation: pisca .7s infinite;
 }
 
-input[type="file"] {
+/* input[type="file"] {
   display: none;
   margin-bottom: 0 !important;
 
-}
+} */
 
 .campo_foto_usuario_label {
   color: var(--font);

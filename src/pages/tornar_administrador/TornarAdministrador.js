@@ -122,8 +122,8 @@ class TornarAdministrador extends Component {
                                     return (
                                         <div className="card_tonar_adm" key={adm.usuarioId} >
 
-                                            <div className="imagem_fun">
-                                                <img />
+                                            <div >
+                                                <img className="imagem_fun" src={'http://localhost:5000/'+adm.foto}/>
                                             </div>
 
                                             <div className="div_info_user">

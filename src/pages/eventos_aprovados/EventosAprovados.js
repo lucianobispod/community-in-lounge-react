@@ -53,7 +53,7 @@ class EventosAprovados extends Component {
                                     return (
                                         <div className="card-aprovado">
                                             <div>
-                                                <img className="foto-aprovado" alt='Foto da comunidade' />
+                                                <img className="foto-aprovado" alt='Foto da comunidade' src={'http://localhost:5000/' + evento.foto}/>
                                             </div>
 
                                             <div className="info-evento-aprovado">

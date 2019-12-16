@@ -78,6 +78,8 @@ class MeusEventos extends Component {
             .catch(error => console.log(error));
     }
 
+
+
     editarEventoAprovado = (evento) => {
         evento.urlEvento = this.state.url;
         alert(evento.urlEvento);
@@ -91,11 +93,15 @@ class MeusEventos extends Component {
             .catch(error => console.log(error));
     }
 
+
+
     UpStateUrl = (event) => {
         this.setState({ url: event.target.value });
         console.log(this.state.url);
     }
 
+
+    
     componentDidMount() {
 
         if (isAuthenticated()) {
@@ -143,6 +149,7 @@ class MeusEventos extends Component {
                                         this.state.eventosAprovados.map(function (aprovado) {
                                             return (
                                                 <div className="me-card" key={aprovado.eventoId}>
+
                                                     <div className="me-data">
                                                         <p>
                                                             {
@@ -195,6 +202,7 @@ class MeusEventos extends Component {
                                                     </div>
 
                                                 </div>
+
                                             )
                                         }.bind(this))
 

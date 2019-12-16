@@ -5,6 +5,7 @@ import moment from 'moment';
 import 'moment/locale/pt-br';
 
 import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
+import { Link } from 'react-router-dom';
 
 class MeusEventos extends Component {
     constructor(props) {
@@ -220,15 +221,17 @@ class MeusEventos extends Component {
                         {
                             this.state.eventos.length === 0 ? <h2>Não há eventos esse mês</h2> : this.state.eventos.map((evento) => {
                                 
-                                let imagem = "http://localhost:5000/" + evento.foto; 
                                 return (
                                     <div class="card-pendente" key={evento.eventoId}>
-                                        <div class="foto-pendente"> <img src={imagem} alt="" /> </div>
+
+                                        <div > <img class="foto-pendente" src={'http://localhost:5000/' + evento.foto} alt="" /> </div>
+                                        <Link to={'/DescricaoEventoAdm'}>
                                         <div class="info">
                                             <p class="titulo-info">{evento.nome}</p>
                                             <p class="data-info">{moment(evento.eventoData).format('llll')}</p>
                                             <p class="comunidade-info">{evento.comunidade.nome}</p>
                                         </div>
+                                        </Link>
 
                                         <div class="botoes">
                                             <button class="rejeitar" onClick={i => this.recusarEvento(i, evento.eventoId)}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; //importando objeto React
 import '../../assets/imagens/banner.png';
-import './evento.css' 
+import './evento.css'
 import Axios from 'axios';
 
 
@@ -55,19 +55,19 @@ class Evento extends Component {
             statusEvento: this.state.Status,
             diversidade: this.state.Diversidade,
             coffe: this.state.Coffe,
-            Foto: 'url',
             urlEvento: this.state.Url_evento,
             categoriaId: this.state.Categoria_id,
             salaId: this.state.Sala_id,
-            comunidadeId: this.state.comunidadeId
+            comunidadeId: this.state.comunidadeId,
+            foto: ''
         };
 
         Axios.post('https://localhost:5001/api/Evento', evento)
             .then(resposta => {
                 console.log(resposta);
-                if (resposta.status == 200) {
+
+                if (resposta.status === 200) {
                     this.uploadFoto(resposta.data.eventoId);
-                    console.log("FOOOOOOOOOOOOOOOOOOOOOOOOOOOOI");
                 }
             }).catch(error => console.log(error));
 
@@ -246,7 +246,7 @@ class Evento extends Component {
                                             <option value="Sim">Sim</option>
                                             <option value="Não">Não</option>
                                         </select>
-                                        
+
                                     </div>
 
 

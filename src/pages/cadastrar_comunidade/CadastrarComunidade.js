@@ -1,25 +1,81 @@
 import React, { Component } from 'react';
-import './style.css';
-
+import './cadastrar-cuminidade.css';
+import axios from 'axios';
+import { getUserIdAuthenticated } from '../../services/auth'
 
 class CadastrarComunidade extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            listaComuniade: [],
-            Nome: '',
-            Descricao: '',
-            Email_contato: '',
-            Telefone_contato: '',
-            Foto: '',
+            foto: React.createRef(),
+            nome: '',
+            emailContato: '',
+            telefoneContato: '',
+            descricao: '',
 
         }
     }
 
+    cadastrarComunidade = (event) => {
+        event.preventDefault();
+        let comunidade ={
+            nome : this.state.nome,
+            emailContato : this.state.emailContato,
+            telefoneContato : this.state.telefoneContato,
+            descricao : this.state.descricao,
+            foto : 'url',
+            responsavelUsuarioId: getUserIdAuthenticated().id
+        }
+
+        axios.post('http://localhost:5000/api/Comunidade', comunidade)
+        .then(resposta => {
+            console.log(resposta)
+            if (resposta.status === 200) {
+                // this.uploadFoto(resposta.data.comunidadeId);
+            }
+        })
+        .catch(error => console.log(error));
+    }
+
+
+
+
+    uploadFoto = (id) => {
+        let evento = new FormData();
+        
+        evento.set("imagem", this.state.foto.current.files[0]);
+
+        axios({
+            method: 'put',
+            url: 'http://localhost:5000/api/Comunidade/' + id + '/uploadFoto',
+            data: evento,
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+            .then(resposta => {
+                console.log("RESPOSTA " + resposta);
+            }).catch(error => console.log(error));
+    }
+
+
+
+
+
+    atualizaEstado = (event) => {
+        this.setState({
+            [event.target.name]:event.target.value
+         })
+         console.log({[event.target.name]:event.target.value})
+    }
+
+
+
+
+
+
 
     typeWrite = () => {
 
-        const titulo = document.getElementById('titulo_home');
+        const titulo = document.getElementById('titulo_comunidade');
         const textoArray = titulo.innerHTML.split('');
         titulo.innerHTML = '';
         textoArray.forEach((letra, i) => {
@@ -29,9 +85,29 @@ class CadastrarComunidade extends Component {
         });
     }
 
-componentDidMount(){
-    this.typeWrite();
-}
+
+    previwImage = () => {
+
+        var input = document.getElementById('comu-img-input').files[0];
+
+        var imagem = document.getElementById('comu-img');
+
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            imagem.setAttribute('src', fileReader.result);
+        }
+
+        fileReader.readAsDataURL(input);
+
+    }
+
+
+
+
+    componentDidMount() {
+        this.typeWrite();
+    }
 
 
 
@@ -40,59 +116,62 @@ componentDidMount(){
             <div>
                 <main>
 
-                    <section class="comunidade_section">
+                    <section class="cm-comunidade_section">
 
-                        <div class="text_container_comunidade">
+                        <div class="cm-text_container_comunidade">
 
-                            <div class="circle_comunidade alta_comunidade"></div>
+                            <div class="cm-circle_comunidade cm-alta_comunidade"></div>
 
                             <div>
-
-                                <h2 class="cor letra_grande_comunidade titulo_h2_comunidade" id="titulo_home">Cadastre sua comunidade!</h2>
-                                <h2 class="cor  letra_media_comunidade">E venha fazer seu evento conosco.</h2>
-
+                                <h2 class="cm-cor cm-letra_grande_comunidade cm-titulo_h2_comunidade" id="titulo_comunidade">Cadastre sua comunidade!</h2>
+                                <h2 class="cm-cor  cm-letra_media_comunidade">E venha fazer seu evento conosco.</h2>
                             </div>
 
-                            <div class="circle_comunidade baixa_comunidade"></div>
+                            <div class="cm-circle_comunidade cm-baixa_comunidade"></div>
+
                         </div>
 
-                        <div class="comunidade_container">
+                        <div class="cm-comunidade_container">
 
-                            <div class="titulo_comunidade">
-                                <h1>Cadastre a sua Comunidade</h1>
-                            </div>
+                            {/* <div class="cm-div-titulo_comunidade">
+                                <h1 className='cm-titulo'>Cadastre a sua Comunidade</h1>
+                            </div> */}
 
 
-                            <form class="comunidade_form" action="" method="">
-                                <div class="inpu_div_comunidade">
+                            <form className="cm-comunidade_form" onSubmit={i => this.cadastrarComunidade(i)} method="POST">
+                                {/* <div className="cm-inpu_div_comunidade"> */}
 
-                                    <div class="campo_comunidade">
-                                        <label for="nome">Nome:</label>
-                                        <input type="text" name="nome" id="" placeholder="Digite o nome da comunidade" />
-                                    </div>
-
-                                    <div class="campo_comunidade">
-                                        <label for="email">Email:</label>
-                                        <input type="email" name="email" id="" placeholder="E-mail do responsável" />
-                                    </div>
-
-                                    <div class="campo_comunidade">
-                                        <label for="telefone">Telefone:</label>
-                                        <input type="text" name="telefone" id="" placeholder="Telefone para contato com o responsável" />
-                                    </div>
-
-                                    <div class="campo_comunidade">
-                                        <label class="campo_foto_comunindade_label" for="campo_foto_comunindade">Clicle aqui para enviar uma foto da sua comunidade</label>
-                                        <input type="file" name="foto" id="campo_foto_comunindade" placeholder=" " />
-                                    </div>
-                                    <div class="descricao-comunidade">
-                                        <label for="descricao">Descrição:</label>
-                                        <textarea name="descricao" class="textarea_comunidade" cols="30" rows="10" placeholder="Fale um pouco sobre sua Comunidade aqui..."></textarea>
-                                    </div>
-
+                                <div className="cm-campo_foto_comunidade">
+                                    <img id='comu-img' className='cm-preview-foto' alt='' />
+                                    {/* <label className="cm-campo_foto_comunindade_label" for="foto_comunindade">Adicione uma foto</label> */}
+                                    <input onChange={this.previwImage} type="file" ref={this.state.foto} id='comu-img-input' name="foto_comunidade"></input>
                                 </div>
 
-                                <button type="submit">Enviar</button>
+                                <div className="cm-campo_comunidade">
+                                    <label for="nome">Nome</label>
+                                    <input onChange={i=>this.atualizaEstado(i)} className='cm-input' type="text" name="nome" />
+                                </div>
+
+                                <div className="cm-campo_comunidade">
+                                    <label for="email">Email</label>
+                                    <input onChange={i=>this.atualizaEstado(i)} className='cm-input' type="email" name="emailContato"/>
+                                </div>
+
+                                <div className="cm-campo_comunidade">
+                                    <label for="telefone">Telefone</label>
+                                    <input onChange={i=>this.atualizaEstado(i)} className='cm-input' type="text" name="telefoneContato"  />
+                                </div>
+
+
+
+                                <div className="cm-descricao-comunidade">
+                                    <label for="descricao">Descrição</label>
+                                    <textarea onChange={i=>this.atualizaEstado(i)} name="descricao" class="cm-textarea_comunidade" cols="30" rows="10" ></textarea>
+                                </div>
+
+                                {/* </div> */}
+
+                                <button className='button' type="submit">Cadastrar</button>
                             </form>
 
                         </div>
@@ -100,7 +179,6 @@ componentDidMount(){
                     </section>
 
                 </main>
-                <script src="./js/maquina-escrever.js"></script>
             </div>
 
         )

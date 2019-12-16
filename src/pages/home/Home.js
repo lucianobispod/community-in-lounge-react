@@ -12,6 +12,7 @@ import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
 import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
 
 import { isAuthenticated, parseToken } from '../../services/auth';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
     constructor(props) {
@@ -108,18 +109,20 @@ class Home extends Component {
                                     this.state.eventosComunidades.map(function (evento) {
                                         return (
                                             <div className="card-main" key={evento.eventoId}>
-                                                <div className="data-card-main">
-                                                    <p>
-                                                        {
-                                                            moment(evento.eventoData).format('llll')
-                                                        }
-                                                    </p>
-                                                </div>
+                                                <Link to={'/Descricao'}>
+                                                    <div className="data-card-main">
+                                                        <p>
+                                                            {
+                                                                moment(evento.eventoData).format('llll')
+                                                            }
+                                                        </p>
+                                                    </div>
 
-                                                <div className="identificacao-card-main">
-                                                    <p className="evento_titulo-card-main">{evento.nome}</p>
-                                                    <p className="comuni_evento-card-main">{evento.comunidade.nome}</p>
-                                                </div>
+                                                    <div className="identificacao-card-main">
+                                                        <p className="evento_titulo-card-main">{evento.nome}</p>
+                                                        <p className="comuni_evento-card-main">{evento.comunidade.nome}</p>
+                                                    </div>
+                                                </Link>
                                                 <div className="box_parti-bot-card-main">
                                                     <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                     <div className="link-card-main">
@@ -153,19 +156,22 @@ class Home extends Component {
                                     {
                                         this.state.eventosThoughtworks.map(function (evento) {
                                             return (
-                                                <div className="card-main" key={evento.eventoId}>
-                                                    <div className="data-card-main">
-                                                        <p>
-                                                            {
-                                                                moment(evento.eventoData).format('llll')
-                                                            }
-                                                        </p>
-                                                    </div>
 
-                                                    <div className="identificacao-card-main">
-                                                        <p className="evento_titulo-card-main">{evento.nome}</p>
-                                                        <p className="comuni_evento-card-main">ThoughtWorks</p>
-                                                    </div>
+                                                <div className="card-main" key={evento.eventoId}>
+                                                    <Link to={'/Descricao'} >
+                                                        <div className="data-card-main">
+                                                            <p>
+                                                                {
+                                                                    moment(evento.eventoData).format('llll')
+                                                                }
+                                                            </p>
+                                                        </div>
+
+                                                        <div className="identificacao-card-main">
+                                                            <p className="evento_titulo-card-main">{evento.nome}</p>
+                                                            <p className="comuni_evento-card-main">ThoughtWorks</p>
+                                                        </div>
+                                                    </Link>
                                                     <div className="box_parti-bot-card-main">
                                                         <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                         <div className="link-card-main">

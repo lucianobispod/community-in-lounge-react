@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../assets/css/categoria.css';
+import './categoria.css';
 import Axios from 'axios';
 import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
 
@@ -16,6 +16,7 @@ class Categoria extends Component {
     }
 
     getCategorias = () => {
+        console.log('listou')
         Axios.get('https://localhost:5001/api/categoria')
             .then(resposta => {
                 const categorias = resposta.data
@@ -25,11 +26,11 @@ class Categoria extends Component {
 
 
     postCategoria = (event) => {
-        console.log("passou " + this.state.nome);
+        console.log("cadastrou " + this.state.nome);
         event.preventDefault();
-        Axios.post('https://localhost:5001/api/categoria',
+        Axios.post('http://localhost:5000/api/categoria',
             {
-                Nome: this.state.nome
+                nome: this.state.nome
             })
             .then(resposta => console.log(resposta))
             .then(this.getCategorias)
@@ -47,26 +48,24 @@ class Categoria extends Component {
     
     
     deletarCategoria = (id) => {
-        console.log('Excluindo Categoria');
-
-        
-        Axios.delete('https://localhost:5001/api/categoria' + id)
-        
-        .then(response => {
-            console.log(response);
-            this.setState(() => ({ lista: this.state.lista }))
-            this.getCategorias()
-        }).catch(error => {
+        Axios.delete('http://localhost:5000/api/categoria/' + id)
+        .then(response => {console.log(response);})
+        .then(this.getCategorias)
+        .catch(error => {
             console.log(error);
             this.setState({ erroMessage: 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria' })
         });
     }
     
+
+
+
         atualizaSearch = (event) => {
-            console.log(this.state.categorias)
-            
-            // console.log(filtrado)
-            //
+            event.preventDefault();
+             console.log('atualizando estado para filtrar')
+
+             console.log('filter categorias'+this.state.categorias)
+
             var filtrado = this.state.categorias.filter(element => {
                 return element.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 
             })
@@ -109,7 +108,7 @@ class Categoria extends Component {
                                     return (
                                         <div className="cdr_ctg_categoria1" key={categoria.categoriaId}>
                                             <p> {categoria.nome}</p>
-                                            <button className="cdr_ctg_categoria_btnX">
+                                            <button onClick={i => this.deletarCategoria(categoria.categoriaId)} className="cdr_ctg_categoria_btnX" >
                                                 <i className="fas fa-times"></i>
                                             </button>
                                         </div>
@@ -117,40 +116,6 @@ class Categoria extends Component {
                                 }.bind(this))
                             }
 
-                        </div>
-                        <div className="cdr_ctg_caixanav">
-                            <form action="">
-                                <button className="cdr_ctg_navbtn">
-                                    <div className="cdr_ctg_nav">
-                                        <i className="fas fa-angle-left"></i>
-                                    </div>
-                                </button>
-                                <button className="cdr_ctg_navbtn">
-                                    <div className="cdr_ctg_nav">
-                                        <p className="cdr_ctg_p"    > 1 </p>
-                                    </div>
-                                </button>
-                                <button className="cdr_ctg_navbtn">
-                                    <div className="cdr_ctg_nav">
-                                        <p className="cdr_ctg_p"> 2 </p>
-                                    </div>
-                                </button>
-                                <button className="cdr_ctg_navbtn">
-                                    <div className="cdr_ctg_nav">
-                                        <p className="cdr_ctg_p"> 3 </p>
-                                    </div>
-                                </button>
-                                <button className="cdr_ctg_navbtn">
-                                    <div className="cdr_ctg_nav">
-                                        <p className="cdr_ctg_p"> ...</p>
-                                    </div>
-                                </button>
-                                <button className="cdr_ctg_navbtn">
-                                    <div className="cdr_ctg_nav">
-                                        <i className="fas fa-angle-right"></i>
-                                    </div>
-                                </button>
-                            </form>
                         </div>
 
                     </div>

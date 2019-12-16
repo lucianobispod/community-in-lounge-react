@@ -13,22 +13,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-a,
-span,
-p {
     font-family: var(--font);
 }
 
 
 /*HEADER*/
 
-#header {
+#usu-header {
     width: 100%;
     height: 10vh;
     background: var(--azul);
@@ -37,7 +28,7 @@ p {
     align-items: center;
 }
 
-.header_box {
+.usu-header_box {
     width: 21vw;
     display: flex;
     justify-content: center;
@@ -45,156 +36,125 @@ p {
     /* background: chartreuse; */
 }
 
-.imagem {
+.usu-imagem {
     height: 10vh;
-    width: 20vw;
-    /* background: var(--cinza); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 18vw;
+    /* background: aqua; */
 }
 
-.imagem img {
-    height: 9vh;
-    width: 15vw;
-    /* background: red; */
-}
 
-.header_menu {
+.usu-header_menu {
     height: 10vh;
-    width: 75vw;
+    width: 80vw;
     /* background: red; */
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.container_menu_principal {
+.usu-container_menu_principal {
     /* background: rosybrown; */
-    height: 8vh;
     width: 50vw;
 }
 
-.container_menu_principal ul {
+.usu-lista {
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
-    height: 8vh;
-    /* width: 40vw; */
+    height: 9vh;
     /* background: violet; */
 }
 
-
-/*   
-  .container_menu_secundario{
-    width: 16vw;
-  } */
-
-.menu_info {
-    width: 16vw;
-    height: 9vh;
+.usu-menu_info {
+    height: 8.5vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     /* background: rosybrown; */
 }
 
-.info_usuario {
-    width: 15vw;
+.usu-info_usuario {
     height: 7.5vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* background: cornsilk; */
+    /* background: blueviolet; */
 }
 
-.nome-usuario {
+.usu-nome-usuario {
     /* background: chocolate; */
-    font-size: 1.2em;
-    margin-left: .3em;
-    width: 10vw;
-    height: 5vh;
-    /* border-right: 1px solid var(--branco); */
-    display: flex;
-    align-items: center;
+    font-size: 1.1em;
     color: var(--branco);
+    margin: 0 .5em !important;
 }
 
-.foto {
+.usu-foto {
     background: var(--branco);
     height: 40px;
     width: 40px;
     border-radius: 50%;
+    
 }
 
-.container_menu_secundario ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style-type: none;
-    height: 8vh;
-    /* background: violet; */
-}
-
-.span_ou {
+/* .usu-span_ou {
     color: var(--branco);
     font-style: italic;
-}
+} */
 
-.header_menu a {
+.usu-ahover{
     color: var(--branco);
     text-decoration: none;
     font-size: 1.1em;
     /* background: yellowgreen; */
-    padding: 0.4em;
+    padding: 0.5em !important;
+
 }
 
-.header_menu #li_border {
-    padding: .7em;
-    /* background: yellow; */
+.usu-header_menu #li_border {
+    padding: .5em !important;
     font-weight: 400;
     border: var(--branco) 2px solid;
-    /* border-bottom:  2px solid white;
-    border-top: 2px solid white; */
+    /* background: yellow; */
 }
 
-.header_menu .ahover:hover {
+.usu-header_menu .usu-ahover:hover {
     font-weight: 400;
     border-bottom: 2px solid white;
+    color: var(--branco);
 }
 
 
 /* The container <div> - needed to position the dropdown content */
 
-.dropdown {
+.usu-dropdown {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    /* background: rebeccapurple; */
     height: 8vh;
+    /* background: rebeccapurple; */
 }
 
 
 /* Dropdown Content (Hidden by Default) */
 
-.dropdown-content {
+.usu-dropdown-content {
     display: none;
     position: absolute;
-    width: 18vw;
-    left: 43px;
-    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
     z-index: 1;
 }
 
 
 /* Links inside the dropdown */
 
-.dropdown-content button {
-    color: black;
-    padding: 16px 0;
-    width: 12vw;
+.usu-dropdown-content .link {
+    width: 15vw;
+    text-align: center;
+    padding: 10px 0 !important;
     background-color: #f1f1f1;
+    
+    color: black;
+
     display: none;
     text-decoration: none;
     display: block;
@@ -205,17 +165,12 @@ p {
 
 /* Change color of dropdown links on hover */
 
-.dropdown-content button:hover {
+.usu-dropdown-content .link:hover {
     background-color: #f5f5f7;
 }
 
-
 /* Show the dropdown menu on hover */
 
-.dropdown:hover .dropdown-content {
+.usu-dropdown:hover .usu-dropdown-content {
     display: block;
-}
-
-.dropdown:hover {
-    border: 2px solid var(--branco);
 }

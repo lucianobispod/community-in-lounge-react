@@ -12,41 +12,40 @@ class HeaderDefault extends Component {
 
 
 
-                <header id="header">
-                    <div className="header_box">
-                        <div className="imagem">
-                            <img src="images/logo.png" alt="" />
-                        </div>
+                <header id="de-header">
+
+                    <div className="de-header_box">
+                            <img className="de-imagem" src="" alt="" />
                     </div>
 
-                    <nav className="header_menu">
+                    <nav className="de-header_menu">
 
-                        <div className="container_menu_principal">
+                        <div className="de-container_menu_principal">
                             <ul>
                                 <li>
-                                    <Link className="ahover" id="li_border" to="/Login">Crie seu evento</Link>
+                                    <Link className="de-ahover" id="de-li_border" to="/Login">Crie seu evento</Link>
                                 </li>
                                 <li>
-                                    <Link className="ahover" to="/">Home</Link>
+                                    <Link className="de-ahover" to="/">Home</Link>
                                 </li>
                                 <li>
-                                    <Link className="ahover" to="/Login">Eventos gerais</Link>
+                                    <Link className="de-ahover" to="/EventosGerais">Eventos gerais</Link>
                                 </li>
                                 <li>
-                                    <Link className="ahover" to="/Login">Meus eventos</Link>
+                                    <Link className="de-ahover" to="/Login">Meus eventos</Link>
                                 </li>
 
                             </ul>
                         </div>
 
-                        <div className="container_menu_secundario">
+                        <div className="de-container_menu_secundario">
                             <ul>
                                 <li>
-                                    <Link className="ahover" to="/Login">Entre</Link>
+                                    <Link className="de-ahover" to="/Login">Entre</Link>
                                 </li>
-                                <span className="span_ou">ou</span>
+                                <span className="de-span_ou">ou</span>
                                 <li>
-                                    <Link className="ahover" to="/CadastrarUsuario">Cadastre-se</Link>
+                                    <Link className="de-ahover" to="/CadastrarUsuario">Cadastre-se</Link>
                                 </li>
                             </ul>
                         </div>

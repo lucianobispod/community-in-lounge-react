@@ -71,20 +71,20 @@ const Rotas = (
         <div>
             <Switch>
 
+                <Route exact path="/" component={Home} />
                 <Route path="/Login" component={Login} />
                 <Usuario path="/Meuseventos" component={MeusEventos} />
-                <Route path="/Evento" component={Evento}/>
+                <Usuario path="/Evento" component={Evento}/>
                <Route path="/Descricao" component={DescricaoEventoUsuario}/>
                <Route path="/EventosGerais" component={EventosGerais}/>
                 <Usuario path="/MeuPerfil" component={Perfil} />
-                <Usuario path="/DescricaoEventoAdm" component={DescricaoEventoAdm} />
+                <Administrador path="/DescricaoEventoAdm" component={DescricaoEventoAdm} />
                 <Administrador path='/Categoria' component={Categoria} />
                 <Administrador path="/GerenciarEventos" component={GerenciarEventos} />
-                <Route exact path="/" component={Home} />
                 <Route path="/CadastrarUsuario" component={CadastrarUsuario} />
+                <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Administrador path="/TornarAdministrador" component={TornarAdministrador} />
                 <Administrador path="/EventosAprovados" component={EventosAprovados} />
-                <Route path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Route component={NotFound} />
 
             </Switch>
