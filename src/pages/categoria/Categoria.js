@@ -91,7 +91,7 @@ class Categoria extends Component {
                 <HeaderAdministrador />
                 <section id="cdr_ctg_meioPricipal">
                     <div className="cdr_ctg_caixa">
-                        <h1> categorias já cadastradas </h1>
+                        <h1 className="cdr_ctg_caixa_h1"> categorias já cadastradas </h1>
                         <div className="cdr_ctg_buscarcategoria">
                             <form action="">
                                 <input value={this.state.search} onChange={i => this.atualizaSearch(i)} className="cdr_ctg_caixabuscarcategoria" type="text" placeholder="Buscar Uma Categoria" />
@@ -107,7 +107,7 @@ class Categoria extends Component {
                                 this.state.categoriasFiltradas.map(function (categoria) {
                                     return (
                                         <div className="cdr_ctg_categoria1" key={categoria.categoriaId}>
-                                            <p> {categoria.nome}</p>
+                                            <p className="cdr_ctg_categoria1_p"> {categoria.nome}</p>
                                             <button onClick={i => this.deletarCategoria(categoria.categoriaId)} className="cdr_ctg_categoria_btnX" >
                                                 <i className="fas fa-times"></i>
                                             </button>
@@ -121,7 +121,7 @@ class Categoria extends Component {
                     </div>
                     <div className="cdr_ctg_caixa2">
                         <div className="cdr_ctg_caixatitulo1">
-                            <h2>cadastrar uma nova categoria</h2>
+                            <h2 className="cdr_ctg_caixatitulo1_h2">cadastrar uma nova categoria</h2>
                         </div>
                         <div className="cdr_ctg_caixacadastro">
                             <form action="" onSubmit={this.postCategoria}>
