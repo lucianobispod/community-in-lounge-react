@@ -54,7 +54,7 @@ class HeaderAdministrador extends Component {
                         <div class="ad-container_menu_principal">
                             <ul>
                                 <li>
-                                    <Link className="ad-ahover" id="ad-li_border" href="#">Crie seu evento</Link>
+                                    <Link className="ad-ahover" id="ad-li_border" to={'/Evento'}>Crie seu evento</Link>
                                 </li>
                                 <li>
                                     <Link className="ad-ahover" to={'/'}>Home</Link>

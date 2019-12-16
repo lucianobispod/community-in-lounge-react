@@ -5,6 +5,7 @@ import moment from 'moment';
 import 'moment/locale/pt-br';
 
 import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
+import { getUserIdAuthenticated } from '../../services/auth';
 import { Link } from 'react-router-dom';
 
 class MeusEventos extends Component {
@@ -12,31 +13,38 @@ class MeusEventos extends Component {
         super(props)
         this.state = {
             eventos: [],
-            mes: new Date().getMonth(),
+            mes: new Date().getMonth()+1,
         }
 
     }
 
 
-    getEventos = async () => {
-        console.log(this.state.mes);
+    getEventos = () => {
+        console.log(" GETeVENTOS ");
+        console.log("MES " + this.state.mes);
+
         var mes = this.state.mes;
         axios.get('http://localhost:5000/api/Evento/pendenteMes/' + mes)
             .then(respota => {
-                this.setState({ eventos: respota.data }
-                );
+                this.setState({ eventos: respota.data });
                 console.log(this.state.eventos)
             })
             .catch(error => console.error(error));
 
     }
 
+
+
+
+
+
+
     atualizaMes = (event) => {
         this.setState({ mes: event.target.value });
         setTimeout(() => {
             console.log(this.state.mes)
             this.getEventos();
-        }, 500);
+        }, 150);
     }
 
 
@@ -44,18 +52,23 @@ class MeusEventos extends Component {
     aceitarEvento = (event, id) => {
         event.preventDefault();
 
-        alert("aceitar");
-
-        var usuario = 2;
+        console.log("ACEITAR EVENTO");
+        var usuario = getUserIdAuthenticated().id;
         console.log("ID " + id);
         console.log("usus " + usuario);
+
+
         axios.post('http://localhost:5000/api/Evento/aceppt/' + id + '/' + usuario)
             .then(respota => {
                 console.log(respota);
-                console.log("FOOOOOOOOOOOOOOO");
+                console.log("FOOOOOOOOOOOOOOOI");
+
+                console.log("PASSOU DO GET EVENTOS");
                 this.getEventos()
+
             })
             .catch(error => console.error(error));
+
     }
 
 
@@ -71,8 +84,8 @@ class MeusEventos extends Component {
             .then(respota => {
                 console.log(respota);
                 console.log("FOOOOOOOOOOOOOOOiiiiii");
-                this.getEventos()
             })
+            .then(this.getEventos())
             .catch(error => console.error(error));
 
 
@@ -84,7 +97,7 @@ class MeusEventos extends Component {
 
     componentDidMount() {
         this.getEventos();
-        console.log("MES "+this.state.mes)
+        console.log("MES " + this.state.mes)
     }
 
     render() {
@@ -220,17 +233,23 @@ class MeusEventos extends Component {
 
                         {
                             this.state.eventos.length === 0 ? <h2>Não há eventos esse mês</h2> : this.state.eventos.map((evento) => {
-                                
+
                                 return (
                                     <div class="card-pendente" key={evento.eventoId}>
 
                                         <div > <img class="foto-pendente" src={'http://localhost:5000/' + evento.foto} alt="" /> </div>
-                                        <Link to={'DescricaoEventoAdm/' + evento.eventoId}>
-                                        <div class="info">
-                                            <p class="titulo-info">{evento.nome}</p>
-                                            <p class="data-info">{moment(evento.eventoData).format('llll')}</p>
-                                            <p class="comunidade-info">{evento.comunidade.nome}</p>
-                                        </div>
+                                        {/* <Link to={'DescricaoEventoAdm/' + evento.eventoId}> */}
+
+                                        <Link onClick={() => (console.log("id do card: ", this.props.id))} to={{
+                                            pathname: "/DescricaoEventoAdm",
+                                            id: evento.eventoId
+                                        }}>
+
+                                            <div class="info">
+                                                <p class="titulo-info">{evento.nome}</p>
+                                                <p class="data-info">{moment(evento.eventoData).format('llll')}</p>
+                                                <p class="comunidade-info">{evento.comunidade.nome}</p>
+                                            </div>
                                         </Link>
 
                                         <div class="botoes">

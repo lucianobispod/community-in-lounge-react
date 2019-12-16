@@ -2,7 +2,8 @@ import React, { Component } from 'react'; //importando objeto React
 import '../../assets/imagens/banner.png';
 import './evento.css'
 import Axios from 'axios';
-
+import { getUserIdAuthenticated } from '../../services/auth'
+import { Redirect } from "react-router-dom";
 
 
 class Evento extends Component {
@@ -19,7 +20,7 @@ class Evento extends Component {
             Evento_data: '',
             Horario: '',
             Foto: React.createRef(),
-            comunidadeId: 1,
+            comunidadeId: '',
             Descricao: '',
             Url_evento: '',
             Lista_de_sala: [],
@@ -27,6 +28,39 @@ class Evento extends Component {
         }
 
     }
+
+
+
+
+
+    getComunidade = () => {
+
+        let id = getUserIdAuthenticated().id
+
+        Axios.get('https://localhost:5001/api/Comunidade/byuser/' + id)
+            .then(resposta => {
+
+                if (resposta.data.length === 0) {
+                    window.location.href = '/CadastrarComunidade';
+                }
+
+                this.setState({ comunidadeId: resposta.data[0].comunidadeId })
+                console.log("ID Comunidade" + this.state.comunidadeId)
+            })
+            .catch(error => console.log(error))
+
+
+
+
+
+    }
+
+
+
+
+
+
+
 
     efetuarCadastro(event) {
         event.preventDefault()
@@ -59,7 +93,7 @@ class Evento extends Component {
             categoriaId: this.state.Categoria_id,
             salaId: this.state.Sala_id,
             comunidadeId: this.state.comunidadeId,
-            foto: ''
+            foto: 'url'
         };
 
         Axios.post('https://localhost:5001/api/Evento', evento)
@@ -68,6 +102,7 @@ class Evento extends Component {
 
                 if (resposta.status === 200) {
                     this.uploadFoto(resposta.data.eventoId);
+                    window.location.href = '/Meuseventos';
                 }
             }).catch(error => console.log(error));
 
@@ -167,8 +202,10 @@ class Evento extends Component {
     }
 
     componentDidMount() {
+        this.getComunidade();
         this.getSala();
         this.getCategoria();
+
     }
 
     render() {

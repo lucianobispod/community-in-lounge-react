@@ -31,7 +31,8 @@ class CadastrarComunidade extends Component {
         .then(resposta => {
             console.log(resposta)
             if (resposta.status === 200) {
-                // this.uploadFoto(resposta.data.comunidadeId);
+                this.uploadFoto(resposta.data.comunidadeId);
+                window.location.href='/Evento';
             }
         })
         .catch(error => console.log(error));

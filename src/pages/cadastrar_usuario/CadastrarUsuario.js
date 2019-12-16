@@ -3,6 +3,7 @@ import './CadastrarUsuario.css' //Importando css
 
 import axios from 'axios';
 import Footer from '../../components/footer/Footer';
+import { parseToken } from '../../services/auth'
 
 class CadastrarUsuario extends Component {
     constructor(props) {
@@ -25,6 +26,40 @@ class CadastrarUsuario extends Component {
         });
     }
 
+
+
+
+
+
+    loginAutomatic= (email,senha) => {
+            
+        axios.post('http://localhost:5000/api/Login',
+       {
+           email: email,
+           senha: senha
+       }).then(res => {
+           if (res.status === 200) {
+               localStorage.setItem('usuario-token', res.data.token);
+                   this.props.history.push('/Meuseventos');
+           }
+       }).catch(erro => {
+           this.setState({ erroMessage: 'Email ou Senha invalido!' });
+           console.log(erro);
+
+       });
+   }
+
+
+
+
+
+
+
+
+
+
+
+
     efetuarCadastro = (event) => {
         event.preventDefault()
         
@@ -35,7 +70,6 @@ class CadastrarUsuario extends Component {
         console.log(this.state.email);
         console.log(this.state.genero);
         console.log(this.state.foto);
-
 
         // headers: {
         //     "Authorization" : "Bearer" + localStorage.getItem("usuario-community")
@@ -53,9 +87,14 @@ class CadastrarUsuario extends Component {
         .then(resposta => {
             console.log(resposta);
             console.log(resposta.data.usuarioId);
-            if (resposta.status == 200) {
+            if (resposta.status === 200) {
                 console.log('FOOOI');
                 this.uploadFoto(resposta.data.usuarioId);
+
+                this.loginAutomatic(resposta.data.email,resposta.data.senha)
+            }else{
+                
+                window.location.href='/Login';
             }
         }).catch(error => {console.log(error)});
     }

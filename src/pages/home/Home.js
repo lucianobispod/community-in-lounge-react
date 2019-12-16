@@ -13,7 +13,7 @@ import HeaderAdministrador from '../../components/header/administrador/HeaderAdm
 
 import { isAuthenticated, parseToken } from '../../services/auth';
 import { Link } from 'react-router-dom';
-
+import {icon} from '../../assets/images/Banner-home.png'
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -85,7 +85,9 @@ class Home extends Component {
                 {this.state.token === false ? (<HeaderDefault />) : this.state.acesso === 'Administrador' ? <HeaderAdministrador /> : (< HeaderUsuario />)}
 
 
-                <section className="section_banner"></section>
+                <section className="section_banner">
+                    <img src={icon}/> 
+                </section>
 
                 <main>
                     <section className="section_titulo_index">
@@ -109,7 +111,7 @@ class Home extends Component {
                                     this.state.eventosComunidades.map(function (evento) {
                                         return (
                                             <div className="card-main" key={evento.eventoId}>
-                                                <Link to={'/Descricao'}>
+                                                <Link to={'/Descricao/'+evento.eventoId}>
                                                     <div className="data-card-main">
                                                         <p>
                                                             {
@@ -126,7 +128,7 @@ class Home extends Component {
                                                 <div className="box_parti-bot-card-main">
                                                     <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                     <div className="link-card-main">
-                                                        <a href="#">Inscreva-se</a>
+                                                        <a href={'http://'+evento.urlEvento} target="_blank" >Inscreva-se</a>
                                                     </div>
                                                 </div>
                                             </div>

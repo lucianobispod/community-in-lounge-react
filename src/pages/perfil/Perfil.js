@@ -382,6 +382,7 @@ class Perfil extends Component {
 
                 </div>
 
+                <button onClick={() => this.props.history.go(-1)}>Back</button>
 
 
             </div>
