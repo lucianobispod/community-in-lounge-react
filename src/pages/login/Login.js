@@ -12,7 +12,7 @@ class Login extends Component {
         this.state = {
             email: '',
             senha: '',
-            emailRecuperarSenha:'',
+            emailRecuperarSenha: '',
             erroMessage: ''
 
         }
@@ -24,7 +24,7 @@ class Login extends Component {
     async efetuaLogin(event) {
         event.preventDefault();
 
-       await Axios.post('http://localhost:5000/api/Login',
+        await Axios.post('http://localhost:5000/api/Login',
             {
                 email: this.state.email,
                 senha: this.state.senha
@@ -61,24 +61,24 @@ class Login extends Component {
     }
 
 
-    atualizaEmailRecuperarSenha =()=>{
-        this.setState({emailRecuperarSenha: this.state.emailRecuperarSenha})
+    atualizaEmailRecuperarSenha = () => {
+        this.setState({ emailRecuperarSenha: this.state.emailRecuperarSenha })
     }
 
 
     recuperarSenha = () => {
         Axios.put('http://localhost:5000/api/Usuario/ResetPassword', this.state.emailRecuperarSenha)
-        .then(res => {
+            .then(res => {
                 console.log(res);
                 if (res.status === 200) {
-                    
+
                     this.setState({ erroMessage: 'Email Enviado com sucesso!' });
                 }
             }).catch(erro => {
                 this.setState({ erroMessage: 'Não foi possivel enviar email, tente mais tarde!' });
-            console.log(erro);
+                console.log(erro);
 
-        });
+            });
     }
 
 
@@ -88,7 +88,7 @@ class Login extends Component {
 
 
 
-    componentDidMount(){
+    componentDidMount() {
         this.typeWrite();
     }
 
@@ -149,11 +149,13 @@ class Login extends Component {
 
 
                         <div className="login_reset_senha">
-                            <a href="esqueceu-senha.html">
+                            <Link to={'/EsqueceuSenha'} >
                                 Esqueceu a senha ?
-                             </a>
+                             </Link>
                             <button className="call_recuperar-senha swing">
-                                <i className="fas fa-arrow-right"></i>
+                                <Link to={'/EsqueceuSenha'}>
+                                    <i className="fas fa-arrow-right"></i>
+                                </Link>
                             </button>
                         </div>
                     </div>

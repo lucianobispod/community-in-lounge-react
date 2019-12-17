@@ -151,7 +151,7 @@ class MeusEventos extends Component {
                                                 <div className="me-card" key={aprovado.eventoId}>
 
                                                     <div className="me-data">
-                                                        <p>
+                                                        <p className='p'>
                                                             {
                                                                 moment(aprovado.eventoData).format('llll')
                                                             }
@@ -163,7 +163,7 @@ class MeusEventos extends Component {
                                                             </a>
 
                                                             <div className="me-dropdown-content">
-                                                                <button type='submit' onClick={this.toggle.bind(this)}>Editar</button>
+                                                                <button className='button' type='submit' onClick={this.toggle.bind(this)}>Editar</button>
                                                             </div>
 
                                                             <MDBContainer>

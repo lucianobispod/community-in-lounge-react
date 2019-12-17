@@ -290,35 +290,46 @@ class Perfil extends Component {
 
 
                             {
-                                this.state.comunidade == null ? <h2>Você não possui uma comunidade</h2> : (
+                                this.state.comunidade === null ? <h2>Você não possui uma comunidade</h2> :
+                                    (
 
-                                    <div className="card-comunidade">
+                                        <div className="card-comunidade">
 
 
-                                        <div>
-                                            <img className="foto-card-comunidade" src={'http://localhost:5000/' + this.state.comunidade.foto} alt='' />
+                                            <div>
+                                                <img className="foto-card-comunidade" src={'http://localhost:5000/' + this.state.comunidade.foto} alt='' />
+                                            </div>
+
+                                            <div className="dados-card-comunidade">
+                                                <div className='div'>
+                                                    <p>{this.state.comunidade.nome}</p>
+                                                </div>
+
+                                                <div className='div font-pequena'>
+                                                    <p>{this.state.comunidade.emailContato}</p>
+                                                </div>
+
+                                                <div className='div font-pequena'>
+                                                    <p>{this.state.comunidade.telefoneContato}</p>
+                                                </div>
+
+                                                <div className="descricao-comunidade">
+                                                    <p>{this.state.comunidade.descricao}</p>
+                                                </div>
+                                            </div>
+
+
                                         </div>
 
-                                        <div className="dados-card-comunidade">
-                                            <div className='div'>
-                                                <p>{this.state.comunidade.nome}</p>
-                                            </div>
+                                )
 
-                                            <div className='div font-pequena'>
-                                                <p>{this.state.comunidade.emailContato}</p>
-                                            </div>
-
-                                            <div className='div font-pequena'>
-                                                <p>{this.state.comunidade.telefoneContato}</p>
-                                            </div>
-
-                                            <div className="descricao-comunidade">
-                                                <p>{this.state.comunidade.descricao}</p>
-                                            </div>
-                                        </div>
+                            }
+                                        
 
 
-                                        <MDBContainer>
+                            <button onClick={this.toggle} className="btn-editar-perfil">Editar</button>
+
+                            <MDBContainer>
                                             <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
                                                 <MDBModalHeader toggle={this.toggle}>Editar comunidade</MDBModalHeader>
                                                 <MDBModalBody>
@@ -354,17 +365,6 @@ class Perfil extends Component {
                                                 </MDBModalFooter>
                                             </MDBModal>
                                         </MDBContainer>
-
-                                    </div>
-
-                                )
-
-                            }
-
-
-                            <button onClick={this.toggle} className="btn-editar-perfil">Editar</button>
-
-
 
                         </div>
                     </section>

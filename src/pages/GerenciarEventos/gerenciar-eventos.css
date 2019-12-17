@@ -42,9 +42,13 @@
     /* background: cornflowerblue; */
     font-size: 1.4em;
 }
+.calendario-seta{
+    color: var(--cinza);
+
+}
 
 .container-lista-data form select {
-    width: 11vw;
+    width: 7.5vw;
     height: 5vh;
     border-radius: 5px;
     border: none;

@@ -19,14 +19,15 @@
 }
 
 .EventosGerais__secao{
-    width: 100vw;
-    height: 100vh;
-    background-color: #f68e31;
+    width: 100%;
+    min-height: 100vh;
+    /* background-color: #f68e31; */
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    /* position: relative; */
 }
 
 .EventosGerais__titulo{
@@ -39,20 +40,21 @@
 }
 
 .EventosGerais__container{
- width: 59vw;
- height: 80vh;
- background-color: aqua;
+ /* width: 60vw; */
+ /* background-color: aqua; */
+
 }
 
 .EventosGerais__card {
-    background: cyan;
+    /* background: bisque; */
     height: 20vh;
     width: 59vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--cinzaclaro);
-    border-radius: 5px;
+    border-radius: 3px;
+    margin-bottom: 15px !important;
 }
 
 .EventosGeraos__info {
@@ -61,7 +63,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    background: darkgoldenrod;
+    /* background: darkgoldenrod; */
     height: 20vh;
     width: 30.5vw;
 }
@@ -75,7 +77,7 @@
 
 .EventoGerais__titulo-info {
     font-size: 1.6em;
-    background: darkgreen;
+    /* background: darkgreen; */
 }
 
 .EventoGerais__data-info {
@@ -86,4 +88,15 @@
 
 .EventoGerais__comunidade-info {
     font-size: 1.1em;
+}
+
+.select-categoria{
+    /* position: absolute;
+    top: 140px; */
+    /* background: red; */
+    width: 10vw;
+    height: 5vh;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
 }
