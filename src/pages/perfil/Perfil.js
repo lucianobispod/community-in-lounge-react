@@ -106,15 +106,15 @@ class Perfil extends Component {
 
 
     updateComunidade = () => {
-        let comunidade=this.state.comunidade.comunidadeId;
-        axios.put('http://localhost:5000/api/Comunidade/'+comunidade+'/usuario/'+this.state.id, this.state.comunidade)
-        .then(resposta => {
-            console.log(resposta)
-            this.setState({comunidade: resposta.data})
-            console.log("seta comunidade atualizada"+resposta.data)
+        let comunidade = this.state.comunidade.comunidadeId;
+        axios.put('http://localhost:5000/api/Comunidade/' + comunidade + '/usuario/' + this.state.id, this.state.comunidade)
+            .then(resposta => {
+                console.log(resposta)
+                this.setState({ comunidade: resposta.data })
+                console.log("seta comunidade atualizada" + resposta.data)
 
-        })
-        .catch(error => {console.log(error)})
+            })
+            .catch(error => { console.log(error) })
         this.toggle();
     }
 
@@ -125,27 +125,15 @@ class Perfil extends Component {
         axios.get('http://localhost:5000/api/usuario/' + this.state.id)
             .then(resposta => {
 
+                console.log(resposta.data)
                 this.setState({ usuario: resposta.data });
                 this.setState({ comunidade: resposta.data.comunidade[0] });
 
-                // this.getComunidade(resposta.data.comunidade.comunidadeId)
+                console.log(this.state.comunidade)
             })
             .catch(error => console.log(error));
 
-        // console.log("estado " + this.state.usuario.comunidade.nome)
     }
-
-
-    // getComunidade = (id) => {
-    //     axios.get('http://localhost:5000/api/comunidade/' + id)
-    //         .then(resposta => {
-
-    //             this.setState({ usuario: resposta.data });
-    //         })
-    //         .catch(error => console.log(error));
-    // }
-
-
 
 
 
@@ -302,77 +290,81 @@ class Perfil extends Component {
 
 
                             {
-                                // this.state.usuario.comunidade.length === 0 ? <h2>Você não possui uma comunidade</h2> : this.state.usuario.comunidade.map((comunidade) => {
-                                //     return (
+                                this.state.comunidade == null ? <h2>Você não possui uma comunidade</h2> : (
 
-                                <div className="card-comunidade">
+                                    <div className="card-comunidade">
 
 
-                                    <div><img className="foto-card-comunidade" src={'http://localhost:5000/' + this.state.comunidade.foto} alt='' /></div>
-
-                                    <div className="dados-card-comunidade">
-                                        <div className='div'>
-                                            <p>{this.state.comunidade.nome}</p>
+                                        <div>
+                                            <img className="foto-card-comunidade" src={'http://localhost:5000/' + this.state.comunidade.foto} alt='' />
                                         </div>
 
-                                        <div className='div font-pequena'>
-                                            <p>{this.state.comunidade.emailContato}</p>
+                                        <div className="dados-card-comunidade">
+                                            <div className='div'>
+                                                <p>{this.state.comunidade.nome}</p>
+                                            </div>
+
+                                            <div className='div font-pequena'>
+                                                <p>{this.state.comunidade.emailContato}</p>
+                                            </div>
+
+                                            <div className='div font-pequena'>
+                                                <p>{this.state.comunidade.telefoneContato}</p>
+                                            </div>
+
+                                            <div className="descricao-comunidade">
+                                                <p>{this.state.comunidade.descricao}</p>
+                                            </div>
                                         </div>
 
-                                        <div className='div font-pequena'>
-                                            <p>{this.state.comunidade.telefoneContato}</p>
-                                        </div>
 
-                                        <div className="descricao-comunidade">
-                                            <p>{this.state.comunidade.descricao}</p>
-                                        </div>
+                                        <MDBContainer>
+                                            <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                                                <MDBModalHeader toggle={this.toggle}>Editar comunidade</MDBModalHeader>
+                                                <MDBModalBody>
+
+                                                    <MDBInput label="Nome da comunidade " outline size="lg"
+                                                        value={this.state.comunidade.nome}
+                                                        name='nome'
+                                                        onChange={i => this.atualizaStateComunidade(i)}
+                                                    />
+
+                                                    <MDBInput label="Email para contato" outline size="lg"
+                                                        value={this.state.comunidade.emailContato}
+                                                        name='emailContato'
+                                                        onChange={i => this.atualizaStateComunidade(i)}
+                                                    />
+
+                                                    <MDBInput label="Telefone para contato" outline size="lg"
+                                                        value={this.state.comunidade.telefoneContato}
+                                                        name='telefoneContato'
+                                                        onChange={i => this.atualizaStateComunidade(i)}
+                                                    />
+
+                                                    <MDBInput type="Descrição" label="Example label" background
+                                                        value={this.state.comunidade.descricao}
+                                                        name='descricao'
+                                                        onChange={i => this.atualizaStateComunidade(i)}
+                                                    />
+
+                                                </MDBModalBody>
+                                                <MDBModalFooter>
+                                                    <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                                    <MDBBtn color="primary" onClick={() => this.updateComunidade()}>Salvar</MDBBtn>
+                                                </MDBModalFooter>
+                                            </MDBModal>
+                                        </MDBContainer>
+
                                     </div>
 
+                                )
 
-
-                                </div>
-                                //     )
-                                // )
                             }
 
 
-                            <MDBContainer>
-                                <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-                                    <MDBModalHeader toggle={this.toggle}>Editar comunidade</MDBModalHeader>
-                                    <MDBModalBody>
-
-                                        <MDBInput label="Nome da comunidade " outline size="lg"
-                                            value={this.state.comunidade.nome}
-                                            name='nome'
-                                            onChange={i => this.atualizaStateComunidade(i)}
-                                        />
-
-                                        <MDBInput label="Email para contato" outline size="lg"
-                                            value={this.state.comunidade.emailContato}
-                                            name='emailContato'
-                                            onChange={i => this.atualizaStateComunidade(i)}
-                                        />
-
-                                        <MDBInput label="Telefone para contato" outline size="lg"
-                                            value={this.state.comunidade.telefoneContato}
-                                            name='telefoneContato'
-                                            onChange={i => this.atualizaStateComunidade(i)}
-                                        />
-
-                                        <MDBInput type="Descrição" label="Example label" background
-                                            value={this.state.comunidade.descricao}
-                                            name='descricao'
-                                            onChange={i => this.atualizaStateComunidade(i)}
-                                        />
-
-                                    </MDBModalBody>
-                                    <MDBModalFooter>
-                                        <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
-                                        <MDBBtn color="primary" onClick={() => this.updateComunidade()}>Salvar</MDBBtn>
-                                    </MDBModalFooter>
-                                </MDBModal>
-                            </MDBContainer>
                             <button onClick={this.toggle} className="btn-editar-perfil">Editar</button>
+
+
 
                         </div>
                     </section>

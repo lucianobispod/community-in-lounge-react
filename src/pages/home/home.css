@@ -118,7 +118,7 @@
 .section_banner {
     height: 600px;
     width: 100%;
-    background: rebeccapurple;
+    background-image: url('../../assets/images/Banner-home.png');
 }
 
 

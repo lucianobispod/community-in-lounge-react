@@ -12,8 +12,8 @@ class Login extends Component {
         this.state = {
             email: '',
             senha: '',
-            erroMessage: '',
-            gin: ''
+            emailRecuperarSenha:'',
+            erroMessage: ''
 
         }
     }
@@ -59,6 +59,34 @@ class Login extends Component {
             }, 75 * i)
         });
     }
+
+
+    atualizaEmailRecuperarSenha =()=>{
+        this.setState({emailRecuperarSenha: this.state.emailRecuperarSenha})
+    }
+
+
+    recuperarSenha = () => {
+        Axios.put('http://localhost:5000/api/Usuario/ResetPassword', this.state.emailRecuperarSenha)
+        .then(res => {
+                console.log(res);
+                if (res.status === 200) {
+                    
+                    this.setState({ erroMessage: 'Email Enviado com sucesso!' });
+                }
+            }).catch(erro => {
+                this.setState({ erroMessage: 'Não foi possivel enviar email, tente mais tarde!' });
+            console.log(erro);
+
+        });
+    }
+
+
+
+
+
+
+
 
     componentDidMount(){
         this.typeWrite();

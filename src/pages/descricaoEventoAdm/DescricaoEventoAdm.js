@@ -8,7 +8,7 @@ class DescricaoEventoAdm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id:this.props.location.state,
+            id:this.props.location.id,
             evento: {
                 comunidade: {
                     responsavelUsuario: {
@@ -30,7 +30,7 @@ class DescricaoEventoAdm extends Component {
     GetEvento = () => {
         console.log(this.props.location.id);
        
-        axios.get('http://localhost:5000/api/evento/' + this.props.location.id)
+        axios.get('http://localhost:5000/api/evento/' + this.state.id)
             .then(resposta => { 
                 console.log(resposta)
                 this.setState({ evento: resposta.data })

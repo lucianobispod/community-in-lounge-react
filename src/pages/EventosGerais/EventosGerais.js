@@ -15,13 +15,40 @@ class EventosGerais extends Component {
         super(props);
         this.state = {
             eventos: [],
+            categorias: [],
             token: '',
-            acesso: ''
+            acesso: '',
+            quantidade: 1,
+            botao: true,
+            idCategoria: ''
+        }
+
+    }
+    verMais = () => {
+        console.log(this.state.botao)
+        console.log(this.state.quantidade)
+        if (this.state.botao) {
+
+            this.setState({ quantidade: this.state.eventos.length })
+            this.setState({ botao: false })
+        } else {
+
+            this.setState({ botao: true })
+            this.setState({ quantidade: 1 })
         }
 
     }
 
 
+
+    getCategoria = () => {
+        axios.get('http://localhost:5000/api/Categoria')
+            .then(resposta => {
+                this.setState({ categorias: resposta.data })
+                console.log("CATEGORIAs " + resposta.data);
+            })
+            .catch(error => { console.log(error) });
+    }
 
     getEventos = () => {
         axios.get('http://localhost:5000/api/Evento')
@@ -32,6 +59,7 @@ class EventosGerais extends Component {
 
     componentDidMount() {
         this.getEventos();
+        this.getCategoria();
 
         this.setState({ token: isAuthenticated() })
 
@@ -43,12 +71,34 @@ class EventosGerais extends Component {
     }
 
 
+    atualizaCategoria = (event) => {
+        this.setState({ idCategoria: event.target.value })
+
+        console.log(this.state.idCategoria);
+    }
+
     render() {
         return (
             <div>
                 {this.state.token === false ? (<HeaderDefault />) : this.state.acesso === 'Administrador' ? <HeaderAdministrador /> : (< HeaderUsuario />)}
 
                 <main className="EventosGerais__main">
+
+
+                    <select onChange={i => this.atualizaCategoria(i)}>
+                        <option>Selecione</option>
+                        {
+                            this.state.categorias.map(function (categoria) {
+                                return (
+
+                                    <option value={categoria.categoriaId}>{categoria.nome}</option>
+                                )
+                            })
+                        }
+                    </select>
+
+
+
                     <section className="EventosGerais__secao">
                         <div className="EventosGerais_titulo">
                             <h1> Eventos Gerais</h1>
@@ -56,10 +106,13 @@ class EventosGerais extends Component {
                         <div className="EventosGerais__container">
 
                             {
-                                this.state.eventos.map((evento) => {
+                                this.state.eventos.slice(0, this.state.quantidade).map((evento) => {
 
                                     return (
-                                        <Link to={'/Descricao/'+ evento.eventoId}>
+                                        <Link onClick={() => (console.log("id do card: ", this.props.id))} to={{
+                                            pathname: "/Descricao",
+                                            id: evento.eventoId
+                                        }}>
 
                                             <div className="EventosGerais__card">
                                                 <div >
@@ -78,6 +131,8 @@ class EventosGerais extends Component {
 
                         </div>
                     </section>
+                    <button type='button' onClick={i => this.verMais()}>Ver Mais</button>
+
                 </main>
                 <Footer />
             </div>

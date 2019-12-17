@@ -8,7 +8,7 @@ class DescricaoEventoUsuario extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id:this.props.match.params.id,
+            id: this.props.location.id,
             evento: {
                 comunidade: {
                     responsavelUsuario: {

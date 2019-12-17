@@ -76,7 +76,7 @@ const Rotas = (
                 <Usuario exact path="/Meuseventos" component={MeusEventos} />
                 <Usuario exact path="/Evento" component={Evento} />
                 <Administrador path="/DescricaoEventoAdm" component={DescricaoEventoAdm} />
-                <Route exact path="/Descricao/:id" component={DescricaoEventoUsuario} />
+                <Route exact path="/Descricao" component={DescricaoEventoUsuario} />
                 <Route exact path="/EventosGerais" component={EventosGerais} />
                 <Usuario exact path="/MeuPerfil" component={Perfil} />
                 <Administrador exact path='/Categoria' component={Categoria} />

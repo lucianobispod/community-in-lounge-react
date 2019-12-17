@@ -13,7 +13,7 @@ import HeaderAdministrador from '../../components/header/administrador/HeaderAdm
 
 import { isAuthenticated, parseToken } from '../../services/auth';
 import { Link } from 'react-router-dom';
-import {icon} from '../../assets/images/Banner-home.png'
+import { icon } from '../../assets/images/Banner-home.png'
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -86,7 +86,6 @@ class Home extends Component {
 
 
                 <section className="section_banner">
-                    <img src={icon}/> 
                 </section>
 
                 <main>
@@ -111,7 +110,10 @@ class Home extends Component {
                                     this.state.eventosComunidades.map(function (evento) {
                                         return (
                                             <div className="card-main" key={evento.eventoId}>
-                                                <Link to={'/Descricao/'+evento.eventoId}>
+                                                <Link to={{
+                                                    pathname: "/Descricao",
+                                                    id: evento.eventoId
+                                                }}>
                                                     <div className="data-card-main">
                                                         <p>
                                                             {
@@ -128,7 +130,7 @@ class Home extends Component {
                                                 <div className="box_parti-bot-card-main">
                                                     <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                     <div className="link-card-main">
-                                                        <a href={'http://'+evento.urlEvento} target="_blank" >Inscreva-se</a>
+                                                        <a href={'http://' + evento.urlEvento} target="_blank" >Inscreva-se</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,20 +162,19 @@ class Home extends Component {
                                             return (
 
                                                 <div className="card-main" key={evento.eventoId}>
-                                                    <Link to={'/Descricao'} >
-                                                        <div className="data-card-main">
-                                                            <p>
-                                                                {
-                                                                    moment(evento.eventoData).format('llll')
-                                                                }
-                                                            </p>
-                                                        </div>
 
-                                                        <div className="identificacao-card-main">
-                                                            <p className="evento_titulo-card-main">{evento.nome}</p>
-                                                            <p className="comuni_evento-card-main">ThoughtWorks</p>
-                                                        </div>
-                                                    </Link>
+                                                    <div className="data-card-main">
+                                                        <p>
+                                                            {
+                                                                moment(evento.eventoData).format('llll')
+                                                            }
+                                                        </p>
+                                                    </div>
+
+                                                    <div className="identificacao-card-main">
+                                                        <p className="evento_titulo-card-main">{evento.nome}</p>
+                                                        <p className="comuni_evento-card-main">ThoughtWorks</p>
+                                                    </div>
                                                     <div className="box_parti-bot-card-main">
                                                         <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                         <div className="link-card-main">

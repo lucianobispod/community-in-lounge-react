@@ -13,7 +13,9 @@ class EventosAprovados extends Component {
         super(props);
         this.state = {
             listaaprovados: [],
-            id: ''
+            id: '',
+            quantidade: 1,
+            botao: true
         }
     }
 
@@ -24,6 +26,32 @@ class EventosAprovados extends Component {
                 console.log(this.state.listaaprovados);
             })
             .catch(error => console.log(error))
+    }
+
+
+
+    excluirEvento  = (event, id) => {
+        axios.delete('http://localhost:5000/api/Evento/'+ id +'/DeleteByAdministrador')
+        .then(resposta => {
+            console.log(resposta);
+            this.getEventosAprovados();
+        })
+        .catch(error => console.log(error))
+    }
+
+    verMais=() => {
+        console.log(this.state.botao)
+        console.log(this.state.quantidade)
+        if (this.state.botao) {
+            
+            this.setState({quantidade: this.state.listaaprovados.length})
+            this.setState({botao: false})
+        }else{
+            
+            this.setState({botao: true})
+            this.setState({quantidade: 1})
+        }
+    
     }
 
 
@@ -49,7 +77,7 @@ class EventosAprovados extends Component {
                         <div className="container-eventos-aprovados">
 
                             {
-                                this.state.listaaprovados.map(function (evento) {
+                                this.state.listaaprovados.slice(0,this.state.quantidade).map(function (evento) {
                                     return (
                                         <div className="card-aprovado">
                                             <div>
@@ -61,13 +89,16 @@ class EventosAprovados extends Component {
                                                 <p className="titulo-info">{evento.nome}</p>
                                                 <p className="data-info">{moment(evento.eventoData).format('llll')}</p>
                                                 <p className="comunidade-info">{evento.comunidade.nome}</p>
-
+                                                
                                             </div>
-
+                                            <button type='button' onClick={i=> this.excluirEvento(i,evento.nome)}>Exluir</button>
                                         </div>
                                     );
                                 })
                             }
+
+                            <button type='button' onClick={i => this.verMais()}>Ver Mais</button>
+
 
                         </div>
                     </section>
