@@ -102,7 +102,6 @@ class Categoria extends Component {
                         </div>
 
                         <div className="cdr_ctg_caixadecategorias">
-
                             {
                                 this.state.categoriasFiltradas.map(function (categoria) {
                                     return (

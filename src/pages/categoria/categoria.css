@@ -105,7 +105,7 @@
   width: 30vh;
   height: 15vh;
   background-color: #76ccd6;
-  margin: 0.5em;
+  margin: 0.5em !important;
   border-radius: 0.3125em;
   color: white;
   text-transform: uppercase;
