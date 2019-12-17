@@ -17,7 +17,6 @@
   font-family: var(--font);
 }
 
-
 #cdr_ctg_meioPricipal {
   display: flex;
   justify-content: space-around;
@@ -30,6 +29,7 @@
 .cdr_ctg_caixa {
   display: flex;
   justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   width: 49vw;
@@ -91,13 +91,13 @@
 }
 
 .cdr_ctg_caixadecategorias {
-  width: 32vw;
+  width: 33vw;
   height: 75vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: scroll;
   /* background: #231f20; */
 }
 
@@ -160,6 +160,7 @@
   background-color: transparent;
   border: none;
 }
+
 .cdr_ctg_caixatitulo1_h2 {
   text-transform: uppercase;
   font-family: var(--fonte);
@@ -168,15 +169,14 @@
 }
 
 .cdr_ctg_caixacadastro {
+  display: flex;
   width: 40vw;
   height: 32vh;
-  /* border: 1px solid black; */
-  display: flex;
-  align-items: center;
+ align-items: center;
   justify-content: center;
-  justify-content: space-around;
   border-radius: 0.3125em;
 }
+
 .cdr_ctg_cadastro {
   width: 28em;
   height: 3em;
@@ -187,8 +187,9 @@
   outline: 0;
   border-bottom: 2px solid var(--cinzaclaro);
 }
-h1
+
 .ctg_ctg_btncadastrar {
+  margin: 1em !important ;
   display: flex;
   justify-content: center;
   align-items: center;

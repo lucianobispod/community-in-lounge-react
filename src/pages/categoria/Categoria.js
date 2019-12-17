@@ -41,45 +41,45 @@ class Categoria extends Component {
         this.setState({
             nome: event.target.value
         });
-        
+
         console.log(this.state.nome)
     }
 
-    
-    
+
+
     deletarCategoria = (id) => {
         Axios.delete('http://localhost:5000/api/categoria/' + id)
-        .then(response => {console.log(response);})
-        .then(this.getCategorias)
-        .catch(error => {
-            console.log(error);
-            this.setState({ erroMessage: 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria' })
-        });
-    }
-    
-
-
-
-        atualizaSearch = (event) => {
-            event.preventDefault();
-             console.log('atualizando estado para filtrar')
-
-             console.log('filter categorias'+this.state.categorias)
-
-            var filtrado = this.state.categorias.filter(element => {
-                return element.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 
-            })
-            
-            this.setState({
-                categoriasFiltradas: filtrado
-            })
-
-            //seta o valor do meu input
-            this.setState({
-                search: event.target.value
+            .then(response => { console.log(response); })
+            .then(this.getCategorias)
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMessage: 'Não foi possivel excluir, verifique se não há um evento cadastrado com essa categoria' })
             });
-            
-        }
+    }
+
+
+
+
+    atualizaSearch = (event) => {
+        event.preventDefault();
+        console.log('atualizando estado para filtrar')
+
+        console.log('filter categorias' + this.state.categorias)
+
+        var filtrado = this.state.categorias.filter(element => {
+            return element.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+        })
+
+        this.setState({
+            categoriasFiltradas: filtrado
+        })
+
+        //seta o valor do meu input
+        this.setState({
+            search: event.target.value
+        });
+
+    }
 
     componentDidMount() {
         this.getCategorias();
@@ -112,13 +112,16 @@ class Categoria extends Component {
                                                 <i className="fas fa-times"></i>
                                             </button>
                                         </div>
+
                                     )
                                 }.bind(this))
                             }
-
                         </div>
 
+
                     </div>
+
+                    {/* </div> */}
                     <div className="cdr_ctg_caixa2">
                         <div className="cdr_ctg_caixatitulo1">
                             <h2 className="cdr_ctg_caixatitulo1_h2">cadastrar uma nova categoria</h2>
@@ -133,7 +136,7 @@ class Categoria extends Component {
                         </div>
                     </div>
                 </section>
-            </div>
+            </div >
         )
     }
 }
