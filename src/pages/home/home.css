@@ -42,14 +42,13 @@
     /* background: crimson; */
 }
 
-.data-card-main p {
-    font-size: 1.25em;
+.data-card-main .p {
+    font-size: 1em;
     font-weight: bold;
+    color: var(--azul);
 }
 
-.data-card-main i {
-    color: var(--cinzaclaro);
-}
+
 
 .identificacao-card-main {
     width: 21vw;
@@ -73,16 +72,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0em .6em;
+    padding: 0em .6em !important;
     font-size: 16px;
+    /* background: rebeccapurple; */
 }
 
 .partici-card-main {
     font-size: .75em;
 }
 
-.link-card-main a {
-    padding: .65em;
+.link-card-main .link-inscreverse-main {
+    padding: .55em !important;
     text-decoration: none;
     background: var(--azul);
     color: var(--branco);
