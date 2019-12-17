@@ -123,20 +123,21 @@
     color: var(--cinza);
     /* border-bottom: 1.5px solid var(--cinzaclaro); */
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    width: 32vw;
+    width: 32.5vw;
     /* background: #29803f; */
 }
 
 .cm-comunidade_form .cm-input {
     height: 5vh;
-    width: 24vw;
+    width: 27vw;
     border: none;
     padding-left: .2em !important;
     outline: 0;
     font-family: var(--font);
     color: var(--cinza);
+    background-color: #f3f5f7;
 }
 
 
@@ -159,35 +160,47 @@
 
 
 .cm-campo_foto_comunidade {
-    width: 45vw;
+    height: 35vh;
+    width: 33vw;
     border-radius: 3px;
-    color: var(--cinza);   
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    color: var(--cinza);
+     display: flex; 
+     flex-direction: column; 
+    justify-content: center;
+    align-items: flex-end;
+    /* background-color: red; */
+    justify-content: space-around;
 
-    background-color: red;
 }
 
 .cm-preview-foto{
-    background: var(--cinzaclaro);
-    height: 160px;
-    width: 160px;
-    border-radius: 100%;
-    border: 1px solid var(--cinza);
-    margin-right: .5em !important;
-    background: var(--laranja);
+    background-color: #f3f5f7;
+    height: 27vh;
+    width: 27vw;
+    border: 0.5px solid  #bec0c2;
+
+    /* margin-right: .5em !important; */
+}
+
+.cm-input-file{
+    background-color: #f3f5f7;
+    display: flex;
+    width: 27vw;
+    height: 4vh;
+    padding: 2em;
+    
+
 }
 
 
 .cm-textarea_comunidade {
-    border-radius: 3px;
-    width: 32vw;
+    width: 27vw;
     height: 20vh;
     resize: none;
     color: var(--cinza);
     padding-left: .5em !important;
-    /* background: yellowgreen; */
+    border: none;
+    background-color: #f3f5f7;
 }
 
 
@@ -196,19 +209,50 @@
     font-family: var(--font);
     color: var(--cinza);
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
-    width: 32vw;
+    width: 32.5vw;
     
     /* background: yellowgreen; */
 }
 
+.cm-descricao-comunidade-btn{
+    font-family: var(--font);
+    display: flex;
+    justify-content:flex-end ;
+    width: 25.5vw;
+    
+}
+
+/* .cm-custom-file-input:lang(en)~.custom-file-label::after {
+    display: none;
+} */
+
+/* .cm-input-group{
+    width: 26vw;
+    display: flex;
+} */
+
+/* .cm-custom-file-input{
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    opacity: 0;
+    background: #29803f;
+}
+
+.custom-file-label{
+    width: 13vw;
+    background-color: #25bcce;
+    color: #f3f5f7;
+
+}
 
 
 
-
-
-
+.custom-file{
+    background: #231f20;
+} */
 
 
 
