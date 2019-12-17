@@ -91,7 +91,7 @@ class Categoria extends Component {
                 <HeaderAdministrador />
                 <section id="cdr_ctg_meioPricipal">
                     <div className="cdr_ctg_caixa">
-                        <h1 className="cdr_ctg_caixa_h1"> categorias já cadastradas </h1>
+                        <h2 className="cdr_ctg_caixa_h2"> categorias já cadastradas </h2>
                         <div className="cdr_ctg_buscarcategoria">
                             <form action="">
                                 <input value={this.state.search} onChange={i => this.atualizaSearch(i)} className="cdr_ctg_caixabuscarcategoria" type="text" placeholder="Buscar Uma Categoria" />
