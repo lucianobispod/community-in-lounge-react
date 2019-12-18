@@ -143,9 +143,12 @@ class CadastrarComunidade extends Component {
                                 {/* <div className="cm-inpu_div_comunidade"> */}
 
                                 <div className="cm-campo_foto_comunidade">
+                                
                                     <img id='comu-img' className='cm-preview-foto' alt='' />
                                     {/* <label className="cm-campo_foto_comunindade_label" for="foto_comunindade">Adicione uma foto</label> */}
-                                    <input onChange={this.previwImage} type="file" ref={this.state.foto} id='comu-img-input' name="foto_comunidade"></input>
+                                    <input className="cm-input-file" onChange={this.previwImage} type="file" ref={this.state.foto} id='comu-img-input' name="foto_comunidade" ></input>
+                                    
+                                    
                                 </div>
 
                                 <div className="cm-campo_comunidade">
@@ -167,12 +170,17 @@ class CadastrarComunidade extends Component {
 
                                 <div className="cm-descricao-comunidade">
                                     <label for="descricao">Descrição</label>
-                                    <textarea onChange={i=>this.atualizaEstado(i)} name="descricao" class="cm-textarea_comunidade" cols="30" rows="10" ></textarea>
+                                    <textarea onChange={i=>this.atualizaEstado(i)} name="descricao" class="cm-textarea_comunidade" cols="30" rows="10"></textarea>
                                 </div>
 
                                 {/* </div> */}
 
+
+                                <div className="cm-descricao-comunidade-btn">
+
                                 <button className='button' type="submit">Cadastrar</button>
+
+                                </div>
                             </form>
 
                         </div>

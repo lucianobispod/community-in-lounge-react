@@ -91,7 +91,9 @@ class EventosAprovados extends Component {
                                                 <p className="comunidade-info">{evento.comunidade.nome}</p>
                                                 
                                             </div>
-                                            <button type='button' onClick={i=> this.excluirEvento(i,evento.nome)}>Exluir</button>
+                                            <button className="button-excluir" type='button' onClick={i=> this.excluirEvento(i,evento.nome)}>
+                                            <i className="fas fa-times ev-apr-excluir"></i>
+                                            </button>
                                         </div>
                                     );
                                 })

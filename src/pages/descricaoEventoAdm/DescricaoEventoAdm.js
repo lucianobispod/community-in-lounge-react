@@ -126,7 +126,7 @@ class DescricaoEventoAdm extends Component {
                                 </div>
                                 <div class="data_e_horario_descricaoEvento_adm">
                                 {/* ás {this.state.evento.horario} */}
-                                    <p class="data_e_horario">{moment(this.state.evento.eventoData).format('llll')} </p>
+                                    <p class="data_e_horario">{moment(this.state.evento.eventoData).format('LLL')} ás {this.state.evento.horario} </p>
                                 </div>
                             </div>
 

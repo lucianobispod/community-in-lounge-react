@@ -23,7 +23,7 @@ h1, h2, h3, h4, a,p {
 }
 
 .usuario_section {
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@ h1, h2, h3, h4, a,p {
 .text_container_usuario {
   background: var(--laranja);
   height: 99vh;
-  width: 50vw;
+  width: 50%;
   position: relative;
   color: var(--branco);
   display: flex;
@@ -44,7 +44,7 @@ h1, h2, h3, h4, a,p {
 
 .usuario_container {
   height: 99vh;
-  width: 50vw;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -63,46 +63,17 @@ h1, h2, h3, h4, a,p {
   font-size: 1.4em;
 }
 
+.titulo_usuario h2{
+  color: var(--branco);
+}
+
 .usuario_form {
-  /* background: royalblue; */
   height: 80vh;
   width: 40vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-}
-
-.inpu_div_usuario {
-  /* background: rebeccapurple; */
-  height: 70vh;
-  width: 35vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.usuario_form .campo_usuario {
-  border-radius: 5px;
-  color: var(--cinza);
-  border-bottom: 2px solid var(--cinzaclaro);
-  font-family: var(--font);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 30vw;
-  /* background: #29803f; */
-}
-
-.usuario_form input {
-  height: 4.5vh;
-  width: 23vw;
-  border: none;
-  color: var(--cinza);
-  padding: 0 .5em;
-  outline: 0;
-  font-family: var(--font);
 }
 
 .usuario_form button {
@@ -114,7 +85,7 @@ h1, h2, h3, h4, a,p {
   color: var(--branco);
 }
 
-.login_reset_senha {
+/* .login_reset_senha {
   width: 15vw;
   color: var(--cinza);
   font-size: .8em;
@@ -122,7 +93,7 @@ h1, h2, h3, h4, a,p {
   justify-content: space-around;
   align-items: center;
   /* background: var(--verde); */
-}
+
 
 .titulo_index::after {
   content: '|';
@@ -135,7 +106,7 @@ h1, h2, h3, h4, a,p {
   border-bottom: 2px solid var(--cinzaclaro);
   display: flex;
   justify-content: space-evenly;
-  width: 20vw;
+  width: 31vw;
   height: 22vh;
 }
 
@@ -159,6 +130,30 @@ h1, h2, h3, h4, a,p {
   align-items: center;
   width: 20vw;
   /* background-color: #29803f; */
+}
+
+.genero {
+  color: var(--cinza);
+  width: 21.5vw;
+  /* background: aliceblue; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.div-input-radio {
+  width: 17vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background: #29803f; */
+}
+
+.div-radio-genero{
+  width: 7vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
 
@@ -205,28 +200,6 @@ h1, h2, h3, h4, a,p {
   animation: pisca .7s infinite;
 }
 
-/* input[type="file"] {
-  display: none;
-  margin-bottom: 0 !important;
-
-} */
-
-.campo_foto_usuario_label {
-  color: var(--font);
-  font-size: 1.2em;
-  margin-bottom: 0 !important;
-}
-
-/* .circulomeio_usuario {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 18vw;
-  height: 36vh;
-  background-color: red;
-  border-radius: 50%;
-  border: 1px solid azure;
-} */
 
 #img{
   border: none;
@@ -247,6 +220,43 @@ h1, h2, h3, h4, a,p {
   /* background-color: red; */
 }
 
+.inpu_div_usuario{
+  height: 66vh;
+  display: flex;
+  flex-direction: column;
+  width: 31vw;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.campo_usuario{
+  color: var(--cinza);
+  
+  width: 31vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inpu-dado-usuario{
+  width: 27vw;
+  border: none;
+  background: #EFEFF1;
+  height: 5vh;
+  /* border-radius: 5px;*/
+}
+.genero_usuario {
+  /* background-color: #25bcce; */
+  font-size: var(--font);
+  color: var(--cinza);
+  width: 86vw;
+  height: 5vh;
+  border-radius: 5px;
+  color: var(--cinza);
+  border-bottom: 2px solid var(--cinzaclaro);
+  font-family: var(--font);
+
+}
 @media only screen and (max-device-width: 768px) {
   .usuario_section {
     flex-direction: column;
@@ -258,12 +268,13 @@ h1, h2, h3, h4, a,p {
     width: 100vw;
     height: 64vh;
   }
-  /* .baixa_usuario {
+
+  .baixa_usuario {
     right: -8vw;
   }
   .alta_usuario {
     left: -8vw;
-  } */
+  }
   
 
  .campo_usuario_foto {
@@ -278,7 +289,7 @@ h1, h2, h3, h4, a,p {
     justify-content: center;
     align-items: center;
   }
-  .usuario_form {
+  /* .usuario_form {
     width: 70vw;
   }
   .usuario_form input{
@@ -293,7 +304,7 @@ h1, h2, h3, h4, a,p {
     font-family: 'Open Sans';
     padding-left: 0.7em;
 
-  }
+  } */
   .inpu_div_usuario {
     width: 60vw;
   }
@@ -329,18 +340,27 @@ h1, h2, h3, h4, a,p {
     width: 84vw;
     font-size: 1em;
   }
+  .div-input-radio {
+    width: 69vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .inpu_div_usuario {
     width: 100vw;
   }
-  .usuario_form .campo_usuario {
+
+   .campo_usuario {
+    border-radius: 3px;
+    color: var(--cinza);
+    /* border-bottom: 1.5px solid var(--cinzaclaro); */
     display: flex;
-    justify-content: start;
+    justify-content: space-evenly;
     align-items: center;
-    width: 86vw;
-    font-size: 14px;
-    font-family: 'Open Sans';
-    padding-left: 0.7em;
+    width: 32vw;
+    /* background: #29803f; */
   }
+
   .descricao-usuario {
     width: 88vw;
   }
@@ -348,36 +368,71 @@ h1, h2, h3, h4, a,p {
   .usuario_form input {
     width: 70vw;
   }
+
   #campo_foto_usuario label {
     font-size: 0.5em;
 
   }
+
   .usuario_form button {
     background: var(--laranja);
   }
+
+  #img{
+
+    width: 62vw;
+  }
+
+.titulo_usuario h2{
+  /* width: 67vw; */
+  font-size: 1.7em;
+  color: #fff;
+  /* background: aqua; */
+  }
+
+  .campo_usuario{
+    width: 90vw;
+    height: 5vh;
+
+}
+/* .genero{
+      width: 90vw;
+      display: flex;
+      justify-content: space-between;
+  } */
+
+  .inpu_div_usuario{
+    align-items: center;
+  }
+  .usuario_form button{
+    width: 30vw;
+  }
+
+  .inpu-dado-usuario{
+    height: 5vh;;
+  }
+
+  span{
+    font-size: 1em;
+    }
+
+.footer_midiasocial h4{
+ font-size: 1.2em;
+      }
+
+.icons{
+  width: 36vw;
+        }
+
+ .genero {
+    width: 90vw;
+      }
+
+.footer_empresa h4{
+        font-size: 1.2em;
+        }
 }
 
 
-.genero_usuario {
-  /* background-color: #25bcce; */
-  font-size: var(--font);
-  color: var(--cinza);
-  width: 86vw;
-  height: 5vh;
-  border-radius: 5px;
-  color: var(--cinza);
-  border-bottom: 2px solid var(--cinzaclaro);
-  font-family: var(--font);
 
-}
-
-.genero{
-  width: 29vw;
-  display: flex;
-  align-items: center;
-}
-.genero_i{
-  width: 4vw;
-  height: 2vh;
-}
 
