@@ -59,7 +59,7 @@
   font-size: 1.4em;
 }
 
-.titulo_usuario h2{
+.titulo_usuario h2 {
   color: var(--branco);
 }
 
@@ -74,7 +74,6 @@
 
 .usuario_form button {
   background: var(--laranja);
-  border-radius: 5px;
   border: none;
   height: 5vh;
   width: 20vw;
@@ -89,7 +88,6 @@
   justify-content: space-around;
   align-items: center;
   /* background: var(--verde); */
-
 
 .titulo_index::after {
   content: '|';
@@ -115,7 +113,6 @@
   width: 30vw;
   /* background: red; */
 }
-
 
 .campo_foto_usuario {
   border-radius: 5px;
@@ -144,15 +141,12 @@
   /* background: #29803f; */
 }
 
-.div-radio-genero{
+.div-radio-genero {
   width: 7vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
-
-
 
 @keyframes pisca {
   0%, 100% {
@@ -196,14 +190,17 @@
   animation: pisca .7s infinite;
 }
 
-
-#img{
+#img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   width: 18vw;
   height: 36vh;
+  color: #231f20;
   border-radius: 50%;
   border: 1px solid var(--cinzaclaro);
-  background: url('../../assets//images/perfil-padrao.png')
+  background-color: white;
 }
 
 .campo_usuario_foto {
@@ -216,31 +213,32 @@
   /* background-color: red; */
 }
 
-.inpu_div_usuario{
+.inpu_div_usuario {
   height: 66vh;
   display: flex;
   flex-direction: column;
-  width: 31vw;
+  width: 33vw;
   justify-content: space-around;
   align-items: flex-start;
+  position: relative;
 }
 
-.campo_usuario{
+.campo_usuario {
   color: var(--cinza);
-  
   width: 31vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.inpu-dado-usuario{
-  width: 27vw;
+.inpu-dado-usuario {
+  width: 26vw;
   border: none;
   background: #EFEFF1;
   height: 5vh;
   /* border-radius: 5px;*/
 }
+
 .genero_usuario {
   /* background-color: #25bcce; */
   font-size: var(--font);
@@ -251,29 +249,33 @@
   color: var(--cinza);
   border-bottom: 2px solid var(--cinzaclaro);
   font-family: var(--font);
-
 }
+
+.link_icon_cadastrousuario {
+  color: var(--preto);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
 @media only screen and (max-device-width: 768px) {
   .usuario_section {
     flex-direction: column;
   }
-  .circle_usuario{
+  .circle_usuario {
     display: none;
   }
   .text_container_usuario {
     width: 100vw;
     height: 64vh;
   }
-
   .baixa_usuario {
     right: -8vw;
   }
   .alta_usuario {
     left: -8vw;
   }
-  
-
- .campo_usuario_foto {
+  .campo_usuario_foto {
     width: 40vw;
   }
   .usuario_container {
@@ -307,7 +309,6 @@
   .descricao-usuario {
     width: 55vw;
   }
-
   .usuario_form button {
     background: var(--laranja);
   }
@@ -324,7 +325,6 @@
   .usuario_container {
     width: 100%;
   }
-  
   .campo_usuario_foto {
     width: 82vw;
   }
@@ -345,8 +345,7 @@
   .inpu_div_usuario {
     width: 100vw;
   }
-
-   .campo_usuario {
+  .campo_usuario {
     border-radius: 3px;
     color: var(--cinza);
     /* border-bottom: 1.5px solid var(--cinzaclaro); */
@@ -356,79 +355,62 @@
     width: 32vw;
     /* background: #29803f; */
   }
-
   .descricao-usuario {
     width: 88vw;
   }
-  
   .usuario_form input {
     width: 70vw;
   }
-
   #campo_foto_usuario label {
     font-size: 0.5em;
-
   }
-
   .usuario_form button {
     background: var(--laranja);
   }
-
-  #img{
-
+  #img {
     width: 62vw;
   }
-
-.titulo_usuario h2{
-  /* width: 67vw; */
-  font-size: 1.7em;
-  color: #fff;
-  /* background: aqua; */
+  .titulo_usuario h2 {
+    /* width: 67vw; */
+    font-size: 1.7em;
+    color: #fff;
+    /* background: aqua; */
   }
-
-  .campo_usuario{
+  .campo_usuario {
     width: 90vw;
     height: 5vh;
-
-}
-/* .genero{
+  }
+  /* .genero{
       width: 90vw;
       display: flex;
       justify-content: space-between;
   } */
-
-  .inpu_div_usuario{
+  .inpu_div_usuario {
     align-items: center;
   }
-  .usuario_form button{
+  .usuario_form button {
     width: 30vw;
   }
-
-  .inpu-dado-usuario{
-    height: 5vh;;
+  .inpu-dado-usuario {
+    height: 5vh;
+    ;
   }
-
-  span{
+  span {
     font-size: 1em;
-    }
-
-.footer_midiasocial h4{
- font-size: 1.2em;
-      }
-
-.icons{
-  width: 36vw;
-        }
-
- .genero {
+  }
+  .footer_midiasocial h4 {
+    font-size: 1.2em;
+  }
+  .icons {
+    width: 36vw;
+  }
+  .genero {
     width: 90vw;
-      }
-
-.footer_empresa h4{
-        font-size: 1.2em;
-        }
+  }
+  .footer_empresa h4 {
+    font-size: 1.2em;
+  }
+  .div-radio-genero {
+    width: 60vw;
+  }
 }
-
-
-
-

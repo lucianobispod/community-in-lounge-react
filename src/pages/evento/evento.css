@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 :root {
-    --azul: #25bcce;
-    --laranja: #f68e31;
-    --preto: #231f20;
-    --cinza: #808284;
-    --fonte: sans-serif;
-    --cinzaclaro: #ccc;
-    --verde: #29803f;
-    --branco: #fff;
-    --font: 'Open Sans', sans-serif;
+  --azul: #25bcce;
+  --laranja: #f68e31;
+  --preto: #231f20;
+  --cinza: #808284;
+  --fonte: sans-serif;
+  --cinzaclaro: #ccc;
+  --verde: #29803f;
+  --branco: #fff;
+  --font: 'Open Sans', sans-serif;
 }
 
 * {
@@ -20,163 +20,147 @@
 
 /*HEADER*/
 
-
 #header {
-    width: 100vw;   
-    height: 10vh;
-    background: var(--azul);
+  width: 100vw;
+  height: 10vh;
+  background: var(--azul);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+.header_box {
+  width: 21vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.imagem {
+  height: 10vh;
+  width: 20vw;
+  /* background: var(--cinza); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .header_box {
-    width: 21vw;
+.imagem img {
+  height: 9vh;
+  width: 15vw;
+  /* background: red; */
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header_menu {
+  height: 10vh;
+  width: 75vw;
+  /* background: red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
-  }
+.container_menu_principal {
+  /* background: rosybrown; */
+  height: 8vh;
+  width: 45vw;
+}
 
-  .imagem{
-    height: 10vh;
-    width: 20vw;
-    /* background: var(--cinza); */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .imagem img{
-    height: 9vh;
-    width: 15vw;
-    /* background: red; */
+.container_menu_principal ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  height: 8vh;
+  /* background: violet; */
+}
 
-  }
+.container_menu_secundario {
+  width: 18vw;
+}
 
+.container_menu_secundario ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  height: 8vh;
+  /* background: violet; */
+}
 
-  .header_menu {
-    height: 10vh;
-    width:75vw;
+.span_ou {
+  color: var(--branco);
+  font-style: italic;
+}
 
-    /* background: red; */
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-.container_menu_principal{
-    /* background: rosybrown; */
+.header_menu a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 1.1em;
+  /* background: yellowgreen; */
+  padding: 0.4em;
+}
 
-    height: 8vh;
-    width: 45vw;
-    
-  }
-  .container_menu_principal ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  
-    list-style-type: none;
-    height: 8vh;
-    /* background: violet; */
-  }
-  
-  .container_menu_secundario{
-    width: 18vw;
-  }
-  
-  .container_menu_secundario ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  
-    list-style-type: none;
-    height: 8vh;
-    /* background: violet; */
-  }
-  
-  .span_ou{
-    color: var(--branco);
-    font-style: italic;
-  }
-
-  .header_menu a {
-    color: var(--branco);
-    text-decoration: none;
-    font-size: 1.1em;
-    /* background: yellowgreen; */
-
-    padding: 0.4em;
-  }
-
-  .header_menu #li_border {
-    padding: .7em;
-    /* background: yellow; */
-    font-weight: 400;
-    border: var(--branco) 2px solid;
-    /* border-bottom:  2px solid white;
+.header_menu #li_border {
+  padding: .7em;
+  /* background: yellow; */
+  font-weight: 400;
+  border: var(--branco) 2px solid;
+  /* border-bottom:  2px solid white;
     border-top: 2px solid white; */
 }
 
 .header_menu .ahover:hover {
   font-weight: 400;
-  border-bottom:  2px solid white;
+  border-bottom: 2px solid white;
 }
 
-  /*FIM HEADER*/
+/*FIM HEADER*/
 
-  
-  /* CADASTRAR EVENTO */
+/* CADASTRAR EVENTO */
 
+.cad_even_section {
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
 
-  .cad_even_section{
-    height: 70vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-  }
-  .cad_container_color{
-    width: 40vw;
-    height: 100vh;
-    background: url("") center center;
-    background-size: contain;
-  }
+.cad_container_color {
+  width: 40vw;
+  height: 100vh;
+  background: url("") center center;
+  background-size: contain;
+}
 
-  .titulo_cad_evento{
-    height: 30vh;
-    display: flex;
-    align-items: center;
-  }
+.titulo_cad_evento {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+}
 
-.cad_container_form{
-  width:85vw;
+.cad_container_form {
+  width: 85vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
- 
   align-items: center;
   /* background-color: aliceblue; */
-} 
-
-
-.cad_form{
- height: 100vh;
- width: 70vw;
- display: flex;
- align-items: center;
- justify-content: space-around;
- flex-direction: column;
- /* background-color: aquamarine; */
 }
 
-.cad_form input{
+.cad_form {
+  height: 100vh;
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  /* background-color: aquamarine; */
+}
+
+.cad_form input {
   height: 6.5vh;
-  width: 22vw;
+  width: 32vw;
   color: var(--cinza);
   padding: 0 .5em;
   outline: 0;
@@ -188,7 +172,8 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.cad_form .campo_dados{
+
+.cad_form .campo_dados {
   width: 50vw;
   /* height: 4.5em; */
   color: var(--cinza);
@@ -197,13 +182,25 @@
   align-items: center;
   /* background: lightpink; */
 }
-.cad_select_img{
+
+.cad_select_img {
   padding: 0.5em;
 }
 
-
-.campo_dados label{
+.campo_dados label {
   color: #231f20;
+}
+
+.campo_dados_block1 {
+  height: 20vh;
+  width: 50vw;
+}
+
+.campo_miniblock1 {
+  width: 22vw;
+  height: 20vh;
+  ;
+  flex-direction: column;
 }
 
 .cad_form select {
@@ -219,15 +216,13 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
 
-.coffe_divers input{
+.coffe_divers input {
   display: flex;
   width: 1.2em;
-  border:none;
+  border: none;
   display: flex;
-  
 }
 
 .cad-textarea {
@@ -239,21 +234,20 @@
   border: 2px solid var(--cinzaclaro);
 }
 
-.div_small_url{
+.div_small_url {
   display: flex;
   flex-direction: column;
   text-align: justify;
   width: 22vw;
-  
   justify-content: space-evenly;
 }
-  
+
 /* }
 .small_url{
   margin-top: 1em;
 } */
 
-.div_botao{
+.div_botao {
   height: 10vh;
   width: 70vw;
   display: flex;
@@ -261,11 +255,75 @@
   align-items: center;
   /* background-color: #808284; */
 }
-.cad-btn-cadastrar-evento{
-background: var(--laranja);
-border-radius: 5px;
-border: none;
-height: 5vh;
-width: 20vw;
-color: var(--branco);
+
+.cad-btn-cadastrar-evento {
+  background: var(--laranja);
+  border-radius: 5px;
+  border: none;
+  height: 5vh;
+  width: 20vw;
+  color: var(--branco);
+}
+
+.url_cad_input {
+  width: 22vw;
+  height: 6.5vh;
+}
+
+/* Responsivo de Tablet */
+
+@media screen and (max-width:769px) and (min-width:425px) {
+  .cad_even_section {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f68e31;
+  }
+  .cad_container_color {
+    background-color: #25bcce;
+    display: none;
+  }
+  .cad_container_form {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+  }
+  .cad_form {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: aquamarine;
+  }
+  .cad_form .campo_dados {
+    width: 80vw;
+    height: 55vh;
+    color: var(--cinza);
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    background: lightpink;
+  }
+
+  .cad_form select{
+    height: 4.5vh;
+    width: 32vw;
+    border: none;
+    color: var(--cinza);
+    padding: 0 .5em;
+    outline: 0;
+    border-radius: 5px;
+    border: 2px solid var(--cinzaclaro);
+    font-family: var(--font);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+
 }
