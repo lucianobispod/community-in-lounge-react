@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 
 //mdb
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -22,13 +21,14 @@ import TornarAdministrador from './pages/tornar_administrador/TornarAdministrado
 import EventosAprovados from './pages/eventos_aprovados/EventosAprovados';
 import Home from './pages/home/Home';
 import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidade';
+import Login from './pages/login/Login';
+import EsqueceuSenha from './pages/esqueceu-senha/EsqueceuSenha';
 
 
 //rotas
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
 import * as serviceWorker from './serviceWorker';
-import Login from './pages/login/Login';
 import { isAuthenticated, parseToken } from './services/auth';
 
 
@@ -73,13 +73,14 @@ const Rotas = (
 
                 <Route exact path="/" component={Home} />
                 <Route exact path="/Login" component={Login} />
+                <Route exact path="/EsqueceuSenha" component={EsqueceuSenha} />
                 <Usuario exact path="/Meuseventos" component={MeusEventos} />
                 <Usuario exact path="/Evento" component={Evento} />
                 <Administrador path="/DescricaoEventoAdm" component={DescricaoEventoAdm} />
                 <Route exact path="/Descricao" component={DescricaoEventoUsuario} />
                 <Route exact path="/EventosGerais" component={EventosGerais} />
                 <Usuario exact path="/MeuPerfil" component={Perfil} />
-                <Administrador exact path='/Categoria' component={Categoria} />
+                <Route exact path='/Categoria' component={Categoria} />
                 <Administrador exact path="/GerenciarEventos" component={GerenciarEventos} />
                 <Route exact path="/CadastrarUsuario" component={CadastrarUsuario} />
                 <Route exact path="/CadastrarComunidade" component={CadastrarComunidade} />

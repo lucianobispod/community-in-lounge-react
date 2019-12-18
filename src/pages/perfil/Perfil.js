@@ -15,7 +15,11 @@ class Perfil extends Component {
             fotoupdate: React.createRef(),
 
             comunidade: {
-
+                nome: '',
+                emailContato: '',
+                telefoneContato: '',
+                descricao: '',
+                foto: React.createRef()
             },
 
             modal: false,
@@ -127,9 +131,17 @@ class Perfil extends Component {
 
                 console.log(resposta.data)
                 this.setState({ usuario: resposta.data });
-                this.setState({ comunidade: resposta.data.comunidade[0] });
 
-                console.log(this.state.comunidade)
+                if (resposta.data.comunidade.length !== 0) {
+
+                    this.setState({ comunidade: resposta.data.comunidade[0] });
+
+                } else {
+
+                    this.setState({ comunidade: null });
+                }
+
+                console.log('asdasd', this.state.comunidade)
             })
             .catch(error => console.log(error));
 
@@ -189,19 +201,12 @@ class Perfil extends Component {
                             <img className='perfil-foto' id='perfil-img' src={imagem} alt='' />
                         </div>
 
-                        <form className='form-foto'>
 
-                            <label for="foto">
-                                Alterar foto
-                            </label>
-
-                            <input type="file"
-                                ref={this.state.fotoupdate}
-                                onChange={this.previwImage}
-                                id='per-img-input'
-                            />
-
-                        </form>
+                        <input type="file"
+                            ref={this.state.fotoupdate}
+                            onChange={this.previwImage}
+                            id='per-img-input'
+                        />
 
                     </div>
 
@@ -209,6 +214,12 @@ class Perfil extends Component {
 
 
                 <div className='container_comunidade-usuario'>
+                
+                
+                <button className='perfil-btn-voltar' onClick={() => this.props.history.go(-1)}>
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar
+                    </button>
 
                     <section className='section-usuario'>
 
@@ -290,83 +301,91 @@ class Perfil extends Component {
 
 
                             {
-                                this.state.comunidade == null ? <h2>Você não possui uma comunidade</h2> : (
+                                this.state.comunidade === null ? <h2>Você não possui uma comunidade</h2> :
+                                    (
 
-                                    <div className="card-comunidade">
+                                        <div className="card-comunidade">
 
 
-                                        <div>
-                                            <img className="foto-card-comunidade" src={'http://localhost:5000/' + this.state.comunidade.foto} alt='' />
+                                            <div>
+                                                <img className="foto-card-comunidade" src={'http://localhost:5000/' + this.state.comunidade.foto} alt='' />
+                                            </div>
+
+                                            <div className="dados-card-comunidade">
+                                                <div className='div'>
+                                                    <p>{this.state.comunidade.nome}</p>
+                                                </div>
+
+                                                <div className='div font-pequena'>
+                                                    <p>{this.state.comunidade.emailContato}</p>
+                                                </div>
+
+                                                <div className='div font-pequena'>
+                                                    <p>{this.state.comunidade.telefoneContato}</p>
+                                                </div>
+
+                                                <div className="descricao-comunidade">
+                                                    <p>{this.state.comunidade.descricao}</p>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <MDBContainer>
+                                                    <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                                                        <MDBModalHeader toggle={this.toggle}>Editar comunidade</MDBModalHeader>
+                                                        <MDBModalBody>
+
+                                                            <MDBInput label="Nome da comunidade " outline size="lg"
+                                                                value={this.state.comunidade.nome}
+                                                                name='nome'
+                                                                onChange={i => this.atualizaStateComunidade(i)}
+                                                            />
+
+                                                            <MDBInput label="Email para contato" outline size="lg"
+                                                                value={this.state.comunidade.emailContato}
+                                                                name='emailContato'
+                                                                onChange={i => this.atualizaStateComunidade(i)}
+                                                            />
+
+                                                            <MDBInput label="Telefone para contato" outline size="lg"
+                                                                value={this.state.comunidade.telefoneContato}
+                                                                name='telefoneContato'
+                                                                onChange={i => this.atualizaStateComunidade(i)}
+                                                            />
+
+                                                            <MDBInput type="Descrição" label="Example label" background
+                                                                value={this.state.comunidade.descricao}
+                                                                name='descricao'
+                                                                onChange={i => this.atualizaStateComunidade(i)}
+                                                            />
+
+                                                        </MDBModalBody>
+                                                        <MDBModalFooter>
+                                                            <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                                            <MDBBtn color="primary" onClick={() => this.updateComunidade()}>Salvar</MDBBtn>
+                                                        </MDBModalFooter>
+                                                    </MDBModal>
+                                                </MDBContainer>
+                                            </div>
+
                                         </div>
 
-                                        <div className="dados-card-comunidade">
-                                            <div className='div'>
-                                                <p>{this.state.comunidade.nome}</p>
-                                            </div>
+                                    )
 
-                                            <div className='div font-pequena'>
-                                                <p>{this.state.comunidade.emailContato}</p>
-                                            </div>
-
-                                            <div className='div font-pequena'>
-                                                <p>{this.state.comunidade.telefoneContato}</p>
-                                            </div>
-
-                                            <div className="descricao-comunidade">
-                                                <p>{this.state.comunidade.descricao}</p>
-                                            </div>
-                                        </div>
-
-
-                                        <MDBContainer>
-                                            <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-                                                <MDBModalHeader toggle={this.toggle}>Editar comunidade</MDBModalHeader>
-                                                <MDBModalBody>
-
-                                                    <MDBInput label="Nome da comunidade " outline size="lg"
-                                                        value={this.state.comunidade.nome}
-                                                        name='nome'
-                                                        onChange={i => this.atualizaStateComunidade(i)}
-                                                    />
-
-                                                    <MDBInput label="Email para contato" outline size="lg"
-                                                        value={this.state.comunidade.emailContato}
-                                                        name='emailContato'
-                                                        onChange={i => this.atualizaStateComunidade(i)}
-                                                    />
-
-                                                    <MDBInput label="Telefone para contato" outline size="lg"
-                                                        value={this.state.comunidade.telefoneContato}
-                                                        name='telefoneContato'
-                                                        onChange={i => this.atualizaStateComunidade(i)}
-                                                    />
-
-                                                    <MDBInput type="Descrição" label="Example label" background
-                                                        value={this.state.comunidade.descricao}
-                                                        name='descricao'
-                                                        onChange={i => this.atualizaStateComunidade(i)}
-                                                    />
-
-                                                </MDBModalBody>
-                                                <MDBModalFooter>
-                                                    <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
-                                                    <MDBBtn color="primary" onClick={() => this.updateComunidade()}>Salvar</MDBBtn>
-                                                </MDBModalFooter>
-                                            </MDBModal>
-                                        </MDBContainer>
-
-                                    </div>
-
-                                )
 
                             }
 
+                            {
+                                this.state.comunidade === null ? '' : (
 
-                            <button onClick={this.toggle} className="btn-editar-perfil">Editar</button>
-
-
-
+                                    <button onClick={this.toggle} className="btn-editar-perfil">Editar</button>
+                                )
+                            }
                         </div>
+
+
+
+
                     </section>
 
 
@@ -374,7 +393,6 @@ class Perfil extends Component {
 
                 </div>
 
-                <button onClick={() => this.props.history.go(-1)}>Back</button>
 
 
             </div>

@@ -20,7 +20,6 @@ class MeusEventos extends Component {
 
 
     getEventos = () => {
-        console.log(" GETeVENTOS ");
         console.log("MES " + this.state.mes);
 
         var mes = this.state.mes;
@@ -32,11 +31,6 @@ class MeusEventos extends Component {
             .catch(error => console.error(error));
 
     }
-
-
-
-
-
 
 
     atualizaMes = (event) => {
@@ -129,6 +123,7 @@ class MeusEventos extends Component {
                                         <option value="11">Novembro</option>
                                         <option value="12">Dezembro</option>
                                     </select>
+                                    <i class="fas fa-angle-down calendario-seta"></i>
                                 </form>
 
                             </div>

@@ -154,9 +154,7 @@ previwImage = () => {
 
                             <div className="campo_usuario_foto">
 
-                                <i className="fas fa-camera"></i>
-
-                                <label className="campo_foto_usuario_label" for="campo_foto_usuario">   Clicle aqui para adcionar uma foto</label>
+                             
                                 <input type="file"
                                     id="campo_foto_usuario"
                                     onChange={this.previwImage}
@@ -173,73 +171,51 @@ previwImage = () => {
 
                                 <div className="inpu_div_usuario">
 
-                                    <div className="campo_usuario">
+        <div className="campo_usuario">
+                                    <label for="nome">Nome</label>
+        <input type="text" className="inpu-dado-usuario" name="nome" value={this.state.nome} onChange={this.atualizaState}/>
+        </div>
 
-                                        <label for="nome">Nome:</label>
 
-                                        <input type="text"
-                                            name="nome"
-                                            value={this.state.nome}
-                                            onChange={this.atualizaState}
-                                            placeholder="Digite seu nome"/>
+        <div className="campo_usuario">
+                                        <label for="telefone">Telefone</label>
+        <input type="text" className="inpu-dado-usuario" name="telefone" value={this.telefone} onChange={this.atualizaState}/>
 
-                                    </div>
+        </div>
 
-                                    <div className="campo_usuario">
+        <div className="genero">                 
+                                    <label>Gênero</label>
+        <div className="div-input-radio">
 
-                                        <label for="email">Email:</label>
 
-                                        <input type="email"
-                                            value={this.email}
-                                            onChange={this.atualizaState}
-                                            name="email"
-                                            placeholder="exemplo@email.com" />
-                                    </div>
+        <div className='div-radio-genero'>
+                                            <label for=''>Masculino</label>
+        <input type="radio" name="genero" value="Masculino" checked={this.state.genero === 'Masculino'} onChange={this.atualizaState}/>
+        </div>
 
-                                    <div className="campo_usuario">
+        <div className='div-radio'>
+                                            <label for=''>Feminino</label>
+        <input type="radio" name="genero" value="Feminino" checked={this.state.genero === 'Feminino'} onChange={this.atualizaState}/>
+        </div>
 
-                                        <label for="telefone">Telefone:</label>
-
-                                        <input type="text"
-                                            name="telefone"
-                                            value={this.telefone}
-                                            onChange={this.atualizaState}
-                                            placeholder="11 97777-4444" />
-
-                                    </div>
-
-                                    <div className="genero">
-                                        <label for="">Genero: </label>
-                                        <input className="genero_i"
-                                            value="Masculino"
-                                            type="radio"
-                                            name="genero"
-                                            checked={this.state.genero === 'Masculino'}
-                                            onChange={this.atualizaState}
-                                            />Masculino
-                                        
-                                        <input className="genero_i"
-                                            value="Feminino"
-                                            type="radio"
-                                            name="genero"
-                                            checked={this.state.genero === 'Feminino'}
-                                            onChange={this.atualizaState}
-                                            />Feminino
+        </div>
                                             
-                                    </div>
+        </div>
 
+        <div className="campo_usuario">
+                                        <label for="email">Email</label>
+        <input type="email" className="inpu-dado-usuario" value={this.email} onChange={this.atualizaState} name="email"/>
+                                   
+         </div>
 
-                                    <div className="campo_usuario">
-                                        <label for="senha">Senha:</label>
-                                        <input type="password" 
-                                        name="senha"
-                                        value={this.senha} 
-                                        onChange={this.atualizaState}/>
-                                    </div>
+        <div className="campo_usuario">
+                                        <label for="senha">Senha</label>
+        <input type="password" className="inpu-dado-usuario" name="senha" value={this.senha} onChange={this.atualizaState}/>
+        </div>
 
-                                </div>
+        </div>
 
-                                <button type="submit">Cadastrar</button>
+                                <button className="button-cadastrar-usuario" type="submit">Cadastrar</button>
                             </form>
                         </div>
 

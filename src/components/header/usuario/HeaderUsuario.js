@@ -91,8 +91,8 @@ class HeaderUsuario extends Component {
                                 </div>
                                 
                                 <div class="usu-dropdown-content">
-                                    <Link className='link' to={'/MeuPerfil'}>Ver perfil</Link>
-                                    <Link className='link' onClick={i => this.logout(i)} >Sair</Link>
+                                    <Link className='usu-link' to={'/MeuPerfil'}>Ver perfil</Link>
+                                    <Link className='usu-link' onClick={i => this.logout(i)} >Sair</Link>
                                 </div>
 
                             </div>
