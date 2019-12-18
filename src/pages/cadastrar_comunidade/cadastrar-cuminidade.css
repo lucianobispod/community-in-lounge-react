@@ -177,7 +177,7 @@
     background-color: #f3f5f7;
     height: 27vh;
     width: 27vw;
-    border: 0.5px solid  #bec0c2;
+    border: 0.5px solid  #f3f5f7;
 
     /* margin-right: .5em !important; */
 }
@@ -282,12 +282,22 @@
 
 
 
-@media only screen and (max-device-width: 768px) {
+@media only screen and (min-device-width:765px) and (max-device-width: 768px)  {
     .text_container_comunidade {
         display: none;
     }
     .comunidade_container {
         width: 100vw;
+    }
+
+    .cm-campo_comunidade{
+        width: 43.5vw;
+    }
+    .cm-letra_grande_comunidade {
+        font-size: 1.5em;
+    }
+    .cm-letra_media_comunidade {
+        font-size: 2em;
     }
     .titulo_comunidade {
         width: 60vw;
@@ -295,8 +305,19 @@
         justify-content: center;
         align-items: center;
     }
+    .cm-comunidade_form {
+        width: 49vw;
+        /* background-color: salmon;  */
+    }
+    .cm-comunidade_form .cm-input {
+        width: 33.5vw;
+    }
+
     .comunidade_form {
         width: 70vw;
+    }
+    .cm-campo_foto_comunidade{
+        width: 43vw;
     }
     .comunidade_form .campo_comunidade {
         width: 55vw;
@@ -306,24 +327,54 @@
         font-size: 14px;
         font-family: 'Open Sans';
     }
+    .cm-preview-foto, .cm-input-file{
+        width: 33.5vw;
+    }
     .inpu_div_comunidade {
         width: 60vw;
     }
 
     .descricao-comunidade{
         width: 55vw;    
+        
     }
     .textarea_comunidade{
         width: 55vw;
     }
+    .cm-textarea_comunidade {
+        width: 33.5vw;
+    }
+    .cm-descricao-comunidade{
+        width: 43.5vw;
+    }
+    .cm-descricao-comunidade-btn{
+        width: 30.5vw;    
+    } 
+    
 }
 
-@media only screen and (max-device-width: 375px) {
+
+@media only screen and (min-device-width: 769px) and (max-device-width: 375px) {
     .text_container_comunidade {
         display: none;
     }
+    /* .cm-text_container_comunidade{
+        display: none;
+    } */
     .comunidade_container {
         width: 100vw;
+    }
+    .cm-comunidade_form {
+        height: 90vh;
+        width: 82vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        /* background: royalblue; */
+    }
+    .cm-campo_comunidade{
+        width: 87.5vw;
     }
     .titulo_comunidade {
         display: flex;
@@ -332,6 +383,9 @@
         height: 15vh;
         width: 84vw;
         font-size: 1em;
+    }
+    .cm-input-file{
+        width: 73vw;
     }
     .inpu_div_comunidade {
         width: 100vw;
