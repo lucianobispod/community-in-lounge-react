@@ -14,13 +14,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-h1, h2, h3, h4, a,p {
   font-family: var(--font);
-  margin-bottom: 0 !important;
-
 }
+
 
 .usuario_section {
   width: 100%;

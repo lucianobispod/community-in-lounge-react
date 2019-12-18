@@ -51,6 +51,7 @@
     top: 20px;
     right: 30px;
     font-size: 1.5em;
+    color: black;
 }
 
 .circle_login {
@@ -92,7 +93,7 @@
     justify-content: flex-start;
 }
 
-.texto-amigo-login-esqueceu {
+.texto-amigo-login {
     margin-left: 10px;
 }
 
