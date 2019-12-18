@@ -105,7 +105,7 @@ class Login extends Component {
                         <div className="circle_login baixa"></div>
                     </div>
                     <div className="login_container">
-                        <Link to='/' className="link-icone"  >
+                        <Link onClick={() => this.props.history.go(-1)} className="link-icone"  >
                             <i className="fas fa-times fechar-login"></i>
                         </Link>
 
@@ -151,12 +151,10 @@ class Login extends Component {
                         <div className="login_reset_senha">
                             <Link to={'/EsqueceuSenha'} >
                                 Esqueceu a senha ?
-                             </Link>
-                            <button className="call_recuperar-senha swing">
-                                <Link to={'/EsqueceuSenha'}>
+                                <button className="call_recuperar-senha swing">
                                     <i className="fas fa-arrow-right"></i>
-                                </Link>
-                            </button>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </section>

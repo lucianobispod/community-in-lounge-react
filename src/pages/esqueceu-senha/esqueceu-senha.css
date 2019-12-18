@@ -19,14 +19,14 @@
     font-family: var(--font);
 }
 
-.login_section {
+.esqueceusenha_section {
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.text_container {
+.esqueceusenha-text_container {
     background: var(--azul);
     height: 99vh;
     width: 50vw;
@@ -34,7 +34,7 @@
     box-shadow: var(--cinzaclaro) 1px 1px 2px 0px;
 }
 
-.login_container {
+.esqueceusenha_container {
     height: 99vh;
     width: 50vw;
     display: flex;
@@ -57,7 +57,7 @@
     color: var(--preto);
 }
 
-.circle_login {
+.circle_esqueceusenha {
     height: 150px;
     width: 150px;
     border-radius: 50%;
@@ -65,31 +65,35 @@
     position: absolute;
 }
 
-.alta {
+.esqueceusenha-alta {
     top: 2vh;
     left: -4vw;
 }
 
-.baixa {
+.esqueceusenha-baixa {
     bottom: 2vh;
     right: -4vw;
 }
 
-.titulo_login {
+.titulo_esqueceusenha {
     height: 15vh;
-    width: 20vw;
-    font-size: 1.3em;
+    width: 40vw;
+    text-align: center;
 }
 
-.letra_grande {
-    font-size: 2em;
+.h1-eqs{
+    font-size: 2.2em;
 }
 
-.letra_media {
+.letra_grande-esqueceusenha {
+    font-size: 2.3em;
+}
+
+.letra_media-esqueceusenha {
     font-size: 2.5em;
 }
 
-.text_container {
+.esqueceusenha-text_container {
     color: var(--branco);
     display: flex;
     align-items: center;
@@ -97,17 +101,17 @@
 }
 
 .texto-amigo-login-esqueceu {
-    margin-left: 10px;
-}
+    margin-left: 10px !important;
+    }
 
-.titulo_h2_login::after {
+.titulo_h2_esqueceu::after {
     content: '|';
     margin-left: 4px;
     opacity: 1;
     animation: pisca .7s infinite;
 }
 
-.login_form {
+.esqueceusenha_form {
     height: 27vh;
     width: 23vw;
     display: flex;
@@ -116,7 +120,7 @@
     flex-direction: column;
 }
 
-.login_form input {
+.esqueceusenha_form input {
     height: 4.5vh;
     width: 15vw;
     border: none;
@@ -125,7 +129,7 @@
     outline: 0;
 }
 
-.inpu_div {
+.inpu_div-esqueceusenha {
     height: 13vh;
     display: flex;
     align-items: center;
@@ -133,7 +137,7 @@
     flex-direction: column;
 }
 
-.login_form .campo {
+.esqueceusenha-campo {
     border-radius: 5px;
     color: var(--cinza);
     border-bottom: 2px solid var(--cinzaclaro);
@@ -144,97 +148,18 @@
     width: 20vw;
 }
 
-.login_form button {
+.esqueceusenha_form .button-esqueceusenha {
     background: var(--azul);
-    border-radius: 5px;
     border: none;
     height: 5vh;
     width: 20vw;
     color: var(--branco);
 }
 
-.login_reset_senha {
-    width: 11vw;
-    color: var(--cinza);
-    font-size: .8em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.login_reset_senha a {
-    text-decoration: none;
-    color: var(--cinza);
-}
 
-.call_recuperar-senha {
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    border: none;
-    background: var(--branco);
-    color: var(--azul);
-    box-shadow: var(--cinzaclaro) 1px 1px 1px 1px;
-    outline: 0;
-}
 
-@-webkit-keyframes swing {
-    15% {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30% {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
-    }
-    50% {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65% {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80% {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
 
-@keyframes swing {
-    15% {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30% {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
-    }
-    50% {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65% {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80% {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-
-.swing:hover {
-    -webkit-animation: swing 1s ease;
-    animation: swing 1s ease;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
+.cor{
+    color: var(--branco);
 }

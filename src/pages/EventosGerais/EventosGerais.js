@@ -4,7 +4,8 @@ import Footer from '../../components/footer/Footer';
 import HeaderDefault from '../../components/header/default/HeaderDefault';
 import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
 import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
-
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 import axios from "axios";
 import { isAuthenticated, parseToken } from '../../services/auth';
@@ -28,14 +29,17 @@ class EventosGerais extends Component {
 
 
     verMais = () => {
+        let botao = document.getElementById('egbvm');
+
         console.log(this.state.botao)
         console.log(this.state.quantidade)
         if (this.state.botao) {
-
             this.setState({ quantidade: this.state.eventos.length })
             this.setState({ botao: false })
+            botao.innerHTML = 'Ver menos'
         } else {
-
+            
+            botao.innerHTML = 'Ver mais'
             this.setState({ botao: true })
             this.setState({ quantidade: 3 })
         }
@@ -127,13 +131,8 @@ class EventosGerais extends Component {
 
 
 
-                    <section className="EventosGerais__secao">
-                        <div className="EventosGerais_titulo">
-                            <h1> Eventos Gerais</h1>
-                        </div>
-
-
-
+                    <div className="EventosGerais_titulo_select">
+                        <h1> Eventos Gerais</h1>
                         <select className='select-categoria' onChange={i => this.atualizaCategoria(i)}>
                             <option value={0}>Todos</option>
                             {
@@ -145,43 +144,50 @@ class EventosGerais extends Component {
                                 })
                             }
                         </select>
+                    </div>
 
 
+                    <section className="EventosGerais__secao">
 
                         <div className="EventosGerais__container">
 
                             {
-                                this.state.eventoslistaFiltrada.slice(0, this.state.quantidade).map((evento) => {
+                               this.state.eventoslistaFiltrada.length === 0 ? <h2>Não há eventos</h2> : this.state.eventoslistaFiltrada.slice(0, this.state.quantidade).map((evento) => {
 
                                     return (
-                                        <Link onClick={() => (console.log("id do card: ", this.props.id))} to={{
-                                            pathname: "/Descricao",
-                                            id: evento.eventoId
-                                        }}>
-
-                                            <div className="EventosGerais__card">
+                                        
+                                        <div className="EventosGerais__card">
+                                            <Link onClick={() => (console.log("id do card: ", this.props.id))} to={{
+                                                pathname: "/Descricao",
+                                                id: evento.eventoId
+                                            }}>
                                                 <div >
-                                                    <img className="EventoGerais__foto-pendente" alt='' src={'http://localhost:5000/' + evento.foto} />
+                                                    <img className="EventoGerais__foto" alt='' src={'http://localhost:5000/' + evento.foto} />
                                                 </div>
+                                        </Link>
                                                 <div className="EventosGeraos__info">
                                                     <p className="EventoGerais__titulo-info">{evento.nome}</p>
-                                                    <p className="EventoGerais__data-info">{evento.eventoData}</p>
-                                                    <p className="EventoGerais__comunidade-info">{evento.comunidade.nome}</p>
+                                                    <p className="EventoGerais__data-info">{moment(evento.eventoData).format('llll')}</p>
+                                                    <div className='EventoGerais-container-comu-btn'>
+                                                        <p className="EventoGerais__comunidade-info">{evento.comunidade.nome}</p>
+                                                        <a className='EventoGerais__link-inscrevase'>Inscreva-se</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </Link>
                                     )
                                 })
                             }
 
                         </div>
                     </section>
-                    <button type='button' onClick={i => this.verMais()}>
-                        Ver Mais
-                        <i class="fas fa-angle-down"></i>
-                    </button>
-
                 </main>
+
+                <div className='EventoGerais-container-button'>
+                    <button id='egbvm' className='EventoGerais-button-vermais' type='button' onClick={i => this.verMais()}>
+                        Ver mais
+                    </button>
+                </div>
+
                 <Footer />
             </div>
         )

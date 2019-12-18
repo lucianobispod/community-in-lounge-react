@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./esqueceu-senha.css";
 import Axios from 'axios';
-import { parseToken } from '../../services/auth';
 import { Link } from 'react-router-dom';
 
 
@@ -20,7 +19,7 @@ class EsqueceuSenha extends Component {
 
     typeWrite = () => {
 
-        const titulo = document.getElementById('titulo_home');
+        const titulo = document.getElementById('titulo_esqueceu-senha');
         const textoArray = titulo.innerHTML.split('');
         titulo.innerHTML = '';
         textoArray.forEach((letra, i) => {
@@ -61,45 +60,49 @@ class EsqueceuSenha extends Component {
     render() {
         return (
             <div>
-                <section className="login_section">
-                    <div className="text_container">
-                        <div className="circle_login alta"></div>
+                <section className="esqueceusenha_section">
+                    
+                    <div className="esqueceusenha-text_container">
+
+                        <div className="circle_esqueceusenha esqueceusenha-alta"></div>
+                        
                         <div className="texto-amigo-login-esqueceu">
-                            <h2 className="cor letra_grande titulo_h2_login" id="titulo_home">Tenha calma, vamos ajuda-lo!</h2>
-                            <h2 className="cor  letra_media">Entre para fazer seu evento conosco.</h2>
+                            <h2 className="cor letra_grande-esqueceusenha titulo_h2_esqueceu" id="titulo_esqueceu-senha">Tenha calma, vamos ajuda-lo!</h2>
+                            <h2 className="cor letra_media-esqueceusenha">Siga nossas instruções</h2>
                         </div>
-                        <div className="circle_login baixa"></div>
+
+                        <div className="circle_esqueceusenha esqueceusenha-baixa"></div>
+                    
                     </div>
-                    <div className="login_container">
-                        <Link to={() => this.props.history.go(-1)} className="link-icone"  >
+
+
+                    <div className="esqueceusenha_container">
+                        <Link onClick={() => this.props.history.go(-1)} className="link-icone"  >
                             <i className="fas fa-times fechar-login"></i>
                         </Link>
 
-                        <div className="titulo_login">
-                            <h1>Recuperar Senha </h1>
+                        <div className="titulo_esqueceusenha">
+                            <h1 className='h1-eqs'>Recuperar Senha</h1>
                         </div>
-                        <form className="login_form" onSubmit={(i) => this.recuperarSenha(i)}>
-                            <div className="inpu_div">
+                        <form className="esqueceusenha_form" onSubmit={(i) => this.recuperarSenha(i)}>
+                            <div className="inpu_div-esqueceusenha">
 
-                                <div className="campo">
+                                <div className="esqueceusenha-campo">
                                     <label for="email_user"><i className="far fa-user"></i></label>
                                     <input
-                                        className="input_login"
                                         value={this.state.emailRecuperarSenha}
                                         onChange={(i) => this.atualizaEmailRecuperarSenha(i)}
                                         type="email"
-                                        id="login_email"
+                                        name='email_user'
                                         placeholder="Email" />
                                 </div>
-
-                                
 
                                 <div>
                                     <p>{this.state.erroMessage}</p>
                                 </div>
 
                             </div>
-                            <button type="submit">Enviar</button>
+                            <button className='button-esqueceusenha' type="submit">Enviar</button>
                         </form>
 
 

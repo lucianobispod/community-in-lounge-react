@@ -215,7 +215,7 @@ class MeusEventos extends Component {
                     </div>
 
                     <div className="me-box_eventos_analise">
-                        <h2 className="me-upper laranja">Eventos em análise</h2>
+                        <h2 className="me-upper me-laranja">Eventos em análise</h2>
                         <div className="me-box_cards_analise">
 
 

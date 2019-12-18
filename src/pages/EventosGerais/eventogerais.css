@@ -18,6 +18,18 @@
     font-family: var(--fonte);
 }
 
+.EventosGerais_titulo_select{
+ display: flex;
+ /* text-align: center;  */
+ /* background: red; */
+ height: 30vh;
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ flex-direction: column;
+ }
+
+
 .EventosGerais__secao{
     width: 100%;
     min-height: 100vh;
@@ -30,10 +42,6 @@
     /* position: relative; */
 }
 
-.EventosGerais__titulo{
- display: flex;
- text-align: center;
- }
 
 .EventosGerais__secao h1{
  text-transform: uppercase;
@@ -46,9 +54,9 @@
 }
 
 .EventosGerais__card {
-    /* background: bisque; */
-    height: 20vh;
-    width: 59vw;
+    /* background: bisque;  */
+    height: 24vh;
+    width: 55vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,22 +65,12 @@
     margin-bottom: 15px !important;
 }
 
-.EventosGeraos__info {
-    padding-left: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    /* background: darkgoldenrod; */
-    height: 20vh;
-    width: 30.5vw;
-}
-.EventoGerais__foto-pendente {
-    /* background: url('../images/banner.png'); */
+
+.EventoGerais__foto {
     background-size: cover;
     background-repeat: no-repeat;
-    height: 20vh;
-    width: 18vw;
+    height: 24vh;
+    width: 20vw;
 }
 
 .EventoGerais__titulo-info {
@@ -81,22 +79,77 @@
 }
 
 .EventoGerais__data-info {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 600;
 }
 
 
 .EventoGerais__comunidade-info {
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .select-categoria{
     /* position: absolute;
     top: 140px; */
     /* background: red; */
-    width: 10vw;
+    /* width: 20vw; */
     height: 5vh;
-    border: none;
+    border: 0.5px solid var(--cinzaclaro);
     border-radius: 3px;
     text-transform: uppercase;
+    color: var(--cinza);
+    outline: 0;
+}
+
+
+.EventoGerais-container-comu-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 32vw;
+    /* background: royalblue; */
+    padding: 0 .8em !important;
+}
+
+.EventoGerais__link-inscrevase{
+    padding: .55em !important;
+    background: var(--azul);
+    color: var(--branco) !important;
+    border-radius: 5px;
+    font-size: .8em;
+}
+
+
+
+
+.EventosGeraos__info {
+    padding-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    /* background: darkgoldenrod; */
+    height: 24vh;
+    width: 34vw;
+}    
+
+
+
+
+
+.EventoGerais-container-button{
+    display: flex;
+    /* background: red; */
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.EventoGerais-button-vermais{
+    border: none;
+    height: 7vh;
+    width: 10vw;
+    background: var(--laranja);
+    color: var(--branco);
 }
