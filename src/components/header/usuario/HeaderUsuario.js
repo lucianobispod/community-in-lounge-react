@@ -3,7 +3,7 @@ import './usuario-header.css';
 import { Link } from 'react-router-dom';
 import { isAuthenticated, getUserIdAuthenticated } from '../../../services/auth';
 import axios from 'axios';
-
+import logo from '../../../assets/imagens/logo.png';
 
 class HeaderUsuario extends Component {
 
@@ -52,7 +52,7 @@ class HeaderUsuario extends Component {
                 <header id="usu-header">
 
                     <div class="usu-header_box">
-                        <img class="usu-imagem" src="" alt="" />
+                        <img class="usu-imagem" src={logo} alt="" />
                     </div>
 
                     <nav class="usu-header_menu">

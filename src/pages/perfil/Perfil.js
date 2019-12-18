@@ -214,11 +214,10 @@ class Perfil extends Component {
 
 
                 <div className='container_comunidade-usuario'>
-                
-                
-                <button className='perfil-btn-voltar' onClick={() => this.props.history.go(-1)}>
-                    <i class="fas fa-arrow-left"></i>
-                    Voltar
+
+
+                    <button className='perfil-btn-voltar' onClick={() => this.props.history.go(-1)}>
+                        <i class="fas fa-times"></i>
                     </button>
 
                     <section className='section-usuario'>
@@ -254,10 +253,10 @@ class Perfil extends Component {
                                 <div className="div-genero">
 
                                     <label>Gênero</label>
-                                    <div className="div-input-radio">
+                                    <div className="div-input-radio-perfil">
 
 
-                                        <div className='div-radio'>
+                                        <div className='div-radio-perfil'>
                                             <label for=''>Masculino</label>
                                             <input type="radio" name="genero" value="Masculino"
                                                 checked={this.state.usuario.genero === 'Masculino'}
@@ -265,7 +264,7 @@ class Perfil extends Component {
                                             />
                                         </div>
 
-                                        <div className='div-radio'>
+                                        <div className='div-radio-perfil'>
                                             <label for=''>Feminino</label>
                                             <input type="radio" name="genero" value="Feminino"
                                                 checked={this.state.usuario.genero === 'Feminino'}

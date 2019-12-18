@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 :root {
     --azul: #25bcce;
     --laranja: #f68e31;
@@ -17,7 +17,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font);
-} */
+}
 
 .login_section {
     width: 100vw;

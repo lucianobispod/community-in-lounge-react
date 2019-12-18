@@ -31,7 +31,7 @@ class MeusEventos extends Component {
             this.setState({ botao: false })
             botao.innerHTML = 'Ver menos'
         } else {
-            
+
             botao.innerHTML = 'Ver mais'
             this.setState({ botao: true })
             this.setState({ quantidade: 3 })
@@ -265,7 +265,11 @@ class MeusEventos extends Component {
 
                                             <div class="info">
                                                 <p class="titulo-info">{evento.nome}</p>
-                                                <p class="data-info">{moment(evento.eventoData).format('llll')}</p>
+                                                <p class="data-info">
+                                                    {
+                                                         moment(evento.eventoData.split('T')[0] + 'T' + evento.horario).format('llll')
+                                                    }
+                                                </p>
                                                 <p class="comunidade-info">{evento.comunidade.nome}</p>
                                             </div>
                                         </Link>

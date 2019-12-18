@@ -44,18 +44,18 @@ class DescricaoEventoUsuario extends Component {
                 console.log(this.state.evento.comunidade.nome)
             })
             .catch(err => console.log(err))
-  
-        }
 
-  
-
-setIdEventAndGetEventInfo = () => {
-    console.log(this.props.location.id)
-    if (this.props.location.id) {
-        localStorage.setItem('idEvento', this.props.location.id)
     }
-    this.GetEvento();
-}
+
+
+
+    setIdEventAndGetEventInfo = () => {
+        console.log(this.props.location.id)
+        if (this.props.location.id) {
+            localStorage.setItem('idEvento', this.props.location.id)
+        }
+        this.GetEvento();
+    }
 
 
     async componentDidMount() {
@@ -93,14 +93,10 @@ setIdEventAndGetEventInfo = () => {
                                 <ul class="share">
 
 
-                                    <a href="http://facebook.com.br"> <img class="icone" src="imagens/029 -facebook.png"
-                                        alt="ícone do facebook" /></a>
-                                    <a href="http://instagram.com.br"> <img class="icone" src="imagens/025 -instagram.png"
-                                        alt="ícone do instagram" /></a>
-                                    <a href="http://twitter.com.br"> <img class="icone" src="imagens/043-twitter.png"
-                                        alt="ícone do twitter" /></a>
-                                    <a href="http://linkdin.com.br"> <img class="icone" src="imagens/045-linkedin.png"
-                                        alt="ícone do linkdin" /></a>
+                                    <a href="http://facebook.com.br"> <i class="fab fa-facebook-square"></i> </a>
+                                    <a href="http://instagram.com.br"> <i class="fab fa-instagram"></i></a>
+                                    <a href="http://twitter.com.br"> <i class="fab fa-twitter-square"></i></a>
+                                    <a href="http://linkdin.com.br"> <i class="fab fa-linkedin"></i></a>
 
                                 </ul>
 
@@ -119,7 +115,7 @@ setIdEventAndGetEventInfo = () => {
                             <div class="texto_descricaoEvento_usuario">
 
                                 <div class="banner_descricaoEvento_usuario">
-                                    <img src={'http://localhost:5000/'+this.state.evento.foto} alt="" />
+                                    <img src={'http://localhost:5000/' + this.state.evento.foto} alt="" />
                                 </div>
 
                                 <div class="titulo_descricaoEvento_usuario">

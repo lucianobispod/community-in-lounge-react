@@ -18,14 +18,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, p {
-    font-family: var(--fonte);
-}
-
-.respon_descricaoEvento_usuario p {
+/* .respon_descricaoEvento_usuario p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-transform: none;
-}
+} */
 
 .box1_descricaoEvento_usuario {
     width: 100vw;
