@@ -320,6 +320,15 @@ class Evento extends Component {
                                         <input name="Foto" ref={this.state.Foto} className="cad_select_img" type="file" name="Foto" />
 
                                     </div>
+                                    
+                                    <div className="div_small_url">
+                                        <div>
+                                            <label  for="url_cad">Url de cadastro:</label>
+                                        </div>
+                                        <input className="url_cad_input" name="Url_evento" value={this.state.Url_evento} onChange={this.atualizarEstadoUrl_evento.bind(this)} className="cad_input_url" type="text" name="" id="url_cad" placeholder="URL para cadastro" />
+                                        <small className="small_url">Se já tiver um link de inscrição, insira aqui. Se não tiver, você pode incluir depois que evento for aprovado também.</small>
+                                    </div>
+                                    
                                     {/* <div>
                                         <label for="">Evento privado?</label>
                                         <select onChange={i => this.atualizarEstadoPublico(i)} className="select_diversi" name="privado" id="cad-privado">
@@ -328,21 +337,15 @@ class Evento extends Component {
                                             <option value="Não">Não</option>
                                         </select>
                                     </div> */}
-                                </div>
+
+                                    </div>
 
 
                                 <div className="campo_dados">
-                                    <div>
+                                    <div className="campo_miniblock1">
                                         <label className="cad-label-descricao">Faça uma breve descrição sobre o evento:</label>
                                         <textarea onChange={u => this.atualizarEstadoDescricao(u)} className="cad-textarea" name="descricao-evento" id="desc-eve" cols="45" rows="10"
                                         ></textarea>
-                                    </div>
-                                    <div className="div_small_url">
-                                        <div>
-                                            <label for="url_cad">Url de cadastro:</label>
-                                        </div>
-                                        <input name="Url_evento" value={this.state.Url_evento} onChange={this.atualizarEstadoUrl_evento.bind(this)} className="cad_input_url" type="text" name="" id="url_cad" placeholder="URL para cadastro" />
-                                        <small className="small_url">Se já tiver um link de inscrição, insira aqui. Se não tiver, você pode incluir depois que evento for aprovado também.</small>
                                     </div>
                                 </div>
 
