@@ -31,10 +31,7 @@ class HeaderDefault extends Component {
                                 <li>
                                     <Link className="de-ahover" to="/EventosGerais">Eventos gerais</Link>
                                 </li>
-                                <li>
-                                    <Link className="de-ahover" to="/Login">Meus eventos</Link>
-                                </li>
-
+            
                             </ul>
                         </div>
 

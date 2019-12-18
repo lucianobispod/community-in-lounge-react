@@ -115,7 +115,7 @@ class Home extends Component {
                                                     id: evento.eventoId
                                                 }}>
                                                     <div className="data-card-main">
-                                                        <p>
+                                                        <p className='p'>
                                                             {
                                                                 moment(evento.eventoData).format('llll')
                                                             }
@@ -130,7 +130,7 @@ class Home extends Component {
                                                 <div className="box_parti-bot-card-main">
                                                     <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                     <div className="link-card-main">
-                                                        <a href={'http://' + evento.urlEvento} target="_blank" >Inscreva-se</a>
+                                                        <a className='link-inscreverse-main' href={'http://' + evento.urlEvento} target="_blank" >Inscreva-se</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,7 +152,7 @@ class Home extends Component {
 
                                 <div>
 
-                                    <h3 className="home_titulo-tw titulo_eventos">Participe dos eventos ThougtWorks</h3>
+                                    <h3 className="home_titulo-tw titulo_eventos">Participe dos eventos ThoughtWorks</h3>
                                 </div>
 
                                 <div className="list_card-main">
@@ -164,7 +164,7 @@ class Home extends Component {
                                                 <div className="card-main" key={evento.eventoId}>
 
                                                     <div className="data-card-main">
-                                                        <p>
+                                                        <p className='p'>
                                                             {
                                                                 moment(evento.eventoData).format('llll')
                                                             }
@@ -178,7 +178,7 @@ class Home extends Component {
                                                     <div className="box_parti-bot-card-main">
                                                         <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                         <div className="link-card-main">
-                                                            <a href="#">Inscreva-se</a>
+                                                            <a  className='link-inscreverse-main' href="#">Inscreva-se</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -227,7 +227,7 @@ class Home extends Component {
 
                         <div className="box_call_evento">
                             <h4>Crie seu evento gratuitamente!</h4>
-                            <a className="link_saiba_mais" href="#">Saiba mais</a>
+                            <a className="link_saiba_mais-home" href="#">Saiba mais</a>
                         </div>
 
                     </section>

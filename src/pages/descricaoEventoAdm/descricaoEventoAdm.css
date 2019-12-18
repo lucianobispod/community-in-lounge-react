@@ -9,29 +9,6 @@ header {
     background-color: #25bcce;
 }
 
-h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: uppercase;
-    color: #000000;
-}
-
-h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: uppercase;
-    color: #25BCCE;
-}
-
-h3 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: uppercase;
-    color: #000000;
-    /* font-size: 1.1em; */
-}
-
-p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: none;
-}
 
 .box1_descricaoEvento_adm {
     width: 100vw;

@@ -13,14 +13,36 @@ class MeusEventos extends Component {
         super(props)
         this.state = {
             eventos: [],
-            mes: new Date().getMonth()+1,
+            mes: new Date().getMonth() + 1,
+            quantidade: 3,
+            botao: true
         }
 
     }
 
 
+    verMais = () => {
+        let botao = document.getElementById('gebtnvm');
+
+        console.log(this.state.botao)
+        console.log(this.state.quantidade)
+        if (this.state.botao) {
+            this.setState({ quantidade: this.state.eventos.length })
+            this.setState({ botao: false })
+            botao.innerHTML = 'Ver menos'
+        } else {
+            
+            botao.innerHTML = 'Ver mais'
+            this.setState({ botao: true })
+            this.setState({ quantidade: 3 })
+        }
+
+    }
+
+
+
+
     getEventos = () => {
-        console.log(" GETeVENTOS ");
         console.log("MES " + this.state.mes);
 
         var mes = this.state.mes;
@@ -32,11 +54,6 @@ class MeusEventos extends Component {
             .catch(error => console.error(error));
 
     }
-
-
-
-
-
 
 
     atualizaMes = (event) => {
@@ -129,6 +146,7 @@ class MeusEventos extends Component {
                                         <option value="11">Novembro</option>
                                         <option value="12">Dezembro</option>
                                     </select>
+                                    <i class="fas fa-angle-down calendario-seta"></i>
                                 </form>
 
                             </div>
@@ -196,21 +214,21 @@ class MeusEventos extends Component {
 
                             <div class="linha-legenda">
                                 <div class="cor-leg back-laranja"></div>
-                                <p>Laranja</p>
+                                <p>Mais de 3 eventos na mesma data</p>
                             </div>
 
                             <div class="linha-legenda">
                                 <div class="cor-leg back-vermelho"></div>
-                                <p>Vermelho</p>
+                                <p>Datas já ocupadas</p>
                             </div>
 
                             <div class="linha-legenda">
                                 <div class="cor-leg back-amarelo"></div>
-                                <p>Amarelo</p>
+                                <p>Até 3 eventos na mesma data</p>
                             </div>
 
                             <div class="linha-legenda">
-                                Clique no mês para troca-lo.
+                                Clique em cima do mês para troca-lo.
         </div>
 
                         </div>
@@ -232,7 +250,7 @@ class MeusEventos extends Component {
 
 
                         {
-                            this.state.eventos.length === 0 ? <h2>Não há eventos esse mês</h2> : this.state.eventos.map((evento) => {
+                            this.state.eventos.length === 0 ? <h2>Não há eventos esse mês</h2> : this.state.eventos.slice(0, this.state.quantidade).map((evento) => {
 
                                 return (
                                     <div class="card-pendente" key={evento.eventoId}>
@@ -252,11 +270,11 @@ class MeusEventos extends Component {
                                             </div>
                                         </Link>
 
-                                        <div class="botoes">
-                                            <button class="rejeitar" onClick={i => this.recusarEvento(i, evento.eventoId)}>
+                                        <div class="eg-botoes">
+                                            <button class="eg-rejeitar" onClick={i => this.recusarEvento(i, evento.eventoId)}>
                                                 <i class="fas fa-times"></i>
                                             </button>
-                                            <button class="aceitar" onClick={i => this.aceitarEvento(i, evento.eventoId)}>
+                                            <button class="eg-aceitar" onClick={i => this.aceitarEvento(i, evento.eventoId)}>
                                                 <i class="fas fa-check"></i>
                                             </button>
                                         </div>
@@ -265,6 +283,14 @@ class MeusEventos extends Component {
                             })
                         }
 
+
+
+
+
+
+                    </div>
+                    <div className='ge-container-btn-vermais'>
+                        <button className='btn-ge' id='gebtnvm' onClick={i => this.verMais()} >Ver mais</button>
                     </div>
 
 

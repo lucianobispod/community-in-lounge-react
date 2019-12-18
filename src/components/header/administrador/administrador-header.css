@@ -142,16 +142,18 @@
 
 
 .ad-dropdown-content .ad-link {
-    color: black;
     width: 15vw;
+    text-align: center;
+    padding: 10px 0 !important;
+    background-color: #f1f1f1;
+    
+    color: black;
+    
     display: none;
     text-decoration: none;
     display: block;
     border: none;
     font-size: .8em;
-    text-align: center;
-    padding: 10px 0 !important;
-    background-color: #f1f1f1;
 
 }
 
