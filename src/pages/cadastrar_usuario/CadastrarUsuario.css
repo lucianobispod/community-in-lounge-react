@@ -134,10 +134,8 @@ h1, h2, h3, h4, a,p {
 
 .genero {
   color: var(--cinza);
-  width: 21.5vw;
-  /* background: aliceblue; */
-  display: flex;
-  justify-content: space-between;
+  width: 25vw;
+ display: flex;
 }
 
 .div-input-radio {
@@ -149,8 +147,7 @@ h1, h2, h3, h4, a,p {
 }
 
 .div-radio-genero{
-  width: 7vw;
-  display: flex;
+  width: 6.3vw;  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -228,11 +225,14 @@ h1, h2, h3, h4, a,p {
   justify-content: space-around;
   align-items: flex-start;
 }
+.div-radio {
+  width: 6.3vw;
+}
 
 .campo_usuario{
   color: var(--cinza);
   
-  width: 31vw;
+  width: 32vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -315,6 +315,61 @@ h1, h2, h3, h4, a,p {
   .usuario_form button {
     background: var(--laranja);
   }
+
+  .text_container_usuario{
+    justify-content: space-around;
+
+}
+
+.inpu_div_usuario {
+  width: 80vw;
+  display: flex;
+  /* background: antiquewhite; */
+  align-items: center;
+  justify-content: space-around;
+}
+
+.campo_usuario {
+  
+  width: 51vw;
+  display: flex;
+  justify-content: space-between;
+ 
+ 
+}
+
+.genero {
+  width: 52vw;
+
+}
+
+.div-input-radio {
+  width: 36vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background: #29803f; */
+}
+
+.div-radio-genero {
+  width: 13vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div-radio {
+  /* background: #f68e31; */
+  width: 14vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inpu-dado-usuario {
+  width: 43vw;
+}
+
 }
 
 @media only screen and (max-device-width: 375px) {
@@ -393,6 +448,7 @@ h1, h2, h3, h4, a,p {
   .campo_usuario{
     width: 90vw;
     height: 5vh;
+    justify-content: space-between;
 
 }
 /* .genero{
@@ -424,13 +480,31 @@ h1, h2, h3, h4, a,p {
   width: 36vw;
         }
 
- .genero {
+.genero {
     width: 90vw;
       }
 
 .footer_empresa h4{
         font-size: 1.2em;
         }
+
+.div-input-radio {
+          width: 69vw;
+          display: flex;
+          justify-content: space-around;
+
+      }
+.div-radio {
+        width: 27vw;
+        justify-content: space-between;
+    
+    }
+.div-radio-genero {
+      width: 27vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
 }
 
 
