@@ -255,6 +255,7 @@ h1, h2, h3, h4, a, p {
 }
 
 .link_icon_cadastrousuario {
+  color: var(--preto);
   position: absolute;
   top: 0px;
   right: 0px;
