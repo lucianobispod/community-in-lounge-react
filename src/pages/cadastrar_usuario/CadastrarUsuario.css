@@ -223,6 +223,7 @@ h1, h2, h3, h4, a, p {
   width: 33vw;
   justify-content: space-around;
   align-items: flex-start;
+  position: relative;
 }
 
 .campo_usuario {
@@ -251,6 +252,12 @@ h1, h2, h3, h4, a, p {
   color: var(--cinza);
   border-bottom: 2px solid var(--cinzaclaro);
   font-family: var(--font);
+}
+
+.link_icon_cadastrousuario {
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -405,8 +412,7 @@ h1, h2, h3, h4, a, p {
   .footer_empresa h4 {
     font-size: 1.2em;
   }
-  .div-radio-genero{
-    width:60vw;
+  .div-radio-genero {
+    width: 60vw;
   }
-
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './CadastrarUsuario.css' //Importando css
 
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import Footer from '../../components/footer/Footer';
 import { parseToken } from '../../services/auth'
 
@@ -167,10 +169,9 @@ class CadastrarUsuario extends Component {
                         </div>
 
                         <div className="usuario_container">
-
-                            <div className="home_x">
-                            </div>
-
+                            <Link onClick={() => this.props.history.go(-1)} className="link_icon_cadastrousuario"  >
+                                <i className="fas fa-times fechar-login"></i>
+                            </Link>
                             <form className="usuario_form" onSubmit={this.efetuarCadastro}>
 
                                 <div className="inpu_div_usuario">
