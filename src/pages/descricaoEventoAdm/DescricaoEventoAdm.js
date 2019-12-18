@@ -8,14 +8,14 @@ class DescricaoEventoAdm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id:this.props.location.id,
+            id: this.props.location.id,
             evento: {
                 comunidade: {
                     responsavelUsuario: {
 
                     }
                 },
-                sala:{
+                sala: {
 
                 },
                 categoria: {
@@ -29,9 +29,9 @@ class DescricaoEventoAdm extends Component {
 
     GetEvento = () => {
         console.log(this.props.location.id);
-       
+
         axios.get('http://localhost:5000/api/evento/' + this.state.id)
-            .then(resposta => { 
+            .then(resposta => {
                 console.log(resposta)
                 this.setState({ evento: resposta.data })
                 console.log(this.state.evento.comunidade.nome)
@@ -53,7 +53,7 @@ class DescricaoEventoAdm extends Component {
                     <div class="box1_descricaoEvento_adm">
                         <div class="box1parte1_descricaoEvento_adm">
                             <div class="foto_descricaoEvento_adm">
-                                <img src={'http://localhost:5000/'+this.state.evento.comunidade.responsavelUsuario.foto} alt="" />
+                                <img src={'http://localhost:5000/' + this.state.evento.comunidade.responsavelUsuario.foto} alt="" />
                             </div>
 
                             <div class="respon_descricaoEvento_adm">
@@ -68,10 +68,10 @@ class DescricaoEventoAdm extends Component {
                                 <p>Compartilhe:</p>
 
                                 <ul class="share">
-                                    <a href="http://facebook.com.br"> <img class="icone" src="imagens/029 -facebook.png" alt="ícone do facebook"/></a>
-                                    <a href="http://instagram.com.br"> <img class="icone" src="imagens/025 -instagram.png" alt="ícone do instagram"/></a>
-                                    <a href="http://twitter.com.br"> <img class="icone" src="imagens/043-twitter.png" alt="ícone do twitter"/></a>
-                                    <a href="http://linkdin.com.br"> <img class="icone" src="imagens/045-linkedin.png" alt="ícone do linkdin"/></a>
+                                    <a href="http://facebook.com.br"> <i class="fab fa-facebook-square"></i> </a>
+                                    <a href="http://instagram.com.br"> <i class="fab fa-instagram"></i></a>
+                                    <a href="http://twitter.com.br"> <i class="fab fa-twitter-square"></i></a>
+                                    <a href="http://linkdin.com.br"> <i class="fab fa-linkedin"></i></a>
                                 </ul>
 
                             </div>
@@ -93,6 +93,7 @@ class DescricaoEventoAdm extends Component {
                                     <h2>Descrição</h2>
                                 </div>
                                 <div class="paragrafo_descricaoEvento_adm">
+
                                     <h3>{this.state.evento.nome}</h3>
                                     <p>{this.state.evento.descricao}</p>
                                 </div>
@@ -125,8 +126,8 @@ class DescricaoEventoAdm extends Component {
                                     <i class="far fa-clock logo-1"></i>
                                 </div>
                                 <div class="data_e_horario_descricaoEvento_adm">
-                                {/* ás {this.state.evento.horario} */}
-                                    <p class="data_e_horario">{moment(this.state.evento.eventoData).format('llll')} </p>
+                                    {/* ás {this.state.evento.horario} */}
+                                    <p class="data_e_horario">{moment(this.state.evento.eventoData).format('LL')} ás {this.state.evento.horario} </p>
                                 </div>
                             </div>
 
@@ -162,7 +163,7 @@ class DescricaoEventoAdm extends Component {
                     </section>
                 </main>
                 <button onClick={() => this.props.history.go(-1)}>Back</button>
-                
+
             </div>
 
         )

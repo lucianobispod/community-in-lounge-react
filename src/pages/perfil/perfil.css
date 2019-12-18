@@ -120,10 +120,11 @@ border-radius: 50% ;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 35vw;
 }
 
-.div-input-radio{
-    width: 33vw;
+.div-input-radio-perfil{
+    width: 25vw;
     /* background: #29803f; */
     display: flex;
     justify-content: space-around;
@@ -131,9 +132,9 @@ border-radius: 50% ;
 }
 
 
-.div-radio{
+.div-radio-perfil{
     /* background: #f68e31; */
-    width: 8vw;
+    width: 10vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -227,12 +228,13 @@ justify-content: center;
 }
 .perfil-btn-voltar{
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 30px;
+    top: 20px;
     border: none;
-    /* background: none; */
-    color: var(--azul);
-    width: 8vw;
+    /* background:red; */
+    color: var(--preto);
+    font-size: 30px;
+    /* width: 8vw; */
     display: flex;
     justify-content: space-evenly;
     outline: 0;

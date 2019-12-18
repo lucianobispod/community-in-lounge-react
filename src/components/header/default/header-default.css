@@ -40,9 +40,9 @@
 
 .de-imagem {
     height: 8vh;
-    width: 16vw;
+    width: 15vw;
     
-    background: chartreuse;
+    /* background: chartreuse; */
 }
 
 .de-header_menu {
@@ -60,7 +60,7 @@
 }
 
 .de-container_menu_principal ul {
-    width: 50vw;
+    width: 37vw;
     display: flex;
     justify-content: space-around;
     align-items: center;

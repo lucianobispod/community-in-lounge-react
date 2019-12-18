@@ -13,7 +13,7 @@ import HeaderAdministrador from '../../components/header/administrador/HeaderAdm
 
 import { isAuthenticated, parseToken } from '../../services/auth';
 import { Link } from 'react-router-dom';
-import { icon } from '../../assets/images/Banner-home.png'
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -117,7 +117,7 @@ class Home extends Component {
                                                     <div className="data-card-main">
                                                         <p className='p'>
                                                             {
-                                                                moment(evento.eventoData).format('llll')
+                                                                moment(evento.eventoData.split('T')[0] + 'T' + evento.horario).format('llll')
                                                             }
                                                         </p>
                                                     </div>
@@ -152,7 +152,7 @@ class Home extends Component {
 
                                 <div>
 
-                                    <h3 className="home_titulo-tw titulo_eventos">Participe dos eventos ThougtWorks</h3>
+                                    <h3 className="home_titulo-tw titulo_eventos">Participe dos eventos ThoughtWorks</h3>
                                 </div>
 
                                 <div className="list_card-main">
@@ -166,7 +166,7 @@ class Home extends Component {
                                                     <div className="data-card-main">
                                                         <p className='p'>
                                                             {
-                                                                moment(evento.eventoData).format('llll')
+                                                                moment(evento.eventoData.split('T')[0] + 'T' + evento.horario).format('llll')
                                                             }
                                                         </p>
                                                     </div>
@@ -210,8 +210,7 @@ class Home extends Component {
 
                             <div className="sobre_texto centro">
                                 <p className="texto_p">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus laborum similique, ratione beatae accusantium at quis laudantium! Voluptatibus adipisci harum qui atque, officia, quasi placeat non consectetur veniam, iusto facere. Lorem ipsum dolor
-                                    sit amet consectetur, adipisicing elit. Repellendus laborum similique, ratione beatae accusantium at quis laudantium.
+                                Nós somos no trabalho as mesmas pessoas que somos na vida. Nós encorajamos e apoiamos colegas. Valorizamos a honestidade e a transparência. Boas ideias e vontade de fazer a coisa certa são mais importantes que títulos e credenciais. Abominamos e rejeitamos a discriminação e a desigualdade e promovemos a diversidade em todas as suas formas. Orgulhosamente, apaixonadamente e ativamente nos esforçamos para tornar a ThoughtWorks e nossa indústria mais reflexivas e representativas da sociedade que servimos. Nosso Código de Conduta reflete nossos valores e descreve como nos comportamos e nos tratamos.
                                 </p>
                             </div>
 
@@ -227,7 +226,7 @@ class Home extends Component {
 
                         <div className="box_call_evento">
                             <h4>Crie seu evento gratuitamente!</h4>
-                            <a className="link_saiba_mais" href="#">Saiba mais</a>
+                            <a className="link_saiba_mais-home" href="#">Saiba mais</a>
                         </div>
 
                     </section>

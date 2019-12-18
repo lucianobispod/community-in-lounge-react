@@ -29,7 +29,6 @@
 }
 
 .usu-header_box {
-    width: 21vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,8 +36,8 @@
 }
 
 .usu-imagem {
-    height: 10vh;
-    width: 18vw;
+    height: 8vh;
+    width: 15vw;
     /* background: aqua; */
 }
 
@@ -68,7 +67,7 @@
 
 .usu-menu_info {
     height: 8.5vh;
-    min-width: 15vw;
+    min-width: 11vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -76,7 +75,7 @@
 }
 
 .usu-info_usuario {
-    min-width: 15vw;
+    min-width: 11vw;
     height: 7.5vh;
     display: flex;
     align-items: center;
@@ -86,7 +85,7 @@
 
 .usu-nome-usuario {
     /* background: chocolate; */
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: var(--branco);
     margin: 0 .5em !important;
 }
@@ -152,7 +151,7 @@
 .usu-dropdown-content .usu-link {
     width: 15vw;
     text-align: center;
-    padding: 10px 0 !important;
+    padding: 15px 0 !important;
     background-color: #f1f1f1;
     
     color: black;

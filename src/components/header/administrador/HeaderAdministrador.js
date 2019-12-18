@@ -3,6 +3,7 @@ import './administrador-header.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { isAuthenticated, getUserIdAuthenticated } from '../../../services/auth';
+import logo from '../../../assets/imagens/logo.png';
 
 class HeaderAdministrador extends Component {
     constructor(props) {
@@ -46,7 +47,7 @@ class HeaderAdministrador extends Component {
             <div>
                 <header id="ad-header">
                     <div class="ad-header_box">
-                        <img className="ad-imagem" src="" alt="" />
+                        <img className="ad-imagem" src={logo} alt="" />
                     </div>
 
                     <nav class="ad-header_menu">
@@ -73,7 +74,7 @@ class HeaderAdministrador extends Component {
                         </div>
 
 
-                        <div className="ad-menu_info ">
+                        <div className="ad-menu_info">
 
                             <div className="ad-dropdown">
 

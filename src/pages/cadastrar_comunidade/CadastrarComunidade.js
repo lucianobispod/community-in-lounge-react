@@ -18,24 +18,24 @@ class CadastrarComunidade extends Component {
 
     cadastrarComunidade = (event) => {
         event.preventDefault();
-        let comunidade ={
-            nome : this.state.nome,
-            emailContato : this.state.emailContato,
-            telefoneContato : this.state.telefoneContato,
-            descricao : this.state.descricao,
-            foto : 'url',
+        let comunidade = {
+            nome: this.state.nome,
+            emailContato: this.state.emailContato,
+            telefoneContato: this.state.telefoneContato,
+            descricao: this.state.descricao,
+            foto: 'url',
             responsavelUsuarioId: getUserIdAuthenticated().id
         }
 
         axios.post('http://localhost:5000/api/Comunidade', comunidade)
-        .then(resposta => {
-            console.log(resposta)
-            if (resposta.status === 200) {
-                this.uploadFoto(resposta.data.comunidadeId);
-                window.location.href='/Evento';
-            }
-        })
-        .catch(error => console.log(error));
+            .then(resposta => {
+                console.log(resposta)
+                if (resposta.status === 200) {
+                    this.uploadFoto(resposta.data.comunidadeId);
+                    window.location.href = '/Evento';
+                }
+            })
+            .catch(error => console.log(error));
     }
 
 
@@ -43,7 +43,7 @@ class CadastrarComunidade extends Component {
 
     uploadFoto = (id) => {
         let evento = new FormData();
-        
+
         evento.set("imagem", this.state.foto.current.files[0]);
 
         axios({
@@ -63,9 +63,9 @@ class CadastrarComunidade extends Component {
 
     atualizaEstado = (event) => {
         this.setState({
-            [event.target.name]:event.target.value
-         })
-         console.log({[event.target.name]:event.target.value})
+            [event.target.name]: event.target.value
+        })
+        console.log({ [event.target.name]: event.target.value })
     }
 
 
@@ -134,6 +134,10 @@ class CadastrarComunidade extends Component {
 
                         <div class="cm-comunidade_container">
 
+                            <button className='cc-btn-sair' onClick={() => this.props.history.go(-1)}>
+                                <i class="fas fa-times"></i>
+                            </button>
+
                             {/* <div class="cm-div-titulo_comunidade">
                                 <h1 className='cm-titulo'>Cadastre a sua Comunidade</h1>
                             </div> */}
@@ -143,36 +147,44 @@ class CadastrarComunidade extends Component {
                                 {/* <div className="cm-inpu_div_comunidade"> */}
 
                                 <div className="cm-campo_foto_comunidade">
+
                                     <img id='comu-img' className='cm-preview-foto' alt='' />
                                     {/* <label className="cm-campo_foto_comunindade_label" for="foto_comunindade">Adicione uma foto</label> */}
-                                    <input onChange={this.previwImage} type="file" ref={this.state.foto} id='comu-img-input' name="foto_comunidade"></input>
+                                    <input className="cm-input-file" onChange={this.previwImage} type="file" ref={this.state.foto} id='comu-img-input' name="foto_comunidade" ></input>
+
+
                                 </div>
 
                                 <div className="cm-campo_comunidade">
                                     <label for="nome">Nome</label>
-                                    <input onChange={i=>this.atualizaEstado(i)} className='cm-input' type="text" name="nome" />
+                                    <input onChange={i => this.atualizaEstado(i)} className='cm-input' type="text" name="nome" />
                                 </div>
 
                                 <div className="cm-campo_comunidade">
                                     <label for="email">Email</label>
-                                    <input onChange={i=>this.atualizaEstado(i)} className='cm-input' type="email" name="emailContato"/>
+                                    <input onChange={i => this.atualizaEstado(i)} className='cm-input' type="email" name="emailContato" />
                                 </div>
 
                                 <div className="cm-campo_comunidade">
                                     <label for="telefone">Telefone</label>
-                                    <input onChange={i=>this.atualizaEstado(i)} className='cm-input' type="text" name="telefoneContato"  />
+                                    <input onChange={i => this.atualizaEstado(i)} className='cm-input' type="text" name="telefoneContato" />
                                 </div>
 
 
 
                                 <div className="cm-descricao-comunidade">
                                     <label for="descricao">Descrição</label>
-                                    <textarea onChange={i=>this.atualizaEstado(i)} name="descricao" class="cm-textarea_comunidade" cols="30" rows="10" ></textarea>
+                                    <textarea onChange={i => this.atualizaEstado(i)} name="descricao" class="cm-textarea_comunidade" cols="30" rows="10"></textarea>
                                 </div>
 
                                 {/* </div> */}
 
-                                <button className='button' type="submit">Cadastrar</button>
+
+                                <div className="cm-descricao-comunidade-btn">
+
+                                    <button className='button' type="submit">Cadastrar</button>
+
+                                </div>
                             </form>
 
                         </div>

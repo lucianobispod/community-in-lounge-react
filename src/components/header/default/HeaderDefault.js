@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './header-default.css';
 import { Link } from 'react-router-dom';
-import { isAuthenticated } from '../../../services/auth'
+import logo from '../../../assets/imagens/logo.png'
 
 class HeaderDefault extends Component {
 
@@ -15,7 +15,7 @@ class HeaderDefault extends Component {
                 <header id="de-header">
 
                     <div className="de-header_box">
-                            <img className="de-imagem" src="" alt="" />
+                            <img className="de-imagem" src={logo} alt="" />
                     </div>
 
                     <nav className="de-header_menu">

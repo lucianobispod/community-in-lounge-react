@@ -18,14 +18,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, p {
-    font-family: var(--fonte);
-}
-
-.respon_descricaoEvento_usuario p {
+/* .respon_descricaoEvento_usuario p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-transform: none;
-}
+} */
 
 .box1_descricaoEvento_usuario {
     width: 100vw;
@@ -159,19 +155,15 @@ h1, h2, h3, h4, p {
     /* background-color: orchid; */
 }
 
+.titulo_descricaoEvento_usuario h2{
+    font-size: 1.4em;
+}
+
 .paragrafo_descricaoEvento_usuario {
     width: 50vw;
     height: 27vh;
     /* background-color: palegreen; */
 }
-
-/* h2 {
-    color: #000000;
-}
-
-p {
-    color: #000000;
-} */
 
 .informacoes_descricaoEvento_usuario {
     width: 25vw;
@@ -303,7 +295,7 @@ p {
         background-color: chocolate;
     }
     .foto_descricaoEvento_usuario {
-        width: 12vw;
+        width: 14vw;
         height: 15vh;
         display: flex;
         align-items: center;
@@ -311,9 +303,10 @@ p {
         background-color: #ee312c;
     }
     .foto_descricaoEvento_usuario img {
-        width: 10vw;
+        width: 11vw;
         height: 13vh;
         border-radius: 50%;
+        background-color: #25bcce;
     }
     .respon_descricaoEvento_usuario {
         width: 34vw;
@@ -360,8 +353,8 @@ p {
         font-size: 1.2em;
     }
     .secao_descricaoEvento_usuario {
-        width: 100vw;
-        height: 80vh;
+        width:  100vw;
+        height: 100vh;
         background-color: #f6f7f8;
         display: flex;
         justify-content: center;
@@ -387,44 +380,45 @@ p {
         /* background-color: palegreen; */
     }
     .informacoes_descricaoEvento_usuario {
-        width: 28vw;
+        width: 32vw;
         height: 77vh;
-        background-color: #f6f7f8;
-        /* background-color: pink; */
+        /* background-color: #f6f7f8; */
+        background-color: pink;
     }
     .contatos2_descricaoEvento_usuario {
-        width: 28vw;
-        height: 10vh;
+        width: 32vw;
+        height: 12vh;
         display: flex;
         align-items: center;
         background-color: #ffffff;
     }
     .contatos3_descricaoEvento_usuario {
-        width: 28vw;
-        height: 10vh;
+        width: 32vw;
+        height: 12vh;
         display: flex;
         align-items: center;
         background-color: #ffffff;
     }
     .infor_geral_descricaoEvento_usuario {
-        width: 28vw;
-        height: 24vh;
+        width: 32vw;
+        height: 27vh;
         display: flex;
         align-items: center;
         flex-direction: column;
+        justify-content: space-around;
         /* background-color: azure; */
     }
     .foto2_descricaoEvento_usuario {
-        width: 9vw;
+        width: 11vw;
         height: 12vh;
-        /* background-color: #ffffff; */
+        background-color: red;
     }
     .foto2_descricaoEvento_usuario img {
-        width: 9vw;
+        width: 11vw;
         height: 12vh;
     }
     .descri_inf_descricaoEvento_usuario {
-        width: 28vw;
+        width: 32vw;
         height: 10vh;
         display: flex;
         flex-direction: column;
@@ -433,59 +427,46 @@ p {
         background-color: #ffffff;
     }
     .end-maps_descricaoEvento_usuario {
-        width: 28vw;
-        height: 25vh;
+        width: 32vw;
+        height: 12vh;
         border: 0;
         /* background-color: #ee312c; */
     }
     .maps_descricaoEvento_usuario {
-        width: 28vw;
-        height: 25vh;
+        width: 32vw;
+        height: 13vh;
     }
     .logo1_descricaoEvento_usuario {
-        width: 8vw;
-        height: 10vh;
+        width: 10vw;
+        height: 12vh;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #ffffff;
     }
     .data_e_horario_descricaoEvento_usuario {
-        width: 20vw;
-        height: 10vh;
+        width: 22vw;
+        height: 12vh;
         display: flex;
         align-items: center;
         background-color: #ffffff;
     }
     .logo2_descricaoEvento_usuario {
-        width: 8vw;
-        height: 10vh;
+        width: 10vw;
+        height: 12vh;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #ffffff;
     }
     .localizacao_descricaoEvento_usuario {
-        width: 20vw;
-        height: 10vh;
+        width: 22vw;
+        height: 12vh;
         display: flex;
         align-items: center;
         background-color: #ffffff;
     }
-    .contatos2_descricaoEvento_usuario {
-        width: 28vw;
-        height: 15vh;
-        display: flex;
-        align-items: center;
-        background-color: #ffffff;
-    }
-    .contatos3_descricaoEvento_usuario {
-        width: 28vw;
-        height: 15vh;
-        display: flex;
-        align-items: center;
-        background-color: #ffffff;
-    }
+
     .titulo_descricaoEvento_usuario {
         width: 57vw;
         height: 10vh;
@@ -519,25 +500,22 @@ p {
         /* background-color: chocolate; */
     }
     .foto_descricaoEvento_usuario {
-        width: 18vw;
+        width: 28vw;
         height: 15vh;
-        /* background-color: #ee312c; */
+        background-color: #ee312c;
     }
     .foto_descricaoEvento_usuario img {
-        width: 16vw;
-        height: 12vh;
+        width: 22vw;
+        height: 14vh;
         border-radius: 50%;
+        background-color: #25bcce;
     }
     .respon_descricaoEvento_usuario {
         width: 66vw;
         height: 15vh;
         /* background: blue; */
     }
-    p {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-transform: none;
-        color: #000000;
-    }
+
     .Cordenador_descricaoEvento_usuario {
         width: 66vw;
     }
@@ -619,7 +597,7 @@ p {
         /* background-color: pink; */
     }
     .descri_inf_descricaoEvento_usuario {
-        width: 85vw;
+        width: 78vw;
         height: 12vh;
         display: flex;
         flex-direction: column;
@@ -629,19 +607,20 @@ p {
     }
     .infor_geral_descricaoEvento_usuario {
         width: 100vw;
-        height: 12vh;
+        height: 20vh;
         display: flex;
         align-items: center;
         /* flex-direction: column; */
-        /* background-color: azure; */
+        background-color: azure;
     }
     .foto_comunidade_descricaoEvento_usuario {
-        width: 15vw;
+        width: 22vw;
         height: 12vh;
     }
     .foto2_descricaoEvento_usuario img {
-        width: 15vw;
+        width: 22vw;
         height: 12vh;
+        /* background-color: #f68e31; */
     }
     .end-maps_descricaoEvento_usuario {
         width: 100vw;
