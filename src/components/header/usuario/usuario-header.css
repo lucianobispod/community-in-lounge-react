@@ -46,10 +46,10 @@
 .usu-header_menu {
     height: 10vh;
     width: 80vw;
-    /* background: red; */
     display: flex;
     align-items: center;
     justify-content: space-around;
+    /* background: red; */
 }
 
 .usu-container_menu_principal {
@@ -68,6 +68,7 @@
 
 .usu-menu_info {
     height: 8.5vh;
+    min-width: 15vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -75,6 +76,7 @@
 }
 
 .usu-info_usuario {
+    min-width: 15vw;
     height: 7.5vh;
     display: flex;
     align-items: center;
@@ -131,7 +133,7 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-    height: 8vh;
+    /* height: 8vh; */
     /* background: rebeccapurple; */
 }
 
@@ -147,7 +149,7 @@
 
 /* Links inside the dropdown */
 
-.usu-dropdown-content .link {
+.usu-dropdown-content .usu-link {
     width: 15vw;
     text-align: center;
     padding: 10px 0 !important;
@@ -165,7 +167,7 @@
 
 /* Change color of dropdown links on hover */
 
-.usu-dropdown-content .link:hover {
+.usu-dropdown-content .usu-link:hover {
     background-color: #f5f5f7;
 }
 
