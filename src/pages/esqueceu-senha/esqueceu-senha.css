@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+:root {
+    --azul: #25bcce;
+    --laranja: #f68e31;
+    --preto: #231f20;
+    --cinza: #808284;
+    --cinzaclaro: #D9D9D9;
+    --verde: #29803f;
+    --branco: #fff;
+    --vermelho: #ee312c;
+    --amarelo: #fff34f;
+    --font: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+.esqueceusenha_section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.esqueceusenha-text_container {
+    background: var(--azul);
+    height: 99vh;
+    width: 50vw;
+    position: relative;
+    box-shadow: var(--cinzaclaro) 1px 1px 2px 0px;
+}
+
+.esqueceusenha_container {
+    height: 99vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: var(--cinzaclaro) 1px 1px 2px 1px;
+    position: relative;
+}
+
+.fechar-login {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.5em;
+}
+
+.fa-times:before {
+    color: var(--preto);
+}
+
+.circle_esqueceusenha {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: var(--branco);
+    position: absolute;
+}
+
+.esqueceusenha-alta {
+    top: 2vh;
+    left: -4vw;
+}
+
+.esqueceusenha-baixa {
+    bottom: 2vh;
+    right: -4vw;
+}
+
+.titulo_esqueceusenha {
+    height: 15vh;
+    width: 40vw;
+    text-align: center;
+}
+
+.h1-eqs{
+    font-size: 2.2em;
+}
+
+.letra_grande-esqueceusenha {
+    font-size: 2.3em;
+}
+
+.letra_media-esqueceusenha {
+    font-size: 2.5em;
+}
+
+.esqueceusenha-text_container {
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.texto-amigo-login-esqueceu {
+    margin-left: 10px !important;
+    }
+
+.titulo_h2_esqueceu::after {
+    content: '|';
+    margin-left: 4px;
+    opacity: 1;
+    animation: pisca .7s infinite;
+}
+
+.esqueceusenha_form {
+    height: 27vh;
+    width: 23vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.esqueceusenha_form input {
+    height: 4.5vh;
+    width: 15vw;
+    border: none;
+    color: var(--cinza);
+    padding: 0 .5em;
+    outline: 0;
+}
+
+.inpu_div-esqueceusenha {
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.esqueceusenha-campo {
+    border-radius: 5px;
+    color: var(--cinza);
+    border-bottom: 2px solid var(--cinzaclaro);
+    font-family: var(--font);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20vw;
+}
+
+.esqueceusenha_form .button-esqueceusenha {
+    background: var(--azul);
+    border: none;
+    height: 5vh;
+    width: 20vw;
+    color: var(--branco);
+}
+
+
+
+
+
+.cor{
+    color: var(--branco);
+}

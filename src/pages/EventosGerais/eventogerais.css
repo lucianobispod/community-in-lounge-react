@@ -18,42 +18,109 @@
     font-family: var(--fonte);
 }
 
+.EventosGerais_titulo_select{
+ display: flex;
+ /* text-align: center;  */
+ /* background: red; */
+ height: 30vh;
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ flex-direction: column;
+ }
+
+
 .EventosGerais__secao{
-    width: 100vw;
-    height: 100vh;
-    background-color: #f68e31;
+    width: 100%;
+    min-height: 100vh;
+    /* background-color: #f68e31; */
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    /* position: relative; */
 }
 
-.EventosGerais__titulo{
- display: flex;
- text-align: center;
- }
 
 .EventosGerais__secao h1{
  text-transform: uppercase;
 }
 
 .EventosGerais__container{
- width: 59vw;
- height: 80vh;
- background-color: aqua;
+ /* width: 60vw; */
+ /* background-color: aqua; */
+
 }
 
 .EventosGerais__card {
-    background: cyan;
-    height: 20vh;
-    width: 59vw;
+    /* background: bisque;  */
+    height: 24vh;
+    width: 55vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--cinzaclaro);
-    border-radius: 5px;
+    border-radius: 3px;
+    margin-bottom: 15px !important;
 }
+
+
+.EventoGerais__foto {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 24vh;
+    width: 20vw;
+}
+
+.EventoGerais__titulo-info {
+    font-size: 1.6em;
+    /* background: darkgreen; */
+}
+
+.EventoGerais__data-info {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+
+.EventoGerais__comunidade-info {
+    font-size: 1em;
+}
+
+.select-categoria{
+    /* position: absolute;
+    top: 140px; */
+    /* background: red; */
+    /* width: 20vw; */
+    height: 5vh;
+    border: 0.5px solid var(--cinzaclaro);
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: var(--cinza);
+    outline: 0;
+}
+
+
+.EventoGerais-container-comu-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 32vw;
+    /* background: royalblue; */
+    padding: 0 .8em !important;
+}
+
+.EventoGerais__link-inscrevase{
+    padding: .55em !important;
+    background: var(--azul);
+    color: var(--branco) !important;
+    border-radius: 5px;
+    font-size: .8em;
+}
+
+
+
 
 .EventosGeraos__info {
     padding-left: 1em;
@@ -61,29 +128,28 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    background: darkgoldenrod;
+    /* background: darkgoldenrod; */
+    height: 24vh;
+    width: 34vw;
+}    
+
+
+
+
+
+.EventoGerais-container-button{
+    display: flex;
+    /* background: red; */
     height: 20vh;
-    width: 30.5vw;
-}
-.EventoGerais__foto-pendente {
-    /* background: url('../images/banner.png'); */
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 20vh;
-    width: 18vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.EventoGerais__titulo-info {
-    font-size: 1.6em;
-    background: darkgreen;
-}
-
-.EventoGerais__data-info {
-    font-size: 1.4em;
-    font-weight: 600;
-}
-
-
-.EventoGerais__comunidade-info {
-    font-size: 1.1em;
+.EventoGerais-button-vermais{
+    border: none;
+    height: 7vh;
+    width: 10vw;
+    background: var(--laranja);
+    color: var(--branco);
 }

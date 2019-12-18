@@ -8,7 +8,7 @@ class DescricaoEventoUsuario extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.location.id,
+            // id: this.props.location.id,
             evento: {
                 comunidade: {
                     responsavelUsuario: {
@@ -33,9 +33,11 @@ class DescricaoEventoUsuario extends Component {
 
 
     GetEvento = () => {
-        console.log(this.props);
 
-        Axios.get('http://localhost:5000/api/evento/' + this.state.id)
+
+        console.log(this.props);
+        let id = localStorage.getItem('idEvento')
+        Axios.get('http://localhost:5000/api/evento/' + id)
             .then(resposta => {
                 console.log(resposta)
                 this.setState({ evento: resposta.data })
@@ -47,9 +49,18 @@ class DescricaoEventoUsuario extends Component {
 
   
 
+setIdEventAndGetEventInfo = () => {
+    console.log(this.props.location.id)
+    if (this.props.location.id) {
+        localStorage.setItem('idEvento', this.props.location.id)
+    }
+    this.GetEvento();
+}
+
 
     async componentDidMount() {
-        await this.GetEvento();
+        this.setIdEventAndGetEventInfo();
+        // await this.GetEvento();
     }
 
 
