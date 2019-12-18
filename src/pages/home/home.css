@@ -43,7 +43,7 @@
 }
 
 .data-card-main .p {
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: bold;
     color: var(--azul);
 }
@@ -56,19 +56,19 @@
 }
 
 .evento_titulo-card-main {
-    font-size: 1.1em;
+    font-size: 1.5em;
     /* background: darkgray; */
 }
 
 .comuni_evento-card-main {
-    font-size: 1em;
+    font-size: 1.1em;
     color: var(--cinza);
     /* background: darkgreen; */
 }
 
 .box_parti-bot-card-main {
     width: 21vw;
-    height: 6vh;
+    height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,7 +82,7 @@
 }
 
 .link-card-main .link-inscreverse-main {
-    padding: .55em !important;
+    padding: 1em !important;
     text-decoration: none;
     background: var(--azul);
     color: var(--branco);
@@ -288,7 +288,7 @@
 
 .call_sobrenos {
     background: var(--laranja);
-    padding: .7em;
+    padding: .7em !important;
     font-size: 1.3em;
     text-decoration: none;
     color: #fff;
@@ -320,11 +320,11 @@
     font-size: 2em;
 }
 
-.link_saiba_mais {
+.link_saiba_mais-home {
     text-decoration: none;
     background: var(--preto);
-    padding: 1em;
-    color: var(--branco);
+    padding: 1em !important;
+    color: var(--branco) !important;
 }
 
 .linha-call-evento {

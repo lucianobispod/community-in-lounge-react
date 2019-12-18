@@ -53,10 +53,6 @@
     font-size: 1.5em;
 }
 
-.fa-times:before {
-    color: var(--preto);
-}
-
 .circle_login {
     height: 150px;
     width: 150px;

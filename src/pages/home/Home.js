@@ -152,7 +152,7 @@ class Home extends Component {
 
                                 <div>
 
-                                    <h3 className="home_titulo-tw titulo_eventos">Participe dos eventos ThougtWorks</h3>
+                                    <h3 className="home_titulo-tw titulo_eventos">Participe dos eventos ThoughtWorks</h3>
                                 </div>
 
                                 <div className="list_card-main">
@@ -227,7 +227,7 @@ class Home extends Component {
 
                         <div className="box_call_evento">
                             <h4>Crie seu evento gratuitamente!</h4>
-                            <a className="link_saiba_mais" href="#">Saiba mais</a>
+                            <a className="link_saiba_mais-home" href="#">Saiba mais</a>
                         </div>
 
                     </section>
