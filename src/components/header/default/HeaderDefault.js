@@ -15,7 +15,11 @@ class HeaderDefault extends Component {
                 <header id="de-header">
 
                     <div className="de-header_box">
-                            <img className="de-imagem" src={logo} alt="" />
+                        <Link to={{
+                            pathname: "/"
+                        }}>
+                            <img className="ad-imagem" src={logo} alt="" />
+                        </Link>
                     </div>
 
                     <nav className="de-header_menu">
@@ -31,7 +35,7 @@ class HeaderDefault extends Component {
                                 <li>
                                     <Link className="de-ahover" to="/EventosGerais">Eventos gerais</Link>
                                 </li>
-            
+
                             </ul>
                         </div>
 
