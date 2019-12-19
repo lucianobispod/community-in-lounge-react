@@ -1,8 +1,13 @@
-import React, { Component } from 'react'
-import '../descricaoEventoAdm/descricaoEventoAdm.css'
-import axios from 'axios'
-import moment from 'moment'
-import 'moment/locale/pt-br'
+import React, { Component } from 'react';
+import '../descricaoEventoAdm/descricaoEventoAdm.css';
+import axios from 'axios';
+import moment from 'moment';
+import 'moment/locale/pt-br';
+import HeaderDefault from '../../components/header/default/HeaderDefault';
+import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
+import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
+
+import { isAuthenticated, parseToken } from '../../services/auth';
 
 class DescricaoEventoAdm extends Component {
     constructor(props) {
@@ -20,7 +25,9 @@ class DescricaoEventoAdm extends Component {
                 },
                 categoria: {
 
-                }
+                },
+                token: '',
+                acesso: ''
 
             }
 
@@ -28,9 +35,9 @@ class DescricaoEventoAdm extends Component {
     }
 
     GetEvento = () => {
-        console.log(this.props.location.id);
 
-        axios.get('http://localhost:5000/api/evento/' + this.state.id)
+        let id = localStorage.getItem('idEvento')
+        axios.get('http://localhost:5000/api/evento/' + id)
             .then(resposta => {
                 console.log(resposta)
                 this.setState({ evento: resposta.data })
@@ -39,9 +46,23 @@ class DescricaoEventoAdm extends Component {
             .catch(err => console.log(err))
     }
 
+    setIdEventAndGetEventInfo = () => {
+        console.log(this.props.location.id)
+        if (this.props.location.id) {
+            localStorage.setItem('idEvento', this.props.location.id)
+        }
+        this.GetEvento();
+    }
 
     async componentDidMount() {
-        await this.GetEvento();
+        await this.setIdEventAndGetEventInfo();
+        this.setState({ token: isAuthenticated() })
+
+        if (isAuthenticated()) {
+
+            this.setState({ acesso: parseToken().Roles })
+            console.log("acesso " + parseToken().Roles);
+        }
     }
 
 
@@ -49,6 +70,8 @@ class DescricaoEventoAdm extends Component {
 
         return (
             <div>
+                {(this.state.token === false) ? (<HeaderDefault />) : (this.state.acesso === 'Administrador') ? (<HeaderAdministrador />) : (< HeaderUsuario />)}
+
                 <main>
                     <div class="box1_descricaoEvento_adm">
                         <div class="box1parte1_descricaoEvento_adm">
@@ -68,10 +91,10 @@ class DescricaoEventoAdm extends Component {
                                 <p>Compartilhe:</p>
 
                                 <ul class="share">
-                                    <a href="http://facebook.com.br"> <i class="fab fa-facebook-square"></i> </a>
-                                    <a href="http://instagram.com.br"> <i class="fab fa-instagram"></i></a>
-                                    <a href="http://twitter.com.br"> <i class="fab fa-twitter-square"></i></a>
-                                    <a href="http://linkdin.com.br"> <i class="fab fa-linkedin"></i></a>
+                                    <a href="https://www.facebook.com/ThoughtWorks"> <i class="fab fa-facebook-square"></i> </a>
+                                    <a href="https://www.instagram.com/thoughtworks/"> <i class="fab fa-instagram"></i></a>
+                                    <a href="https://twitter.com/thoughtworks"> <i class="fab fa-twitter-square"></i></a>
+                                    <a href="https://www.linkedin.com/company/thoughtworks"> <i class="fab fa-linkedin"></i></a>
                                 </ul>
 
                             </div>
@@ -87,7 +110,7 @@ class DescricaoEventoAdm extends Component {
                             {/* Texto e título da descrição evento */}
                             <div class="texto_descricaoEvento_adm">
                                 <div class="banner_descricaoEvento_adm">
-                                    <img src="imagens/reprograma.jpg" alt="" />
+                                    <img src={'http://localhost:5000/' + this.state.evento.foto} alt="" />
                                 </div>
                                 <div class="titulo_descricaoEvento_adm">
                                     <h2>Descrição</h2>
@@ -106,12 +129,12 @@ class DescricaoEventoAdm extends Component {
                             <div class="infor_geral_descricaoEvento_adm">
                                 <div class="foto_comunidade_descricaoEvento_adm">
                                     <div class="foto2_descricaoEvento_adm">
-                                        <img src="imagens/Logo Reprograma.jpg" alt="" />
+                                        <img src={'http://localhost:5000/' + this.state.evento.comunidade.foto} alt="" />
                                     </div>
                                 </div>
                                 <div class="descri_inf_descricaoEvento_adm">
                                     <p class="Comunidade_descricaoEvento_adm">Comunidade: {this.state.evento.comunidade.nome}</p>
-                                    <p class="Tipo_descricaoEvento_adm">Tipo do Evento: Privado</p>
+                                    <p class="Tipo_descricaoEvento_adm">Contato: {this.state.evento.comunidade.emailContato}</p>
                                 </div>
                             </div>
 
@@ -157,6 +180,24 @@ class DescricaoEventoAdm extends Component {
                                 </div>
                                 <div class="localizacao_descricaoEvento_adm">
                                     <p class="quantidade_de_pessoas_descricaoEvento_adm"> Quantidade: {this.state.evento.sala.qntdPessoas} </p>
+                                </div>
+                            </div>
+                            <div class="contato6_descricaoEvento_adm">
+                                <div class="logo5_descricaoEvento_adm">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div class="localizacao_descricaoEvento_adm">
+                                    <p class="quantidade_de_pessoas_descricaoEvento_adm"> Foco em diversidade: {this.state.evento.diversidade} </p>
+                                </div>
+                            </div>
+                            <div class="contato7_descricaoEvento_adm">
+                                <div class="logo6_descricaoEvento_adm">
+                                    <i class="fas fa-link"></i>
+                                </div>
+                                <div class="localizacao_descricaoEvento_adm">
+                                    <div className="link-descricao-adm">
+                                      <p>Link de inscrição:</p><a className="link-inscreverse-descricao-adm" href={'http://' + this.state.evento.urlEvento} target="_blank" >Clique aqui</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
