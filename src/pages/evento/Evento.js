@@ -226,11 +226,11 @@ class Evento extends Component {
                             <form onSubmit={this.efetuarCadastro.bind(this)} className="cad_form" method="POST">
 
                                 <div className="campo_dados">
-                                    <div>
+                                    <div className="teste_1">
                                         <label for="nome">Nome:</label>
                                         <input name="Nome" value={this.state.Nome} onChange={this.atualizarEstadoNome.bind(this)} className="cad_nome_usu" type="text" name="" id="nome" placeholder="Digite o nome do evento..." />
                                     </div>
-                                    <div>
+                                    <div className="teste_1">
                                         <label for="email">Email:</label>
                                         <input name="Email_contato" value={this.state.Email_contato} onChange={this.atualizarEstadoEmail_Contato.bind(this)} className="cad_email" type="text" name="" id="email" placeholder="Email de contato com o responsável pelo evento" />
                                     </div>
@@ -256,7 +256,7 @@ class Evento extends Component {
                                         </select>
                                     </div>
 
-                                    <div>
+                                    <div className="teste_1" >
                                         <label for="categorias">Selecione a categoria do evento:</label>
                                         <select onChange={e => this.atualizarEstadoCategoria_id(e)} className="select_cat" name="categorias" id="categorias">
                                             <option value=''>Selecione</option>
@@ -276,7 +276,7 @@ class Evento extends Component {
 
 
                                 <div className="campo_dados">
-                                    <div>
+                                    <div className="teste_1" >
                                         <label for="">O evento terá coffe?</label>
                                         <select onChange={i => this.atualizarEstadoCoffe(i)} className="select_coffe" name="coffe" id="cad-coffe">
                                             <option value="sel">Selecione</option>
@@ -287,7 +287,7 @@ class Evento extends Component {
                                     </div>
 
 
-                                    <div>
+                                    <div className="teste_1">
                                         <label for="">Evento focado em diversidade?</label>
                                         <select onChange={u => this.atualizarEstadoDiversidade(u)} className="select_diversi" name="diversidade" id="cad-diversidada">
                                             <option value="sel">Selecione</option>
@@ -312,45 +312,46 @@ class Evento extends Component {
 
                                 </div>
 
-                                <div className="campo_dados">
-                                    <div>
+                                <div className="cad__events__um">
+                                    <div className="cad__event__vum">
+
 
                                         <label className="imagem-evento">Insira uma Imagem de capa para seu evento:</label>
 
                                         <input name="Foto" ref={this.state.Foto} className="cad_select_img" type="file" name="Foto" />
 
                                     </div>
-                                    
-                                    <div className="div_small_url">
+
+
+
+                                    <div className="div_small_url_vwm">
                                         <div>
-                                            <label  for="url_cad">Url de cadastro:</label>
+                                            <label for="url_cad">Url de cadastro:</label>
                                         </div>
-                                        <input className="url_cad_input" name="Url_evento" value={this.state.Url_evento} onChange={this.atualizarEstadoUrl_evento.bind(this)} className="cad_input_url" type="text" name="" id="url_cad" placeholder="URL para cadastro" />
+                                        <input className="url_cad_input__newumtext" name="Url_evento" value={this.state.Url_evento} onChange={this.atualizarEstadoUrl_evento.bind(this)} className="cad_input_url" type="text" name="" id="url_cad" placeholder="URL para cadastro" />
                                         <small className="small_url">Se já tiver um link de inscrição, insira aqui. Se não tiver, você pode incluir depois que evento for aprovado também.</small>
                                     </div>
-                                    
-                                    {/* <div>
-                                        <label for="">Evento privado?</label>
-                                        <select onChange={i => this.atualizarEstadoPublico(i)} className="select_diversi" name="privado" id="cad-privado">
-                                            <option value="sel">Selecione</option>
-                                            <option value="Sim">Sim</option>
-                                            <option value="Não">Não</option>
-                                        </select>
-                                    </div> */}
+
+                                    <div className="cad__events__dois">
+
+                                        <div className="cad_blockum">
+                                            <label className="cad-label-descricao">Faça uma breve descrição sobre o evento:</label>
+                                            <textarea onChange={u => this.atualizarEstadoDescricao(u)} className="cad-textarea" name="descricao-evento" id="desc-eve" cols="45" rows="10"
+                                            ></textarea>
+                                        </div>
 
                                     </div>
 
 
-                                <div className="campo_dados">
-                                    <div className="campo_miniblock1">
-                                        <label className="cad-label-descricao">Faça uma breve descrição sobre o evento:</label>
-                                        <textarea onChange={u => this.atualizarEstadoDescricao(u)} className="cad-textarea" name="descricao-evento" id="desc-eve" cols="45" rows="10"
-                                        ></textarea>
-                                    </div>
+
+
+
                                 </div>
 
 
-                                <div className="campo_dados">
+
+
+                                <div className="new__events__tres">
 
                                     <div className="div_botao">
                                         <button type="submit" className="cad-btn-cadastrar-evento">Cadastrar</button>
