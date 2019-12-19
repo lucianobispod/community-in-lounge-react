@@ -156,8 +156,7 @@ class CadastrarUsuario extends Component {
                             </div>
 
                             <div className="campo_usuario_foto">
-
-
+                                
                                 <input type="file"
                                     id="campo_foto_usuario"
                                     onChange={this.previwImage}
