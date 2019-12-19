@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 :root {
     --azul: #25bcce;
     --laranja: #f68e31;
@@ -16,16 +16,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-a,
-p {
     font-family: var(--font);
-}
+} */
 
 /*FOOTER*/
 
@@ -53,17 +45,6 @@ p {
 
 }
 
-.contato {
-    height: 10vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.contato a {
-    text-decoration: none;
-    color: white;
-}
 
 .footer_midiasocial {
     height: 10vh;

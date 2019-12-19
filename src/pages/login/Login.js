@@ -98,7 +98,7 @@ class Login extends Component {
                 <section className="login_section">
                     <div className="text_container">
                         <div className="circle_login alta"></div>
-                        <div className="texto-amigo-login-esqueceu">
+                        <div className="texto-amigo-login">
                             <h2 className="cor letra_grande titulo_h2_login" id="titulo_home">Olá, seja bem vindo amigo!</h2>
                             <h2 className="cor  letra_media">Entre para fazer seu evento conosco.</h2>
                         </div>

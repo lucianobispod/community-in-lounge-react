@@ -23,6 +23,7 @@ import Home from './pages/home/Home';
 import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidade';
 import Login from './pages/login/Login';
 import EsqueceuSenha from './pages/esqueceu-senha/EsqueceuSenha';
+import Sobre_nosso_espaco from './pages/sobre_nosso_espaco/sobreNossoEspaco';
 
 
 //rotas
@@ -80,13 +81,15 @@ const Rotas = (
                 <Route exact path="/Descricao" component={DescricaoEventoUsuario} />
                 <Route exact path="/EventosGerais" component={EventosGerais} />
                 <Usuario exact path="/MeuPerfil" component={Perfil} />
-                <Route exact path='/Categoria' component={Categoria} />
+                <Administrador exact path='/Categoria' component={Categoria} />
                 <Administrador exact path="/GerenciarEventos" component={GerenciarEventos} />
                 <Route exact path="/CadastrarUsuario" component={CadastrarUsuario} />
                 <Route exact path="/CadastrarComunidade" component={CadastrarComunidade} />
                 <Administrador exact path="/TornarAdministrador" component={TornarAdministrador} />
                 <Administrador exact path="/EventosAprovados" component={EventosAprovados} />
+                <Route exact path="/SobreNos" component={Sobre_nosso_espaco}/>
                 <Route component={NotFound} />
+
 
             </Switch>
         </div>

@@ -31,14 +31,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--cinza);
+    /* background: var(--cinza); */
 }
 
 .ad-imagem {
     height: 8vh;
-    width: 16vw;
+    width: 15vw;
     
-    background: chartreuse;
+    /* background: chartreuse; */
 }
 
 
@@ -53,6 +53,7 @@
 
 .ad-container_menu_principal {
     width: 55vw;
+    /* background: var(--verde); */
 }
 
 .ad-container_menu_principal ul {
@@ -91,7 +92,8 @@
 
 
 .ad-menu_info {
-    /* height: 9vh; */
+    min-width: 11vw;
+    height: 8.5vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -112,6 +114,8 @@
 
 
 .ad-info_usuario {
+    min-width: 11vw;
+    height: 7.5vh;
     display: flex;
     align-items: center;
     /* background: yellow; */
@@ -125,7 +129,6 @@
 }
 
 .ad-foto {
-    /* background: var(--branco); */
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -144,7 +147,7 @@
 .ad-dropdown-content .ad-link {
     width: 15vw;
     text-align: center;
-    padding: 10px 0 !important;
+    padding: 15px 0 !important;
     background-color: #f1f1f1;
     
     color: black;

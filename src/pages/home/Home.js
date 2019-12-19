@@ -13,7 +13,7 @@ import HeaderAdministrador from '../../components/header/administrador/HeaderAdm
 
 import { isAuthenticated, parseToken } from '../../services/auth';
 import { Link } from 'react-router-dom';
-import { icon } from '../../assets/images/Banner-home.png'
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -84,7 +84,6 @@ class Home extends Component {
 
                 {this.state.token === false ? (<HeaderDefault />) : this.state.acesso === 'Administrador' ? <HeaderAdministrador /> : (< HeaderUsuario />)}
 
-
                 <section className="section_banner">
                 </section>
 
@@ -117,7 +116,7 @@ class Home extends Component {
                                                     <div className="data-card-main">
                                                         <p className='p'>
                                                             {
-                                                                moment(evento.eventoData).format('llll')
+                                                                moment(evento.eventoData.split('T')[0] + 'T' + evento.horario).format('llll')
                                                             }
                                                         </p>
                                                     </div>
@@ -166,7 +165,7 @@ class Home extends Component {
                                                     <div className="data-card-main">
                                                         <p className='p'>
                                                             {
-                                                                moment(evento.eventoData).format('llll')
+                                                                moment(evento.eventoData.split('T')[0] + 'T' + evento.horario).format('llll')
                                                             }
                                                         </p>
                                                     </div>
@@ -178,7 +177,7 @@ class Home extends Component {
                                                     <div className="box_parti-bot-card-main">
                                                         <p className="partici-card-main">{evento.sala.qntdPessoas}</p>
                                                         <div className="link-card-main">
-                                                            <a  className='link-inscreverse-main' href="#">Inscreva-se</a>
+                                                            <a className='link-inscreverse-main' href="#">Inscreva-se</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -210,13 +209,16 @@ class Home extends Component {
 
                             <div className="sobre_texto centro">
                                 <p className="texto_p">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus laborum similique, ratione beatae accusantium at quis laudantium! Voluptatibus adipisci harum qui atque, officia, quasi placeat non consectetur veniam, iusto facere. Lorem ipsum dolor
-                                    sit amet consectetur, adipisicing elit. Repellendus laborum similique, ratione beatae accusantium at quis laudantium.
+                                    Nós somos no trabalho as mesmas pessoas que somos na vida. Nós encorajamos e apoiamos colegas. Valorizamos a honestidade e a transparência. Boas ideias e vontade de fazer a coisa certa são mais importantes que títulos e credenciais. Abominamos e rejeitamos a discriminação e a desigualdade e promovemos a diversidade em todas as suas formas. Orgulhosamente, apaixonadamente e ativamente nos esforçamos para tornar a ThoughtWorks e nossa indústria mais reflexivas e representativas da sociedade que servimos. Nosso Código de Conduta reflete nossos valores e descreve como nos comportamos e nos tratamos.
                                 </p>
                             </div>
-
-
-                            <a href="#" className="call_sobrenos">Saiba mais </a>
+                            <div>
+                                <Link className="call_sobrenos" to={{
+                                    pathname: "SobreNos"
+                                }}>
+                            Saiba mais
+                                </Link>
+                                </div>
                         </div>
 
                     </section>

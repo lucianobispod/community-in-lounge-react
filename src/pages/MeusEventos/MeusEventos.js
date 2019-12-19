@@ -101,6 +101,14 @@ class MeusEventos extends Component {
     }
 
 
+    data =(data, hora) =>{
+
+        var tratada = data.split('T')[0];
+
+        return tratada + 'T' + hora;
+    }
+
+
     
     componentDidMount() {
 
@@ -153,7 +161,7 @@ class MeusEventos extends Component {
                                                     <div className="me-data">
                                                         <p className='p'>
                                                             {
-                                                                moment(aprovado.eventoData).format('llll')
+                                                                moment(this.data(aprovado.eventoData, aprovado.horario)).format('llll')
                                                             }
                                                         </p>
                                                         <div className="me-dropdown">
@@ -227,10 +235,10 @@ class MeusEventos extends Component {
                                             return (
                                                 <div className="me-card" key={pendentes.eventoId}>
                                                     <div className="me-data">
-                                                        <p>
+                                                        <p className='p'>
                                                             {
 
-                                                                moment(pendentes.eventoData).format('llll')
+                                                                moment(this.data(pendentes.eventoData, pendentes.horario)).format('llll')
                                                             }
                                                         </p>
                                                         <div className="me-dropdown">
@@ -281,9 +289,9 @@ class MeusEventos extends Component {
                                         return (
                                             <div className="me-card" key={realizados.eventoId}>
                                                 <div className="me-data">
-                                                    <p>
+                                                    <p className='p'>
                                                         {
-                                                            moment(realizados.eventoData).format('llll')
+                                                                moment(this.data(realizados.eventoData, realizados.horario)).format('llll')
                                                         }
                                                     </p>
                                                 </div>
@@ -293,7 +301,7 @@ class MeusEventos extends Component {
                                                 </div>
                                                 <div className="me-box_parti-bot">
                                                     <p className="me-partici">{realizados.sala.qntdPessoas}</p>
-                                                    <div className="me-circle medio"></div>
+                                                    <div className="me-circle me-medio"></div>
                                                 </div>
                                             </div>
                                         )

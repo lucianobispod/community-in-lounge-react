@@ -38,7 +38,7 @@ class EventosGerais extends Component {
             this.setState({ botao: false })
             botao.innerHTML = 'Ver menos'
         } else {
-            
+
             botao.innerHTML = 'Ver mais'
             this.setState({ botao: true })
             this.setState({ quantidade: 3 })
@@ -152,10 +152,10 @@ class EventosGerais extends Component {
                         <div className="EventosGerais__container">
 
                             {
-                               this.state.eventoslistaFiltrada.length === 0 ? <h2>Não há eventos</h2> : this.state.eventoslistaFiltrada.slice(0, this.state.quantidade).map((evento) => {
+                                this.state.eventoslistaFiltrada.length === 0 ? <h2>Não há eventos</h2> : this.state.eventoslistaFiltrada.slice(0, this.state.quantidade).map((evento) => {
 
                                     return (
-                                        
+
                                         <div className="EventosGerais__card">
                                             <Link onClick={() => (console.log("id do card: ", this.props.id))} to={{
                                                 pathname: "/Descricao",
@@ -164,16 +164,22 @@ class EventosGerais extends Component {
                                                 <div >
                                                     <img className="EventoGerais__foto" alt='' src={'http://localhost:5000/' + evento.foto} />
                                                 </div>
-                                        </Link>
-                                                <div className="EventosGeraos__info">
-                                                    <p className="EventoGerais__titulo-info">{evento.nome}</p>
-                                                    <p className="EventoGerais__data-info">{moment(evento.eventoData).format('llll')}</p>
-                                                    <div className='EventoGerais-container-comu-btn'>
-                                                        <p className="EventoGerais__comunidade-info">{evento.comunidade.nome}</p>
-                                                        <a className='EventoGerais__link-inscrevase'>Inscreva-se</a>
-                                                    </div>
+                                            </Link>
+                                            <div className="EventosGeraos__info">
+                                                <p className="EventoGerais__titulo-info">{evento.nome}</p>
+
+                                                <p className="EventoGerais__data-info">
+                                                    {
+                                                        moment(evento.eventoData.split('T')[0] + 'T' + evento.horario).format('llll')
+                                                    }
+                                                </p>
+
+                                                <div className='EventoGerais-container-comu-btn'>
+                                                    <p className="EventoGerais__comunidade-info">{evento.comunidade.nome}</p>
+                                                    <a className='EventoGerais__link-inscrevase'>Inscreva-se</a>
                                                 </div>
                                             </div>
+                                        </div>
                                     )
                                 })
                             }

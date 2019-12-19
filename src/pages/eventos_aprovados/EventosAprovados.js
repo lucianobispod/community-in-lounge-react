@@ -14,7 +14,7 @@ class EventosAprovados extends Component {
         this.state = {
             listaaprovados: [],
             id: '',
-            quantidade: 1,
+            quantidade: 3,
             botao: true
         }
     }
@@ -30,28 +30,32 @@ class EventosAprovados extends Component {
 
 
 
-    excluirEvento  = (event, id) => {
-        axios.delete('http://localhost:5000/api/Evento/'+ id +'/DeleteByAdministrador')
-        .then(resposta => {
-            console.log(resposta);
-            this.getEventosAprovados();
-        })
-        .catch(error => console.log(error))
+    excluirEvento = (event, id) => {
+        axios.delete('http://localhost:5000/api/Evento/' + id + '/DeleteByAdministrador')
+            .then(resposta => {
+                console.log(resposta);
+                this.getEventosAprovados();
+            })
+            .catch(error => console.log(error))
     }
 
-    verMais=() => {
+  
+    verMais = () => {
+        let botao = document.getElementById('eabtnvm');
+
         console.log(this.state.botao)
         console.log(this.state.quantidade)
         if (this.state.botao) {
+            this.setState({ quantidade: this.state.listaaprovados.length })
+            this.setState({ botao: false })
+            botao.innerHTML = 'Ver menos'
+        } else {
             
-            this.setState({quantidade: this.state.listaaprovados.length})
-            this.setState({botao: false})
-        }else{
-            
-            this.setState({botao: true})
-            this.setState({quantidade: 1})
+            botao.innerHTML = 'Ver mais'
+            this.setState({ botao: true })
+            this.setState({ quantidade: 3 })
         }
-    
+
     }
 
 
@@ -77,11 +81,11 @@ class EventosAprovados extends Component {
                         <div className="container-eventos-aprovados">
 
                             {
-                                this.state.listaaprovados.slice(0,this.state.quantidade).map(function (evento) {
+                                this.state.listaaprovados.slice(0, this.state.quantidade).map(function (evento) {
                                     return (
                                         <div className="card-aprovado">
                                             <div>
-                                                <img className="foto-aprovado" alt='Foto da comunidade' src={'http://localhost:5000/' + evento.foto}/>
+                                                <img className="foto-aprovado" alt='Foto da comunidade' src={'http://localhost:5000/' + evento.foto} />
                                             </div>
 
                                             <div className="info-evento-aprovado">
@@ -89,21 +93,25 @@ class EventosAprovados extends Component {
                                                 <p className="titulo-info">{evento.nome}</p>
                                                 <p className="data-info">{moment(evento.eventoData).format('llll')}</p>
                                                 <p className="comunidade-info">{evento.comunidade.nome}</p>
-                                                
+
                                             </div>
-                                            <button className="button-excluir" type='button' onClick={i=> this.excluirEvento(i,evento.nome)}>
-                                            <i className="fas fa-times ev-apr-excluir"></i>
+                                            <button className="button-excluir" type='button' onClick={i => this.excluirEvento(i, evento.nome)}>
+                                                <i className="fas fa-times ev-apr-excluir"></i>
                                             </button>
                                         </div>
                                     );
                                 })
                             }
 
-                            <button type='button' onClick={i => this.verMais()}>Ver Mais</button>
 
 
                         </div>
+
+
                     </section>
+                    <div className='ea-container-vermais'>
+                        <button className='ea-btn-vermais' id='eabtnvm' type='button' onClick={i => this.verMais()}>Ver Mais</button>
+                    </div>
                 </main>
             </div>
         )
