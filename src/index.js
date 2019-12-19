@@ -24,7 +24,7 @@ import CadastrarComunidade from './pages/cadastrar_comunidade/CadastrarComunidad
 import Login from './pages/login/Login';
 import EsqueceuSenha from './pages/esqueceu-senha/EsqueceuSenha';
 import Sobre_nosso_espaco from './pages/sobre_nosso_espaco/sobreNossoEspaco';
-
+import EditarComunidade from './pages/editar_comunidade/editarComunidade'
 
 //rotas
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
@@ -81,6 +81,7 @@ const Rotas = (
                 <Route exact path="/Descricao" component={DescricaoEventoUsuario} />
                 <Route exact path="/EventosGerais" component={EventosGerais} />
                 <Usuario exact path="/MeuPerfil" component={Perfil} />
+                <Usuario exact path="/EditarComunidade" component={EditarComunidade}/>
                 <Administrador exact path='/Categoria' component={Categoria} />
                 <Administrador exact path="/GerenciarEventos" component={GerenciarEventos} />
                 <Route exact path="/CadastrarUsuario" component={CadastrarUsuario} />

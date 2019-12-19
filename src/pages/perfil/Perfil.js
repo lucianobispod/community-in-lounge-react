@@ -312,25 +312,29 @@ class Perfil extends Component {
 
                                             <div className="dados-card-comunidade">
                                                 <div className='div'>
+                                                    <p> Nome:</p>
                                                     <p>{this.state.comunidade.nome}</p>
                                                 </div>
 
-                                                <div className='div font-pequena'>
-                                                    <p>{this.state.comunidade.emailContato}</p>
+                                                <div className='div'>
+                                                    <p>Email:</p>
+                                                    <p >{this.state.comunidade.emailContato}</p>
                                                 </div>
 
-                                                <div className='div font-pequena'>
+                                                <div className='div'>
+                                                    <p>Telefone:</p>
                                                     <p>{this.state.comunidade.telefoneContato}</p>
                                                 </div>
 
-                                                <div className="descricao-comunidade">
+                                                <div className="div">
+                                                    <p> Descrição:</p>
                                                     <p>{this.state.comunidade.descricao}</p>
                                                 </div>
                                             </div>
 
-                                            <div>
+                                            <div >
                                                 <MDBContainer>
-                                                    <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                                                    <MDBModal id="aaa" isOpen={this.state.modal} toggle={this.toggle}>
                                                         <MDBModalHeader toggle={this.toggle}>Editar comunidade</MDBModalHeader>
                                                         <MDBModalBody>
 
@@ -352,7 +356,7 @@ class Perfil extends Component {
                                                                 onChange={i => this.atualizaStateComunidade(i)}
                                                             />
 
-                                                            <MDBInput type="Descrição" label="Example label" background
+                                                            <MDBInput type="Descrição" label="Descrição" background
                                                                 value={this.state.comunidade.descricao}
                                                                 name='descricao'
                                                                 onChange={i => this.atualizaStateComunidade(i)}
