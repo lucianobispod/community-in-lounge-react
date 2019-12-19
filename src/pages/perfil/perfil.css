@@ -231,7 +231,7 @@ justify-content: center;
     right: 30px;
     top: 20px;
     border: none;
-    /* background:red; */
+    background: var(--branco);
     color: var(--preto);
     font-size: 30px;
     /* width: 8vw; */

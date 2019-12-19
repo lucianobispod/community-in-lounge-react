@@ -6,7 +6,7 @@ import 'moment/locale/pt-br';
 import { isAuthenticated, parseToken, getUserIdAuthenticated } from '../../services/auth';
 
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
-
+import {Link} from 'react-router-dom';
 import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
 import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
 import Footer from '../../components/footer/Footer';
@@ -248,8 +248,12 @@ class MeusEventos extends Component {
                                                             </a>
 
                                                             <div className="me-dropdown-content">
-                                                                <button >Editar</button>
-                                                                <button type='submit' onClick={i => this.deleteEventosPendentes(pendentes.eventoId)}>Deletar</button>
+                                                                <button>
+                                                                <Link to={{
+                                                                    pathname:'/EditarEvento',
+                                                                    evento:pendentes
+                                                                }}>Editar</Link>
+                                                             </button>
                                                             </div>
                                                         </div>
 
