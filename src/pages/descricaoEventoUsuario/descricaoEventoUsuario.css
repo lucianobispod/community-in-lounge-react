@@ -24,7 +24,7 @@
 } */
 
 .box1_descricaoEvento_usuario {
-    width: 100vw;
+    width: 100%;
     height: 15vh;
     display: flex;
     align-items: center;
@@ -53,11 +53,14 @@
     width: 7vw;
     height: 14vh;
     /* background-color: #ee312c; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .foto_descricaoEvento_usuario img {
-    width: 6vw;
-    height: 12vh;
+    width: 80%;
+    height: 80%;
     border-radius: 50%;
 }
 
@@ -109,15 +112,20 @@
     -webkit-transition: all 0.2s;
 }
 
-.icone:hover {
+.fab:hover {
     -moz-transform: scale(1.2);
     -webkit-transform: scale(1.2);
     transform: scale (1.2);
+    color: var(--azul);
+}
+
+.fab{
+    color: var(--preto);
 }
 
 .secao_descricaoEvento_usuario {
-    width: 100vw;
-    height: 75vh;
+    width: 100%;
+    height: 85vh;
     background-color: #f6f7f8;
     display: flex;
     justify-content: center;
@@ -126,7 +134,7 @@
 
 .descricao_descricaoEvento_usuario {
     width: 50vw;
-    height: 74vh;
+    height: 82vh;
     /* background-color: yellow; */
 }
 
@@ -138,13 +146,13 @@
 
 .banner_descricaoEvento_usuario {
     width: 50vw;
-    height: 40vh;
+    height: 50vh;
     /* background-color: green; */
 }
 
 .banner_descricaoEvento_usuario img {
     width: 50vw;
-    height: 40vh;
+    height: 50vh;
 }
 
 .titulo_descricaoEvento_usuario {
@@ -271,7 +279,38 @@
     color: #000000;
     font-size: 2em;
 }
+.box-link-inscricao{
+    width: 25vw;
+    height: 21vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.link-descricao{
+    background: var(--azul);  
+    height: 7vh;
+    width: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.link-inscreverse-descricao {
+padding: 1em !important;
+text-decoration: none;
+color: var(--branco);
+font-size: 1.2em;
+}
 
+.link-descricao:hover{
+    background-color: var(--branco);
+    color: #25bcce;
+    border: #25bcce solid 0.2em;
+}
+.link-inscreverse-descricao:hover{
+    color: #25bcce;
+    font-size: 1.3em;
+    font-weight: bold;
+}
 
 /* //////////////////////////////////////////////////////// */
 
@@ -303,7 +342,7 @@
         background-color: #ee312c;
     }
     .foto_descricaoEvento_usuario img {
-        width: 11vw;
+        width: 13vw;
         height: 13vh;
         border-radius: 50%;
         background-color: #25bcce;
@@ -474,6 +513,7 @@
         align-items: center;
         /* background-color: orchid; */
     }
+    
 }
 
 

@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import '../descricaoEventoUsuario/descricaoEventoUsuario.css'
 import Axios from "axios";
-import moment from 'moment'
-import 'moment/locale/pt-br'
+import moment from 'moment';
+import 'moment/locale/pt-br';
+import HeaderDefault from '../../components/header/default/HeaderDefault';
+import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
+import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
+
+import { isAuthenticated, parseToken } from '../../services/auth';
+
 
 class DescricaoEventoUsuario extends Component {
     constructor(props) {
@@ -23,7 +29,9 @@ class DescricaoEventoUsuario extends Component {
 
                 categoria: {
 
-                }
+                },
+                token: '',
+                acesso: ''
 
 
             }
@@ -60,6 +68,13 @@ class DescricaoEventoUsuario extends Component {
 
     async componentDidMount() {
         this.setIdEventAndGetEventInfo();
+        this.setState({ token: isAuthenticated() })
+
+        if (isAuthenticated()) {
+
+            this.setState({ acesso: parseToken().Roles })
+            console.log("acesso " + parseToken().Roles);
+        }
         // await this.GetEvento();
     }
 
@@ -68,7 +83,8 @@ class DescricaoEventoUsuario extends Component {
 
     render() {
         return (
-            <div>
+            <div>                {this.state.token === false ? (<HeaderDefault />) : this.state.acesso === 'Administrador' ? <HeaderAdministrador /> : (< HeaderUsuario />)}
+
                 <main>
 
                     {/* Box1, contém foto e publicação do usuário  */}
@@ -76,7 +92,7 @@ class DescricaoEventoUsuario extends Component {
                     <div className="box1_descricaoEvento_usuario">
                         <div className="box1parte1_descricaoEvento_usuario">
                             <div className="foto_descricaoEvento_usuario">
-                                <img src="imagens/Juliana Oliveira.png" alt="" />
+                                 <img src={'http://localhost:5000/' + this.state.evento.comunidade.foto} alt="" />
                             </div>
 
                             <div className="respon_descricaoEvento_usuario">
@@ -140,7 +156,7 @@ class DescricaoEventoUsuario extends Component {
                                 <div className="foto_comunidade_descricaoEvento_usuario">
 
                                     <div className="foto2_descricaoEvento_usuario">
-                                        <img src="imagens/FotoPerfil.jpg" alt="" />
+                                    <img src={'http://localhost:5000/' + this.state.evento.comunidade.foto} alt="" />
                                     </div>
 
                                 </div>
@@ -148,7 +164,7 @@ class DescricaoEventoUsuario extends Component {
                                 <div className="descri_inf_descricaoEvento_usuario">
 
                                     <p className="Comunidade_descricaoEvento_usuario">Comunidade: {this.state.evento.comunidade.nome}</p>
-                                    <p className="Tipo_descricaoEvento_usuario">Tipo do Evento: Privado</p>
+                                    {/* <p className="Tipo_descricaoEvento_usuario">Tipo do Evento: Privado</p> */}
 
                                 </div>
 
@@ -184,6 +200,11 @@ class DescricaoEventoUsuario extends Component {
                                     <p className="local_descricaoEvento_usuario">Av. Paulista, 2300 - Conjunto 41 - Bela Vista, SãoPaulo - SP</p>
                                 </div>
 
+                            </div>
+                            <div className="box-link-inscricao">
+                            <div className="link-descricao">
+                                <a className="link-inscreverse-descricao" href={'http://' + this.state.evento.urlEvento} target="_blank" >Inscreva-se</a>
+                            </div>
                             </div>
 
                         </div>

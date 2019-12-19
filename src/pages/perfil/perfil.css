@@ -17,20 +17,20 @@
     font-family: var(--font);
 }
 
-.container-geral{
+.container-geral {
     display: flex;
     justify-content: space-between;
     align-items: center;
     /* background: cornflowerblue; */
 }
 
-.barra-lateral{
+.barra-lateral {
     background-color: var(--azul);
     height: 185vh;
     width: 280px;
 }
 
-.container-foto-perfil{
+.container-foto-perfil {
     /* background: #29803f; */
     height: 60vh;
     display: flex;
@@ -39,63 +39,57 @@
     justify-content: space-evenly;
 }
 
-.perfil-foto{
-background: #f68e31;
-height: 250px;
-width: 250px;
-border-radius: 50% ;
+.perfil-foto {
+    background: #f68e31;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
 }
 
-#per-img-input{
+#per-img-input {
     /* background: red; */
     border: none;
     width: 12.2vw;
 }
 
-  
-  .container_comunidade-usuario{
-      /* background: red; */
-      position: relative;
-      /* height: 100vh; */
-      width: 80vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-  }
+.container_comunidade-usuario {
+    /* background: red; */
+    position: relative;
+    /* height: 100vh; */
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
-  .section-usuario{
-  height: 95vh;
-  width: 79vw;
-  /* background: darkgrey; */
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  }
+.section-usuario {
+    height: 95vh;
+    width: 79vw;
+    /* background: darkgrey; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.dados-usuario {
+    height: 80vh;
+    width: 60vw;
+    /* background: cadetblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
+}
 
-  
-  .dados-usuario{
-      height: 80vh;
-      width: 60vw;
-      /* background: cadetblue; */
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      justify-content: space-around;
-      align-items: center;
-  }
-
-.form-dados-usuario{
+.form-dados-usuario {
     display: flex;
     flex-direction: column;
     /* background: gold; */
     height: 50vh;
     justify-content: space-around;
 }
-
 
 .div-perfil-dados {
     display: flex;
@@ -105,7 +99,7 @@ border-radius: 50% ;
     width: 40vw;
 }
 
-.input_dados{
+.input_dados {
     /* background: red; */
     width: 35vw;
     height: 5vh;
@@ -113,9 +107,7 @@ border-radius: 50% ;
     padding-left: .6em !important;
 }
 
-
-
-.div-genero{
+.div-genero {
     /* background: firebrick; */
     display: flex;
     justify-content: space-between;
@@ -123,7 +115,7 @@ border-radius: 50% ;
     width: 35vw;
 }
 
-.div-input-radio-perfil{
+.div-input-radio-perfil {
     width: 25vw;
     /* background: #29803f; */
     display: flex;
@@ -131,8 +123,7 @@ border-radius: 50% ;
     align-items: center;
 }
 
-
-.div-radio-perfil{
+.div-radio-perfil {
     /* background: #f68e31; */
     width: 10vw;
     display: flex;
@@ -140,29 +131,25 @@ border-radius: 50% ;
     align-items: center;
 }
 
-
-.btn-editar-perfil{
+.btn-editar-perfil {
     background: var(--laranja);
     height: 5vh;
     width: 8vw;
     color: var(--branco);
-    border: none; 
+    border: none;
     font-size: 1em;
 }
 
-
-.section-comunidade{
-height: 90vh;
-width: 79vw;
-/* background: darkblue; */
-
-display: flex;
-align-items: center;
-justify-content: center;
-
+.section-comunidade {
+    height: 90vh;
+    width: 79vw;
+    /* background: darkblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.dados-comunidade{
+.dados-comunidade {
     height: 80vh;
     width: 60vw;
     /* background: cadetblue; */
@@ -172,46 +159,44 @@ justify-content: center;
     align-items: center;
 }
 
-
-.card-comunidade{
-    width: 50vw;
-    height: 35vh;
+.card-comunidade {
+    width: 60vw;
+    height: 45vh;
     display: flex;
+    border-radius: 10px;
     justify-content: space-between;
     background-color: whitesmoke;
-    
 }
 
-.foto-card-comunidade{
+.foto-card-comunidade {
     width: 24vw;
     height: 35vh;
     background-color: aqua;
-
 }
 
-.dados-card-comunidade{
-    width: 25vw;
+.dados-card-comunidade {
+    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
-    /* background: #29803f; */
 }
 
+.dados-card-comunidade p {
+    width: 40vw;
+    display: flex;
+}
 
-
-.div{
+.div {
     /* background: #25bcce; */
     width: 24vw;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
-.font-pequena{
-
+.font-pequena {
     font-size: 1em;
 }
 
-.descricao-comunidade{
+.descricao-comunidade {
     width: 24vw;
     height: 16vh;
     overflow: hidden;
@@ -219,14 +204,16 @@ justify-content: center;
     /* background-color: aquamarine; */
 }
 
-.perfil-linha{
+.perfil-linha {
     margin: 0 auto;
     background: var(--cinzaclaro);
     height: 1px;
     width: 20vw;
-    border-radius: 3px; 
+    border-radius: 3px;
 }
-.perfil-btn-voltar{
+
+.perfil-btn-voltar {
+
     position: absolute;
     right: 30px;
     top: 20px;
@@ -239,4 +226,54 @@ justify-content: center;
     justify-content: space-evenly;
     outline: 0;
     align-items: center;
+}
+
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    height: 70vh;
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em !important;
+    width: 55vw;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.modal-body input {
+    width: 50vw;
+    height: 20vh;
+    margin: 1em !important;
+}
+
+#aaa {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.modal-dialog .modal-content {
+    border-radius: 10px;
+}
+
+.modal-footer>:not(:last-child) {
+    width: 6vw;
+    height: 3vh;
+    margin: 1em !important;
+}
+
+.modal-footer>:not(:first-child){
+    width: 6vw;
+    height: 3vh;
+    margin: 1em !important;
 }

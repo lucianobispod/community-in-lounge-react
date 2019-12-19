@@ -25,6 +25,8 @@ import Login from './pages/login/Login';
 import EsqueceuSenha from './pages/esqueceu-senha/EsqueceuSenha';
 import EditarEvento from './pages/editar_evento/EditarEvento';
 import Sobre_nosso_espaco from './pages/sobre_nosso_espaco/sobreNossoEspaco';
+import EditarUrl from './pages/editar-url/EditarUrl';
+
 //rotas
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
@@ -61,11 +63,6 @@ const Usuario = ({ component: Component }) => (
     />
 )
 
-
-
-
-
-
 const Rotas = (
     <Router>
         <div>
@@ -87,11 +84,10 @@ const Rotas = (
                 <Administrador exact path="/TornarAdministrador" component={TornarAdministrador} />
                 <Administrador exact path="/EventosAprovados" component={EventosAprovados} />
                 <Usuario exact path="/EditarEvento" component={EditarEvento}/>     
-                <Route exact path="/SobreNos" component={Sobre_nosso_espaco}/>        
-                <Route component={NotFound} />
-
-
-            </Switch>
+                <Route exact path="/SobreNos" component={Sobre_nosso_espaco}/>            
+                <Usuario exact path="/EditarUrl" component={EditarUrl}/>    
+                <Route component={NotFound} /> 
+                 </Switch>
         </div>
     </Router>
 )

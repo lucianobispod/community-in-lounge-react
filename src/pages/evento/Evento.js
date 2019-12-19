@@ -239,7 +239,7 @@ class Evento extends Component {
 
 
                                 <div className="campo_dados">
-                                    <div>
+                                    <div className="teste_2">
                                         <label for="cad-participantes">Quantidade de participantes:</label>
                                         <select onChange={i => this.atualizarEstadoSala_id(i)} className="select_quant" name="participantes" id="cad-participantes">
                                             <option value=''>Selecione</option>
@@ -256,7 +256,7 @@ class Evento extends Component {
                                         </select>
                                     </div>
 
-                                    <div className="teste_1" >
+                                    <div className="teste_2" >
                                         <label for="categorias">Selecione a categoria do evento:</label>
                                         <select onChange={e => this.atualizarEstadoCategoria_id(e)} className="select_cat" name="categorias" id="categorias">
                                             <option value=''>Selecione</option>
@@ -276,7 +276,7 @@ class Evento extends Component {
 
 
                                 <div className="campo_dados">
-                                    <div className="teste_1" >
+                                    <div className="teste_2" >
                                         <label for="">O evento terá coffe?</label>
                                         <select onChange={i => this.atualizarEstadoCoffe(i)} className="select_coffe" name="coffe" id="cad-coffe">
                                             <option value="sel">Selecione</option>
@@ -287,7 +287,7 @@ class Evento extends Component {
                                     </div>
 
 
-                                    <div className="teste_1">
+                                    <div className="teste_2">
                                         <label for="">Evento focado em diversidade?</label>
                                         <select onChange={u => this.atualizarEstadoDiversidade(u)} className="select_diversi" name="diversidade" id="cad-diversidada">
                                             <option value="sel">Selecione</option>
