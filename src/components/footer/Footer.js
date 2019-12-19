@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import 'kit.fontawesome.com/918d819df9.js';
 import './Footer.css';
 
 

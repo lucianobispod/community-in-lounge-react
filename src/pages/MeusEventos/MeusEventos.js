@@ -4,8 +4,9 @@ import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import { isAuthenticated, parseToken, getUserIdAuthenticated } from '../../services/auth';
+import { Link } from 'react-router-dom';
 
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+// import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';
 import HeaderAdministrador from '../../components/header/administrador/HeaderAdministrador';
@@ -79,28 +80,6 @@ class MeusEventos extends Component {
     }
 
 
-
-    editarEventoAprovado = (evento) => {
-        evento.urlEvento = this.state.url;
-        alert(evento.urlEvento);
-        axios.put('http://localhost:5000/api/Evento/' + evento.eventoId, evento)
-            .then(resposta => console.log(resposta.data.urlEvento + " asdasdasdasdasdasdasdasdasdss"))
-            .then(
-                this.toggle.bind(this),
-                this.GetEventosAprovados.bind(this)
-
-            )
-            .catch(error => console.log(error));
-    }
-
-
-
-    UpStateUrl = (event) => {
-        this.setState({ url: event.target.value });
-        console.log(this.state.url);
-    }
-
-
     data =(data, hora) =>{
 
         var tratada = data.split('T')[0];
@@ -171,31 +150,12 @@ class MeusEventos extends Component {
                                                             </a>
 
                                                             <div className="me-dropdown-content">
-                                                                <button className='button' type='submit' onClick={this.toggle.bind(this)}>Editar</button>
+                                                                {/* <button  type='submit' onClick={this.(this)}>Editar</button> */}
+                                                                <Link className='button' to={{
+                                                                    pathname:'/EditarUrl',
+                                                                    evento: aprovado
+                                                                }}>Editar</Link>
                                                             </div>
-
-                                                            <MDBContainer>
-                                                                <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-                                                                    <MDBModalHeader>Editar</MDBModalHeader>
-                                                                    <MDBModalBody>
-
-                                                                        <div className="form-group">
-                                                                            <label htmlFor="formGroupExampleInput">Url para inscrição</label>
-                                                                            <input
-                                                                                type="text"
-                                                                                className="form-control"
-                                                                                id="formGroupExampleInput"
-                                                                                onChange={this.UpStateUrl.bind(this)}
-                                                                                value={this.state.url}
-                                                                            />
-                                                                        </div>
-                                                                    </MDBModalBody>
-                                                                    <MDBModalFooter>
-                                                                        <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
-                                                                        <MDBBtn color="primary" type='submit' onClick={i => this.editarEventoAprovado(aprovado)}>Salvar</MDBBtn>
-                                                                    </MDBModalFooter>
-                                                                </MDBModal>
-                                                            </MDBContainer>
                                                         </div>
                                                     </div>
 
@@ -248,8 +208,7 @@ class MeusEventos extends Component {
                                                             </a>
 
                                                             <div className="me-dropdown-content">
-                                                                <button >Editar</button>
-                                                                <button type='submit' onClick={i => this.deleteEventosPendentes(pendentes.eventoId)}>Deletar</button>
+                                                                <Link className='button' onClick={i => this.deleteEventosPendentes(pendentes.eventoId)}>Deletar</Link>
                                                             </div>
                                                         </div>
 
