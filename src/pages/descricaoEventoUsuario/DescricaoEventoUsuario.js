@@ -93,21 +93,10 @@ class DescricaoEventoUsuario extends Component {
                                 <ul className="share">
 
 
-<<<<<<< HEAD
                                     <a href="http://facebook.com.br"> <i class="fab fa-facebook-square"></i> </a>
                                     <a href="http://instagram.com.br"> <i class="fab fa-instagram"></i></a>
                                     <a href="http://twitter.com.br"> <i class="fab fa-twitter-square"></i></a>
                                     <a href="http://linkdin.com.br"> <i class="fab fa-linkedin"></i></a>
-=======
-                                    <a href="http://facebook.com.br"> <img className="icone" src="imagens/029 -facebook.png"
-                                        alt="ícone do facebook" /></a>
-                                    <a href="http://instagram.com.br"> <img className="icone" src="imagens/025 -instagram.png"
-                                        alt="ícone do instagram" /></a>
-                                    <a href="http://twitter.com.br"> <img className="icone" src="imagens/043-twitter.png"
-                                        alt="ícone do twitter" /></a>
-                                    <a href="http://linkdin.com.br"> <img className="icone" src="imagens/045-linkedin.png"
-                                        alt="ícone do linkdin" /></a>
->>>>>>> 43dec46305fb4743cd7ee8925370fab12b78ccb6
 
                                 </ul>
 
@@ -125,13 +114,8 @@ class DescricaoEventoUsuario extends Component {
                             {/* Texto e título da descrição evento  */}
                             <div className="texto_descricaoEvento_usuario">
 
-<<<<<<< HEAD
                                 <div class="banner_descricaoEvento_usuario">
                                     <img src={'http://localhost:5000/' + this.state.evento.foto} alt="" />
-=======
-                                <div className="banner_descricaoEvento_usuario">
-                                    <img src={'http://localhost:5000/'+this.state.evento.foto} alt="" />
->>>>>>> 43dec46305fb4743cd7ee8925370fab12b78ccb6
                                 </div>
 
                                 <div className="titulo_descricaoEvento_usuario">
