@@ -56,7 +56,7 @@ class Sobre_nosso_espaco extends Component {
                             <img className="sobre_caixa2_img" src={c} />
                         </div>
                         <div className="sobre_caixa4">
-                            <h2 className="sobre_h2"> </h2>
+                            <h2 className="sobre_h2"> O espaço</h2>
                             <p className="sobre_p"> O nosso espaço é dividido em duas partes, a sala de reuniões que tem capacidade máxima para até 25 pessoas, e o auditório contendo capacidade para até 50 pessoas. Ambos possuem no ambiente mesas para o coffee, cadeiras, projetores, sofás, lousas e ar condicionado.</p>
 
                         </div>
