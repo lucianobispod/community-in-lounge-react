@@ -47,7 +47,11 @@ class HeaderAdministrador extends Component {
             <div>
                 <header id="ad-header">
                     <div class="ad-header_box">
-                        <img className="ad-imagem" src={logo} alt="" />
+                        <Link to={{
+                            pathname: "/"
+                        }}>
+                            <img className="ad-imagem" src={logo} alt="" />
+                        </Link>
                     </div>
 
                     <nav class="ad-header_menu">

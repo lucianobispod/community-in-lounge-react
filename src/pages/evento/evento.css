@@ -160,7 +160,7 @@
 
 .cad_form input {
   height: 6.5vh;
-  width: 32vw;
+  width: 22vw;
   color: var(--cinza);
   padding: 0 .5em;
   outline: 0;
@@ -227,7 +227,7 @@
 
 .cad-textarea {
   resize: none;
-  width: 25em;
+  width: 21em;
   height: 8em;
   border-radius: 0.3125em;
   /* margin-top: 1em; */
@@ -270,60 +270,90 @@
   height: 6.5vh;
 }
 
+/* ///////////////////////////////// */
+
+.cad__event__vum {
+  width: 57vh;
+  height: 11vh;
+  /* background-color: azure; */
+}
+
+.div_small_url_vwm {
+  width: 22vw;
+  height: 19vh;
+  /* background-color: bisque; */
+}
+
+.cad__events__um {
+  width: 50vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* background-color: coral; */
+}
+
+.cad__events__dois {
+  width: 27vw;
+  height: 22vh;
+  flex-direction: column;
+  /* background-color: red; */
+}
+
+.cad_blockum {
+  width: 27vw;
+  height: 22vh;
+  /* background-color: #f68e31; */
+}
+
 /* Responsivo de Tablet */
 
-@media screen and (max-width:769px) and (min-width:425px) {
+@media screen and (max-width:769px) {
   .cad_even_section {
-    height: 100vh;
     width: 100vw;
-    background-color: #f68e31;
+    height: 120vh;
+    background-color: #29803f;
   }
   .cad_container_color {
-    background-color: #25bcce;
     display: none;
   }
   .cad_container_form {
     width: 100vw;
-    height: 100vh;
+    height: 170vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: aliceblue;
   }
   .cad_form {
-    height: 100vh;
-    width: 100vw;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     flex-direction: column;
-    background-color: aquamarine;
+    width: 100vw;
+    height: 170vh;
+    background: rebeccapurple;
+  }
+  .cad__events__um {
+    width: 60vw;
+    height: 60vh;
   }
   .cad_form .campo_dados {
-    width: 80vw;
-    height: 55vh;
-    color: var(--cinza);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    justify-content: space-evenly;
-    align-items: center;
-    background: lightpink;
+    align-items: flex-start;
+    width: 80vw;
   }
-
-  .cad_form select{
-    height: 4.5vh;
-    width: 32vw;
-    border: none;
-    color: var(--cinza);
-    padding: 0 .5em;
-    outline: 0;
-    border-radius: 5px;
-    border: 2px solid var(--cinzaclaro);
-    font-family: var(--font);
+  .cad_form .campo_dados input {
+    width: 65vw;
+    /* margin-right: 0.5em !important; */
+  }
+  .teste_1 {
+    margin: 0.5em !important;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
-
+    justify-content: center;
+    justify-content: space-between;
   }
-
+  .teste_1 label {
+    padding-right: 0.5em !important;
+  }
+  
 }
