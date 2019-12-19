@@ -42,7 +42,6 @@
 .sobre_titulo {
     width: 100%;
     height: 20vh;
-    /* background-color: rebeccapurple; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +108,16 @@
 .sobre_p {
     display: flex;
     justify-content: center;
-    text-align: center;
     width: 40vw;
+    height: 45vh;
+}
+.sobre_caixa5{
+    margin: 1em !important;
+    width: 100%;
+    height: 45vh;
+    background-color: #fff34f;
+}
+.sobre_banner2_img{
+    width: 100%;
     height: 45vh;
 }
