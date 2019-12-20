@@ -8,9 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
-import {Link} from 'react-router-dom';
 
-// import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 
 import HeaderUsuario from '../../components/header/usuario/HeaderUsuario';

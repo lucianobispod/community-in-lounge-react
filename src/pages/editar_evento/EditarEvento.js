@@ -71,20 +71,34 @@ class EditarEvento extends Component {
             .then(resposta => {
                 console.log("RESPOSTA DATA " + resposta.data);
                 console.log("RESPOSTA STATUS " + resposta.status);
-                // if (resposta.status === 200) {
+                if (resposta.status === 200) {
 
-                //     this.setState({
-                //         evento:
-                //         {
-                //             ...this.state.eventoId,
-                //             foto: resposta.data.foto
-                //         }
-                //     })
-                // }
+                    this.setState({
+                        evento:
+                        {
+                            ...this.state.evento,
+                            foto: resposta.data.foto
+                        }
+                    })
+                }
             }).catch(error => console.log(error));
     }
 
+    // previwImage = () => {
 
+    //     var input = document.getElementById('per-img-input').files[0];
+
+    //     var imagem = document.getElementById('com-img');
+
+    //     const fileReader = new FileReader();
+
+    //     fileReader.onloadend = () => {
+    //         imagem.setAttribute('src', fileReader.result);
+    //     }
+
+    //     fileReader.readAsDataURL(input);
+
+    // }
 
 
     getSala = () => {
